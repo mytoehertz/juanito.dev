@@ -24,14 +24,12 @@
         <!-- Navbar -->
         <nav class="top-nav">
             <ul class="nav-list">
-                <li>
-                    <a href="index.html" class="nav-link">Home</a>
-                    <a href="#about" class="nav-link">About</a>
-                    <a href="#services" class="nav-link">Services</a>
-                    <a href="#portfolio" class="nav-link">Portfolio</a>
-                    <a href="#experience" class="nav-link">Experience</a>
-                    <a href="#contact" class="nav-link">Contact</a>
-                </li>
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li> <a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li> <a href="#contact" class="nav-link">Contact</a></li> 
             </ul>
         </nav>
         <!-- Landing name -->
@@ -65,7 +63,7 @@
                 <p>Follow me on the socials below for updates!</p>
                 
                 <div class="social-media">
-                        <ul class="nav-list">
+                        <ul class="social-list">
                             <li>
                                 <a target="_blank" href="https://twitter.com/mytoehertz" class="icon-link">
                                     <i class="fab fa-twitter-square"></i>
@@ -281,8 +279,12 @@
                     <option value="Web Dev">Web Dev</option>
                     <option value="Retail Operations">Retail Operations</option>
                 </select>
+
                 <label for="subject">Subject</label>
-                <textarea name="subject" id="subject" cols="30" rows="10"></textarea>
+                <input type="subject" id="subject"  name="subject"  placeholder="Enter your subject..." required>
+
+                <label for="message">Message</label>
+                <textarea name="message" id="message" cols="30" rows="10" placeholder="Please be as detailed as possible..."></textarea>
                 <input type="submit" value="Submit">
 
          
@@ -297,6 +299,31 @@
         </div>
         <p>&copy; 2020 Juan Hernandez</p>
 
+        <div class="social-media">
+            <ul class="social-list">
+                <li>
+                    <a target="_blank" href="https://twitter.com/mytoehertz" class="icon-link">
+                        <i class="fab fa-twitter-square"></i>
+                    </a>
+                </li>
+                <li>
+                    <a target="_blank" href="https://github.com/mytoehertz" class="icon-link">
+                        <i class="fab fa-github-square"></i>
+                    </a>
+                </li>
+                <li>
+                    <a target="_blank" href="https://www.linkedin.com/in/juan-hernandez-a3880276/" class="icon-link">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </li>
+                <li>
+                    <a target="_blank" href="https://www.instagram.com/mytoehertz/?hl=en" class="icon-link">
+                        <i class="fab fa-instagram-square"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
     </footer>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
