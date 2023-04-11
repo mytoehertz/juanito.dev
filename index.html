@@ -7,6 +7,7 @@
     <title>juanito.dev</title>
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <script src="https://kit.fontawesome.com/202e408fa7.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Rock+Salt&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="main.css">
@@ -35,14 +36,17 @@
         <!-- Landing name -->
         <div class="landing-text">
             <h1>Juan Hernandez</h1>
-            <h6>Aspiring polymath, entrepreneur, food and beverage expert and business owner</h6>
+            <h6>Versatile Full Stack Web Developer | Proficient in MERN Stack | Coffee Enthusiast & Gamer | Aspiring Polymath</h6>
         </div>
         
     </header>
     
 <!-- About -->
-    <section class="about" id="about">
-        <div class="container">
+    <section class="image-background about" id="about">
+      
+        <div class="container glass-container">
+
+            
                 <div class="profile-img" data-aos="fade-right" data-aos-delay="300">
                     <img id="profile" src="./images/profile.jpg" alt="profile picture">
                 </div>
@@ -52,15 +56,13 @@
                         <h1>About</h1>
                         <h6>Myself</h6>
                     </div>
-                    <p>
-                        Born in Bayamon, Puerto Rico and raised in Utuado, Puerto Rico. I identify as first generation immigrant from a colonized island, proud Puertorican. I am first and foremost a barista, having worked in the industry for over 17 years. Aspiring polymath (means I love knowledge) and entrepreneur, I have decided to organize myself with this website to showcase some projects I have worked on, business' that I own and am working on launching in the near future.
+                    <p class="bold">
+                        Hi there, I'm Juan Hernandez, a proud Puerto Rican and experienced barista with a passion for web development, gaming, and cooking. I'm also an aspiring polymath and entrepreneur, using this website to showcase my growth as a 3D web developer and amateur game developer. Outside of work, I'm committed to social justice and equal rights for all, and I enjoy practicing ceramics and serving as a camp lead for a themed Burning Man camp called Secret Passage. Thanks for stopping by!
                     </p> <br>
 
-                <p>Happily married my best friend and partner in 2017. Currently live in the greatest city in the world: New York City. I have a passion for social justice, equal rights and basic human rights for everyone no matter what race, religion or sexual orientation.
-                </p>    <br>
-                <p>I am a full stack web developer, working freelance in my off time. Help manage a bulk liquid transportation company with my partner in NYC.</p>
+                <p class="bold">In the next few months I will be updating this website to be a full React website with some 3D implementation! I am looking forward to having you join me in this journey. I am currently not taking any conulting gigs as I am focused on learning at the moment. This comes with a renewed passion to switch careers at the age of 38 into web development!
                 <br><hr><br>
-                <p>Follow me on the socials below for updates!</p>
+                <p class="bold">Follow me on the socials below for updates!</p>
                 
                 <div class="social-media">
                         <ul class="social-list">
@@ -113,15 +115,15 @@
                     <i class="fas fa-code"></i>
                 </div>
                 <h1>Web Development</h1>
-                    <p>I can help create a full fledged ecommerce website to list all the products you sell. Want to start a blog or vlog? Just take a look at my projects to see if one the ones I have made feel right for you!</p>                    
+                    <p>I can help create a full fledged ecommerce website to list all the products you sell. Want to add a few 3d elements to your website? or looking to create a React App project?</p>                    
                
                 </div>
                 <div class="skill" data-aos="fade-in" data-aos-delay="900">
                     <div class="icon-container">
                     <i class="fas fa-chart-bar"></i>
                 </div>
-                <h1>Operations</h1>
-                    <p>Looking to open up a retail business? I also do consulting for the food service industry. Need help with procedures? contact me below!</p>
+                <h1>Consulting</h1>
+                    <p>Looking to open up a cafe or restaurant? I also do consulting for the food service industry. Need help with procedures? contact me below!</p>
 
                 </div>
 
@@ -198,7 +200,7 @@
         </div>
     </section>
 
-    <section class="experience" id="experience">
+    <section class="experience image-background_2" id="experience">
 
         <div class="container">
             <div class="section-heading">
@@ -210,20 +212,24 @@
 
             <div class="timeline" data-aos="fade-down" data-aos-delay="300">
                 <ul>
-                    <li class="date" data-date="2020-Present">
-                        <h1>Orderwell</h1>
-                         <p>Founder</p> 
-                     </li>
                     <li class="date" data-date="2019-Present">
                         <h1>Freelance</h1>
-                         <p>Full stack web developer</p> 
+                         <p>Full stack React web developer</p> 
+                     </li>
+                    <li class="date" data-date="2022-2023">
+                        <h1>Numilk</h1>
+                         <p>Head of Sales</p> 
+                     </li>
+                    <li class="date" data-date="2020-2021">
+                        <h1>Orderwell</h1>
+                         <p>Founder</p> 
                      </li>
                     <li class="date" data-date="2017-2020">
                        <h1>Califia Farms</h1>
                         <p>Territory Development Manager</p> 
                     </li>
                 
-                     <li class="date" data-date="2019-Present">
+                     <li class="date" data-date="2019-2021">
                         <h1>ROAM Tank Innovations</h1>
                          <p>Sales Manager</p> 
                      </li>
@@ -251,11 +257,6 @@
                         <h1>Starbucks</h1>
                          <p>Assistant Store Manager</p> 
                      </li>
-                     <li class="date" data-date="2003-2008">
-                        <h1>Director of Music</h1>
-                         <p>El Saddai</p> 
-                     </li>
-                    
                 </ul>
             </div>
             </div>
@@ -282,7 +283,7 @@
                 <select name="service" id="service">
                     <option value="Web Design">Web Design</option>
                     <option value="Web Dev">Web Dev</option>
-                    <option value="Retail Operations">Retail Operations</option>
+                    <option value="Retail Operations">Conulting</option>
                 </select>
 
                 <label for="subject">Subject</label>
@@ -302,7 +303,7 @@
         <div class="up" id="up">
             <i class="fas fa-chevron-up"></i>
         </div>
-        <p>&copy; 2020 Juan Hernandez</p>
+        <p>&copy; 2023 Juan Hernandez</p>
 
         <div class="social-media">
             <ul class="social-list">

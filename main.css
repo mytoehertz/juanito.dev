@@ -9,13 +9,15 @@ html{
     font-size: 8px;
     font-family: "Roboto", sans-serif;
     color: white;
+    background-color: rgb(12, 28, 65);
 }
 
 body{
     width: 100%;
     height: 100%;
-    background: url("images/sitebg.jpg") no-repeat center;
-    background-size: cover;
+    background: url("images/sitebg3.png") no-repeat;
+    background-size: contain;
+    
 }
 
 section{
@@ -55,7 +57,7 @@ img{
 
 .section-heading h1{
     font-size: 3.5rem;
-    color: gold;
+    color: rgb(247, 204, 34);
     text-transform: uppercase;
     font-weight: 300;
     position: relative;
@@ -112,7 +114,7 @@ header{
     position: fixed;
     top: -100vh;
     z-index: 50;
-    background-color: #16162d;
+    background-color: rgb(12, 28, 65);
     border-bottom-left-radius: 100%;
     border-bottom-right-radius: 100%;
     transition: all 650ms cubic-bezier(1,0,0,1);
@@ -121,8 +123,8 @@ header{
 
 .nav-list{
     list-style: none;
-    width: 100%;
-    height: 100%;
+    width: 85%;
+    height: 90%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -159,6 +161,7 @@ li{
 .top-nav.open{
     top: 0;
     border-radius: initial;
+    
 
 }
 
@@ -182,7 +185,7 @@ li{
 }
 
 .bar{
-    background: linear-gradient(to right, #d738ff, gold);
+    background: linear-gradient(to right, rgb(12, 28, 65), rgb(146, 111, 198));
     width: 100%;
     height: 8px;
     border-radius: .8rem;
@@ -222,9 +225,9 @@ li{
 }
 
 .landing-text h1{
-    font-size: 11rem;
-    font-family: 'Rock Salt', cursive;
-    background: linear-gradient(to right, gold, hotpink);
+    font-size: 9rem;
+    font-family: 'Rock Salt';
+    background: linear-gradient(to right, rgb(12, 28, 65), rgba(12, 28, 65));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     padding: 1rem;
@@ -241,11 +244,57 @@ li{
 /*End header*/
 
 /*Start about*/
+
+.image-background {
+  background-image: url("/images/galaxy.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+
 .about .container{
     display: flex;
     align-items: center;
     justify-content: center;
+   
+    
 }
+
+.bold {
+    font-weight: 100px;
+    font-size: 2rem;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.glass-container {
+    position: relative;
+    background: linear-gradient(to bottom right, rgba(255,255,255,0.34), rgba(255, 255, 255, 0.034));
+    border-radius: 10px;
+    padding: 37px;
+    transform-origin: center;
+    animation: swivel 3s linear infinite;
+  }
+  
+  @keyframes swivel {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(2deg); }
+    100% { transform: rotate(0deg); }
+  }
+  
+  .glass-container::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: inherit;
+    filter: blur(10px);
+    opacity: 0.8;
+    z-index: -1;
+  }
 
 .about-heading {
     text-align: center;
@@ -311,6 +360,14 @@ li{
 /* #services {
     background: url("images/service.jpg") no-repeat center;
 } */
+
+
+.services {
+    background-color: black;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
 .my-skills{
     margin-top: 10rem;
     display: grid;
@@ -337,8 +394,8 @@ li{
 .icon-container{
     width: 10rem;
     height: 10rem;
-    border: 3px solid gold;
-    background-color: hotpink;
+    border: 3px solid rgb(247, 204, 34);
+    background-color: rgb(12, 28, 65);
     margin-bottom: 2rem;
     display: flex;
     transform: rotate(45deg);
@@ -346,7 +403,7 @@ li{
 }
 
 .icon-container i{
-    color: gold;
+    color: rgb(247, 204, 34);
     font-size: 5rem;
     margin: auto;
     transform: rotate(-45deg);
@@ -355,6 +412,9 @@ li{
 /*End services*/
 
 /*Start portfolio*/
+
+
+
 .portfolio-item{
     display: flex;
     align-items: center;
@@ -380,7 +440,7 @@ li{
     text-transform: uppercase;
     font-weight: 300;
     opacity: 0.8;
-    color: gold;
+    color: rgb(247, 204, 34);
     
 }
 
@@ -408,8 +468,16 @@ li{
 
 /*Start timeline*/
 
+
+.image-background_2 {
+    background-image: url("/images/rocket.png");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+
 .timeline ul{
-    border-left: 4px solid gold;
+    border-left: 4px solid rgb(247, 204, 34);
     border-radius: .8rem;
     background-color: rgba(0, 0, 0, 0.05);
     margin: 0 auto;
@@ -426,7 +494,7 @@ li{
     font-weight: 300;
     margin-bottom: 1rem;
     opacity: .9;
-    color: gold;
+    color: rgb(white);
 }
 
 .timeline .date{
@@ -472,13 +540,11 @@ li{
 /*Start contact*/
 
 .contact{
-    background: linear-gradient(to right, gold, hotpink);
-    
-
+    background: linear-gradient(to bottom, rgb(12, 28, 65), rgb(146, 111, 198));
 }
 
 form{
-    width: 70%;
+    width: 90%;
     margin: 0 auto;
 
 }
@@ -486,7 +552,7 @@ form{
 form label{
     font-size: 2rem;
     margin-bottom: 1rem;
-    font-family: 'Rock Salt', cursive;
+    font-family: 'Noto Sans', sans-serif;
 
 }
 
@@ -498,16 +564,16 @@ textarea{
     margin-bottom: 5px;
     border: none;
     outline-color: purple;
-    font-family: 'Rock Salt', cursive;
+    font-family: 'Noto Sans', sans-serif;
     font-size: 1rem;
     border-radius: 1rem;
 }
 
 input[type="submit"]{
     width: initial;
-    background-color: hotpink;
-    color: #eee;
-    padding: 1rem 2rem;
+    background-color: rgb(12, 28, 65);
+    color: rgb(238, 238, 238);
+    padding: 1rem 1rem;
     border-radius: 1rem;
     cursor: pointer;
     transition: background-color 650ms;
@@ -517,7 +583,7 @@ input[type="submit"]{
 
 input[type="submit"]:hover{
     color: #221e3f;
-    background-color: gold;
+    background-color: rgb(247, 204, 34);
     border: black 1px solid;
 }
 /*End contact*/
