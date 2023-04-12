@@ -227,7 +227,7 @@ li{
 .landing-text h1{
     font-size: 9rem;
     font-family: 'Rock Salt';
-    background: linear-gradient(to right, rgb(12, 28, 65), rgba(12, 28, 65));
+    background: linear-gradient(to top, rgb(12, 28, 65), rgba(146, 111, 198));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     padding: 1rem;
@@ -277,11 +277,11 @@ li{
     animation: swivel 3s linear infinite;
   }
   
-  @keyframes swivel {
+  /* @keyframes swivel {
     0% { transform: rotate(0deg); }
-    50% { transform: rotate(2deg); }
+    50% { transform: rotate(.5deg); }
     100% { transform: rotate(0deg); }
-  }
+  } */
   
   .glass-container::before {
     content: "";
@@ -648,6 +648,13 @@ input[type="submit"]:hover{
     }
     .landing-text h1{
         font-size: 8rem;
+        font-family: 'Rock Salt';
+        background: linear-gradient(to top, rgb(12, 28, 65), rgba(146, 111, 198));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        padding: 1rem;
+        user-select: none;
+        
     }
 
     .landing-text h6{
