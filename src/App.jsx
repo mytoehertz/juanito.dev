@@ -1,4 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
+// eslint-disable-next-line no-unused-vars
+import { motion } from 'framer-motion';
+import { 
+  MapPin, TrendingUp, Lock, Sparkles,
+  Sun, Moon, Linkedin, Instagram, Github,
+  Wine, ChefHat, Brain, Mountain, BookOpen,
+  Briefcase, Globe, Gamepad2, Wrench, Construction, Ban
+} from 'lucide-react';
 
 // Helper Components - defined outside main component
 const Squiggle = ({ color = '#E07A5F', width = 100 }) => (
@@ -567,27 +575,6 @@ const StarryBackground = ({ scrollProgress }) => (
   </div>
 );
 
-// Dark mode toggle icons
-const SunIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <circle cx="12" cy="12" r="5"/>
-    <line x1="12" y1="1" x2="12" y2="3"/>
-    <line x1="12" y1="21" x2="12" y2="23"/>
-    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-    <line x1="1" y1="12" x2="3" y2="12"/>
-    <line x1="21" y1="12" x2="23" y2="12"/>
-    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-  </svg>
-);
-
-const MoonIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-  </svg>
-);
-
 // Main Component
 const JuanitoDev = () => {
   const [expandedCard, setExpandedCard] = useState(null);
@@ -735,7 +722,7 @@ const JuanitoDev = () => {
           <a href="#connect" onClick={(e) => scrollToSection(e, 'connect')} className="hover:opacity-70 transition-opacity cursor-pointer">Connect</a>
           
           {/* Dark mode toggle */}
-          <button
+          <motion.button
             onClick={() => setDarkMode(!darkMode)}
             className="ml-4 p-2 rounded-full transition-all duration-300 hover:scale-110"
             style={{
@@ -743,16 +730,23 @@ const JuanitoDev = () => {
               color: theme.textMuted
             }}
             aria-label="Toggle dark mode"
+            whileTap={{ scale: 0.9, rotate: 180 }}
+            transition={{ duration: 0.3 }}
           >
-            {darkMode ? <SunIcon /> : <MoonIcon />}
-          </button>
+            {darkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+          </motion.button>
         </div>
       </nav>
 
       {/* Hero */}
       <section className="min-h-screen flex items-center justify-center px-4 md:px-8 pt-24 md:pt-20 relative overflow-hidden">
         
-        <div className="max-w-3xl text-center relative z-10">
+        <motion.div 
+          className="max-w-3xl text-center relative z-10"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
           <div 
             className={`inline-block px-6 py-3 rounded-full mb-8 relative ${darkMode ? 'neon-flicker' : ''}`}
             style={{
@@ -818,7 +812,7 @@ const JuanitoDev = () => {
           }}>
             Web developer and game dev enthusiast by night.
           </p>
-        </div>
+        </motion.div>
       </section>
 
       {/* About / Background */}
@@ -1011,20 +1005,33 @@ const JuanitoDev = () => {
       {/* Projects */}
       <section id="projects" className="py-20 md:py-24 px-4 md:px-8 relative z-10" style={{ scrollMarginTop: '80px' }}>
         <div className="max-w-5xl mx-auto">
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-xs tracking-widest uppercase" style={{ color: theme.textSubtle }}>03</span>
-            <div className="w-8 h-0.5" style={{ background: darkMode ? 'rgba(255,255,255,0.2)' : '#D4C4B0' }} />
-            <span className="text-xs tracking-widest uppercase" style={{ color: theme.textSubtle }}>Projects</span>
-          </div>
-          <h2 className="text-3xl md:text-4xl font-light leading-snug mb-4" style={{
-            fontFamily: "'Instrument Serif', Georgia, serif",
-            color: theme.text
-          }}>
-            Things I'm building
-          </h2>
-          <Squiggle color="#E07A5F" width={100} />
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="flex items-center gap-3 mb-6">
+              <span className="text-xs tracking-widest uppercase" style={{ color: theme.textSubtle }}>03</span>
+              <div className="w-8 h-0.5" style={{ background: darkMode ? 'rgba(255,255,255,0.2)' : '#D4C4B0' }} />
+              <span className="text-xs tracking-widest uppercase" style={{ color: theme.textSubtle }}>Projects</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-light leading-snug mb-4" style={{
+              fontFamily: "'Instrument Serif', Georgia, serif",
+              color: theme.text
+            }}>
+              Things I'm building
+            </h2>
+            <Squiggle color="#E07A5F" width={100} />
+          </motion.div>
           
-          <div className="grid md:grid-cols-2 gap-6 mt-12">
+          <motion.div 
+            className="grid md:grid-cols-2 gap-6 mt-12"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6, staggerChildren: 0.1 }}
+          >
             {/* Primordial Soup */}
             <div className="rounded-3xl overflow-hidden group transition-all duration-300 hover:translate-y-[-4px]" style={{
               background: 'linear-gradient(135deg, #1a2a2a 0%, #0d1a1a 100%)',
@@ -1222,15 +1229,136 @@ const JuanitoDev = () => {
                 </div>
               </div>
             </a>
-          </div>
+
+            {/* Foodservice Market Map */}
+            <div className="rounded-3xl overflow-hidden group transition-all duration-300 hover:translate-y-[-4px]" style={{
+              background: darkMode 
+                ? 'linear-gradient(135deg, #1a2a3a 0%, #0d1a2a 100%)'
+                : 'linear-gradient(135deg, #E8F4F8 0%, #D0E8F0 100%)',
+              border: `3px solid ${darkMode ? '#2a4a5a' : '#B0D0E0'}`,
+              boxShadow: `8px 8px 0px ${darkMode ? '#0a1a2a' : '#90B0C0'}`
+            }}>
+              <div className="h-48 relative overflow-hidden flex items-center justify-center">
+                {/* Map grid pattern */}
+                <div className="absolute inset-0 opacity-20" style={{
+                  backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23${darkMode ? 'ffffff' : '3D8A9C'}' stroke-width='1'%3E%3Cpath d='M0 20h40M20 0v40'/%3E%3C/g%3E%3C/svg%3E")`,
+                }} />
+                {/* Animated pins */}
+                <div className="relative w-full h-full">
+                  <MapPin className="absolute text-red-500 w-6 h-6 animate-bounce" style={{ top: '20%', left: '25%', animationDelay: '0s' }} />
+                  <MapPin className="absolute text-blue-500 w-5 h-5 animate-bounce" style={{ top: '40%', left: '60%', animationDelay: '0.2s' }} />
+                  <MapPin className="absolute text-green-500 w-6 h-6 animate-bounce" style={{ top: '60%', left: '35%', animationDelay: '0.4s' }} />
+                  <MapPin className="absolute text-yellow-500 w-5 h-5 animate-bounce" style={{ top: '30%', left: '75%', animationDelay: '0.6s' }} />
+                  <MapPin className="absolute text-purple-500 w-6 h-6 animate-bounce" style={{ top: '70%', left: '70%', animationDelay: '0.8s' }} />
+                </div>
+                <div className="absolute bottom-4 left-4 flex gap-2">
+                  <span className="px-2 py-1 rounded-full text-xs font-medium" style={{ 
+                    background: 'rgba(129, 178, 154, 0.2)', 
+                    color: '#81B29A',
+                    border: '1px solid rgba(129, 178, 154, 0.3)'
+                  }}>
+                    In Development
+                  </span>
+                  <span className="px-2 py-1 rounded-full text-xs font-medium flex items-center gap-1" style={{ 
+                    background: 'rgba(61, 138, 156, 0.2)', 
+                    color: '#3D8A9C',
+                    border: '1px solid rgba(61, 138, 156, 0.3)'
+                  }}>
+                    <Lock className="w-3 h-3" />
+                    Premium
+                  </span>
+                </div>
+              </div>
+              <div className="p-6" style={{ background: theme.cardBg }}>
+                <h3 className="text-xl font-semibold mb-2 flex items-center gap-2" style={{ color: theme.text, fontFamily: "'Instrument Serif', Georgia, serif" }}>
+                  <MapPin className="w-5 h-5" style={{ color: '#E07A5F' }} />
+                  Foodservice Market Map
+                </h3>
+                <p className="text-sm mb-4" style={{ color: theme.textMuted }}>
+                  Interactive map of QSR & coffee chain locations. Track opportunities, filter by account, and visualize your pipeline.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {['React', 'Mapbox', 'Pipeline'].map(tech => (
+                    <span key={tech} className="px-2 py-1 rounded text-xs" style={{ 
+                      background: darkMode ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)', 
+                      color: theme.textSubtle 
+                    }}>
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* SipSignal - Beverage Trend Intelligence */}
+            <div className="rounded-3xl overflow-hidden group transition-all duration-300 hover:translate-y-[-4px] relative" style={{
+              background: darkMode 
+                ? 'linear-gradient(135deg, #2a1a3a 0%, #1a0d2a 100%)'
+                : 'linear-gradient(135deg, #F8E8F8 0%, #F0D8F0 100%)',
+              border: `3px solid ${darkMode ? '#4a2a5a' : '#D0A0D0'}`,
+              boxShadow: `8px 8px 0px ${darkMode ? '#1a0a2a' : '#B080B0'}`
+            }}>
+              <div className="h-48 relative overflow-hidden flex items-center justify-center">
+                {/* Trend lines animation */}
+                <svg className="absolute inset-0 w-full h-full opacity-30" viewBox="0 0 200 100" preserveAspectRatio="none">
+                  <path d="M0 80 Q50 60 100 50 T200 30" stroke={darkMode ? '#81B29A' : '#5B8C5A'} strokeWidth="2" fill="none" />
+                  <path d="M0 70 Q50 50 100 60 T200 40" stroke={darkMode ? '#E07A5F' : '#c96a52'} strokeWidth="2" fill="none" />
+                  <path d="M0 90 Q50 70 100 40 T200 20" stroke={darkMode ? '#9B59B6' : '#8E44AD'} strokeWidth="2" fill="none" />
+                </svg>
+                <div className="relative z-10 text-center">
+                  <TrendingUp className="w-16 h-16 mx-auto mb-2" style={{ color: darkMode ? '#9B59B6' : '#8E44AD' }} />
+                </div>
+                <div className="absolute bottom-4 left-4 flex gap-2">
+                  <span className="px-2 py-1 rounded-full text-xs font-medium" style={{ 
+                    background: 'rgba(129, 178, 154, 0.2)', 
+                    color: '#81B29A',
+                    border: '1px solid rgba(129, 178, 154, 0.3)'
+                  }}>
+                    In Development
+                  </span>
+                  <span className="px-2 py-1 rounded-full text-xs font-medium flex items-center gap-1" style={{ 
+                    background: 'rgba(155, 89, 182, 0.2)', 
+                    color: '#9B59B6',
+                    border: '1px solid rgba(155, 89, 182, 0.3)'
+                  }}>
+                    <Lock className="w-3 h-3" />
+                    Premium
+                  </span>
+                </div>
+              </div>
+              <div className="p-6" style={{ background: theme.cardBg }}>
+                <h3 className="text-xl font-semibold mb-2 flex items-center gap-2" style={{ color: theme.text, fontFamily: "'Instrument Serif', Georgia, serif" }}>
+                  <Sparkles className="w-5 h-5" style={{ color: '#9B59B6' }} />
+                  SipSignal
+                </h3>
+                <p className="text-sm mb-4" style={{ color: theme.textMuted }}>
+                  Beverage trend intelligence. Track emerging drinks, flavor profiles, and market signals from across the foodservice industry.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {['AI/ML', 'Web Scraping', 'Analytics'].map(tech => (
+                    <span key={tech} className="px-2 py-1 rounded text-xs" style={{ 
+                      background: darkMode ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)', 
+                      color: theme.textSubtle 
+                    }}>
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </motion.div>
 
           {/* More coming */}
           <div className="mt-8 p-6 rounded-2xl text-center" style={{ 
-            background: darkMode ? 'rgba(255,255,255,0.03)' : 'rgba(0,0,0,0.02)',
-            border: `2px dashed ${darkMode ? 'rgba(255,255,255,0.1)' : '#D4C4B0'}`
+            background: darkMode ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.04)',
+            border: `2px dashed ${darkMode ? 'rgba(255,255,255,0.2)' : '#C4B4A0'}`
           }}>
-            <span className="text-2xl block mb-2">🚧</span>
-            <p className="text-sm" style={{ color: theme.textSubtle }}>
+            <div className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3" style={{
+              background: darkMode ? 'rgba(242, 204, 143, 0.2)' : 'rgba(242, 204, 143, 0.3)'
+            }}>
+              <Construction className="w-6 h-6" style={{ color: '#D4A574' }} />
+            </div>
+            <p className="text-sm font-medium" style={{ color: theme.textMuted }}>
               More projects in the works — always building something new.
             </p>
           </div>
@@ -1386,7 +1514,9 @@ const JuanitoDev = () => {
               onClick={() => setExpandedHobby(expandedHobby === 'gamedev' ? null : 'gamedev')}
             >
               <div className="p-6">
-                <span className="text-4xl block mb-4">🎮</span>
+                <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-4" style={{ background: darkMode ? 'rgba(129, 178, 154, 0.2)' : 'rgba(129, 178, 154, 0.15)' }}>
+                  <Gamepad2 className="w-6 h-6" style={{ color: '#81B29A' }} />
+                </div>
                 <h3 className="font-semibold text-lg mb-2" style={{ color: theme.text }}>Game Dev</h3>
                 <p className="text-sm mb-4" style={{ color: theme.textMuted }}>
                   Building worlds where systems thinking meets play. Currently crafting "Primordial Soup" — an evolution sim.
@@ -1415,7 +1545,9 @@ const JuanitoDev = () => {
               onClick={() => setExpandedHobby(expandedHobby === 'bouldering' ? null : 'bouldering')}
             >
               <div className="p-6">
-                <span className="text-4xl block mb-4">🧗</span>
+                <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-4" style={{ background: darkMode ? 'rgba(224, 122, 95, 0.2)' : 'rgba(224, 122, 95, 0.15)' }}>
+                  <Mountain className="w-6 h-6" style={{ color: '#E07A5F' }} />
+                </div>
                 <h3 className="font-semibold text-lg mb-2" style={{ color: theme.text }}>Bouldering</h3>
                 <p className="text-sm mb-4" style={{ color: theme.textMuted }}>
                   Problem-solving with your body. Every route is a puzzle that demands both strength and strategy.
@@ -1456,7 +1588,9 @@ const JuanitoDev = () => {
               onClick={() => setExpandedHobby(expandedHobby === 'drinks' ? null : 'drinks')}
             >
               <div className="p-6">
-                <span className="text-4xl block mb-4">🍹</span>
+                <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-4" style={{ background: darkMode ? 'rgba(91, 163, 181, 0.2)' : 'rgba(91, 163, 181, 0.15)' }}>
+                  <Wine className="w-6 h-6" style={{ color: '#5BA3B5' }} />
+                </div>
                 <h3 className="font-semibold text-lg mb-2" style={{ color: theme.text }}>Drink Creations</h3>
                 <p className="text-sm mb-4" style={{ color: theme.textMuted }}>
                   Part of my job, part of my passion. Developing signature beverages and pushing what coconut water can do.
@@ -1486,7 +1620,9 @@ const JuanitoDev = () => {
               onClick={() => setExpandedHobby(expandedHobby === 'cooking' ? null : 'cooking')}
             >
               <div className="p-6">
-                <span className="text-4xl block mb-4">👨‍🍳</span>
+                <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-4" style={{ background: darkMode ? 'rgba(242, 204, 143, 0.2)' : 'rgba(242, 204, 143, 0.15)' }}>
+                  <ChefHat className="w-6 h-6" style={{ color: '#D4A574' }} />
+                </div>
                 <h3 className="font-semibold text-lg mb-2" style={{ color: theme.text }}>Cooking</h3>
                 <p className="text-sm mb-4" style={{ color: theme.textMuted }}>
                   Elaborate meals are my love language. Wagyu, Puerto Rican classics, and everything in between.
@@ -1512,7 +1648,9 @@ const JuanitoDev = () => {
               onClick={() => setExpandedHobby(expandedHobby === 'reading' ? null : 'reading')}
             >
               <div className="p-6">
-                <span className="text-4xl block mb-4">📚</span>
+                <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-4" style={{ background: darkMode ? 'rgba(155, 89, 182, 0.2)' : 'rgba(155, 89, 182, 0.15)' }}>
+                  <Brain className="w-6 h-6" style={{ color: '#9B59B6' }} />
+                </div>
                 <h3 className="font-semibold text-lg mb-2" style={{ color: theme.text }}>Systems Thinking</h3>
                 <p className="text-sm mb-4" style={{ color: theme.textMuted }}>
                   Obsessed with how things connect. Patterns are everywhere once you know how to look.
@@ -1742,35 +1880,32 @@ const JuanitoDev = () => {
           {/* Social Links */}
           <div className="flex gap-4 justify-center flex-wrap mb-12">
             {[
-              { label: 'LinkedIn', href: 'https://www.linkedin.com/in/juan-hernandez-a3880276/' },
-              { label: 'Instagram', href: 'https://www.instagram.com/mytoehertz/' },
-              { label: 'GitHub', href: 'https://github.com/mytoehertz' }
+              { label: 'LinkedIn', href: 'https://www.linkedin.com/in/juan-hernandez-a3880276/', icon: Linkedin },
+              { label: 'Instagram', href: 'https://www.instagram.com/mytoehertz/', icon: Instagram },
+              { label: 'GitHub', href: 'https://github.com/mytoehertz', icon: Github }
             ].map(link => (
-              <a
+              <motion.a
                 key={link.label}
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-3 rounded-full text-sm font-medium transition-all duration-300"
+                className="p-4 rounded-full transition-colors duration-300 flex items-center justify-center"
                 style={{
                   background: 'transparent',
                   border: `2px solid ${theme.cardBorder}`,
                   color: theme.text,
                   textDecoration: 'none'
                 }}
-                onMouseEnter={(e) => {
-                  e.target.style.background = '#E07A5F';
-                  e.target.style.borderColor = '#E07A5F';
-                  e.target.style.color = 'white';
+                whileHover={{ 
+                  scale: 1.1,
+                  backgroundColor: '#E07A5F',
+                  borderColor: '#E07A5F',
+                  color: 'white'
                 }}
-                onMouseLeave={(e) => {
-                  e.target.style.background = 'transparent';
-                  e.target.style.borderColor = darkMode ? 'rgba(255,255,255,0.2)' : 'rgba(0,0,0,0.1)';
-                  e.target.style.color = darkMode ? '#FDF8F3' : '#3D2914';
-                }}
+                whileTap={{ scale: 0.95 }}
               >
-                {link.label}
-              </a>
+                <link.icon className="w-5 h-5" />
+              </motion.a>
             ))}
           </div>
 
@@ -1789,16 +1924,22 @@ const JuanitoDev = () => {
               </p>
               <div className="space-y-3">
                 {[
-                  { icon: '💼', title: 'Consulting', desc: 'Beverage industry strategy & insights' },
-                  { icon: '🌐', title: 'Landing Pages', desc: 'Simple, beautiful web presence' },
-                  { icon: '🎮', title: 'Game Development', desc: 'Simple to complex video games' },
-                  { icon: '🏺', title: 'Custom Ceramics', desc: 'Handcrafted functional pieces' },
-                  { icon: '🛠️', title: 'Personal Projects', desc: 'Bringing your ideas to life' }
+                  { Icon: Briefcase, title: 'Consulting', desc: 'Beverage industry strategy & insights', color: '#E07A5F' },
+                  { Icon: Globe, title: 'Landing Pages', desc: 'Simple, beautiful web presence', color: '#5BA3B5' },
+                  { Icon: Gamepad2, title: 'Game Development', desc: 'Simple to complex video games', color: '#81B29A' },
+                  { icon: '🏺', title: 'Custom Ceramics', desc: 'Handcrafted functional pieces', color: '#D4A574' },
+                  { Icon: Wrench, title: 'Personal Projects', desc: 'Bringing your ideas to life', color: '#9B59B6' }
                 ].map((service, i) => (
                   <div key={i} className="flex items-start gap-3 p-3 rounded-xl" style={{
                     background: darkMode ? 'rgba(255,255,255,0.03)' : 'rgba(0,0,0,0.03)'
                   }}>
-                    <span className="text-xl">{service.icon}</span>
+                    {service.Icon ? (
+                      <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: `${service.color}20` }}>
+                        <service.Icon className="w-4 h-4" style={{ color: service.color }} />
+                      </div>
+                    ) : (
+                      <span className="text-xl">{service.icon}</span>
+                    )}
                     <div>
                       <p className="font-medium text-sm" style={{ color: theme.text }}>{service.title}</p>
                       <p className="text-xs" style={{ color: theme.textMuted }}>{service.desc}</p>
@@ -1810,7 +1951,7 @@ const JuanitoDev = () => {
               {/* Availability Status - Neon Red Flash */}
               <div className="mt-6 flex justify-center">
                 <div 
-                  className="red-neon-flicker px-4 py-2 rounded-lg text-sm font-medium"
+                  className="red-neon-flicker px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2"
                   style={{
                     background: 'transparent',
                     border: '2px solid #E07A5F',
@@ -1819,7 +1960,8 @@ const JuanitoDev = () => {
                     letterSpacing: '0.05em'
                   }}
                 >
-                  🚫 Currently not taking work
+                  <Ban className="w-4 h-4" />
+                  Currently not taking work
                 </div>
               </div>
             </div>
