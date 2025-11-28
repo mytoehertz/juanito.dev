@@ -5,7 +5,8 @@ import {
   MapPin, TrendingUp, Lock, Sparkles,
   Sun, Moon, Linkedin, Instagram, Github,
   Wine, ChefHat, Brain, Mountain, BookOpen,
-  Briefcase, Globe, Gamepad2, Wrench, Construction, Ban
+  Briefcase, Globe, Gamepad2, Wrench, Construction, Ban,
+  Calculator, Scale
 } from 'lucide-react';
 
 // Helper Components - defined outside main component
@@ -711,10 +712,10 @@ const JuanitoDev = () => {
   ];
 
   const journey = [
-    { company: 'My Own Café', role: 'Founder', icon: '☕', detail: 'The beginning' },
-    { company: 'Blue Bottle', role: 'General Manager', icon: '💧', detail: 'Chelsea & High Line' },
-    { company: 'Califia Farms', role: 'Field Marketing Manager East', role2: 'Territory Dev Manager', icon: '🌱', detail: 'Northeast expansion' },
-    { company: 'Numilk', role: 'Head of Sales', icon: '🥛', detail: 'National rollout' },
+    { company: 'My Own Café', role: 'Founder', detail: 'The beginning' },
+    { company: 'Blue Bottle', role: 'General Manager', detail: 'Chelsea & High Line' },
+    { company: 'Califia Farms', role: 'Field Marketing Manager East', role2: 'Territory Dev Manager', detail: 'Northeast expansion' },
+    { company: 'Numilk', role: 'Head of Sales', detail: 'National rollout' },
   ];
 
   const toggleCard = (id) => {
@@ -989,12 +990,12 @@ const JuanitoDev = () => {
                 </h3>
                 
                 <p className="text-sm mb-6 leading-relaxed" style={{ color: theme.textMuted }}>
-                  Leading the charge to bring coconut water into restaurants, coffee shops, and QSRs across the country. 
-                  Building beverage programs that actually work for operators.
+                  Almost 20 years in Foodservice with a focus in Specialty Coffee and Beverage Programs.
+                  Building solutions that actually work for operators.
                 </p>
                 
                 <div className="flex flex-wrap gap-2">
-                  {['National Accounts', 'QSR', 'Coffee Chains', 'R&D'].map(tag => (
+                  {['National Accounts', 'Foodservice'].map(tag => (
                     <span key={tag} className="px-3 py-1 rounded-full text-xs" style={{
                       background: darkMode ? 'rgba(224, 122, 95, 0.2)' : 'rgba(224, 122, 95, 0.15)',
                       color: '#E07A5F',
@@ -1018,13 +1019,18 @@ const JuanitoDev = () => {
               <div className="space-y-4">
                 {journey.map((stop, i) => (
                   <div key={i} className="flex items-start gap-4 group">
-                    <div className="w-10 h-10 rounded-xl flex items-center justify-center text-lg transition-transform group-hover:scale-110 group-hover:rotate-6 flex-shrink-0 mt-1" style={{
-                      background: darkMode ? 'rgba(255,255,255,0.1)' : '#FFF8F0',
-                      border: `2px solid ${theme.cardBorder}`
-                    }}>
-                      {stop.icon}
+                    <div className="flex flex-col items-center flex-shrink-0">
+                      <div className="w-3 h-3 rounded-full mt-1.5" style={{
+                        background: 'linear-gradient(135deg, #E07A5F 0%, #c96a52 100%)',
+                        boxShadow: '0 2px 4px rgba(224, 122, 95, 0.3)'
+                      }} />
+                      {i < journey.length - 1 && (
+                        <div className="w-0.5 h-12 mt-1" style={{
+                          background: darkMode ? 'rgba(255,255,255,0.1)' : '#D4C4B0'
+                        }} />
+                      )}
                     </div>
-                    <div className="flex-1">
+                    <div className="flex-1 pb-2">
                       <p className="font-semibold text-sm" style={{ color: theme.text }}>{stop.company}</p>
                       <p className="text-xs" style={{ color: theme.textMuted }}>{stop.role}</p>
                       {stop.role2 && (
@@ -1145,6 +1151,27 @@ const JuanitoDev = () => {
                   ? 'linear-gradient(180deg, #0a0a20 0%, #1a1a3e 100%)'
                   : 'linear-gradient(180deg, #5B9BD5 0%, #87CEEB 100%)'
               }}>
+                {/* Sun/Moon */}
+                <div className="absolute top-4 right-4 w-8 h-8 rounded-full" style={{
+                  background: darkMode ? '#FFFACD' : '#FFD700',
+                  boxShadow: '0 0 15px rgba(255, 215, 0, 0.5)'
+                }} />
+                {/* Clouds */}
+                <svg className="absolute" style={{ top: '25%', left: '10%' }} width="60" height="30" viewBox="0 0 60 30">
+                  <ellipse cx="20" cy="20" rx="18" ry="10" fill={darkMode ? 'rgba(255,255,255,0.1)' : 'rgba(255,255,255,0.9)'} />
+                  <ellipse cx="35" cy="18" rx="14" ry="8" fill={darkMode ? 'rgba(255,255,255,0.1)' : 'rgba(255,255,255,0.9)'} />
+                  <ellipse cx="48" cy="20" rx="12" ry="8" fill={darkMode ? 'rgba(255,255,255,0.1)' : 'rgba(255,255,255,0.9)'} />
+                </svg>
+                <svg className="absolute" style={{ top: '40%', right: '15%' }} width="50" height="25" viewBox="0 0 50 25">
+                  <ellipse cx="15" cy="16" rx="14" ry="8" fill={darkMode ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0.85)'} />
+                  <ellipse cx="30" cy="14" rx="12" ry="7" fill={darkMode ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0.85)'} />
+                  <ellipse cx="40" cy="16" rx="10" ry="6" fill={darkMode ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0.85)'} />
+                </svg>
+                <svg className="absolute" style={{ bottom: '20%', left: '30%' }} width="45" height="22" viewBox="0 0 45 22">
+                  <ellipse cx="12" cy="14" rx="11" ry="6" fill={darkMode ? 'rgba(255,255,255,0.06)' : 'rgba(255,255,255,0.8)'} />
+                  <ellipse cx="25" cy="12" rx="10" ry="6" fill={darkMode ? 'rgba(255,255,255,0.06)' : 'rgba(255,255,255,0.8)'} />
+                  <ellipse cx="35" cy="14" rx="9" ry="5" fill={darkMode ? 'rgba(255,255,255,0.06)' : 'rgba(255,255,255,0.8)'} />
+                </svg>
                 <div className="absolute bottom-4 left-4">
                   <span className="px-2 py-1 rounded-full text-xs font-medium" style={{ 
                     background: 'rgba(224, 122, 95, 0.2)', 
@@ -1154,17 +1181,13 @@ const JuanitoDev = () => {
                     Live
                   </span>
                 </div>
-                <div className="absolute top-4 right-4 w-8 h-8 rounded-full" style={{
-                  background: darkMode ? '#FFFACD' : '#FFD700',
-                  boxShadow: '0 0 15px rgba(255, 215, 0, 0.5)'
-                }} />
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2" style={{ color: theme.text, fontFamily: "'Instrument Serif', Georgia, serif" }}>
-                  juanito.dev 🌴
+                  juanito.dev
                 </h3>
                 <p className="text-sm mb-4" style={{ color: theme.textMuted }}>
-                  This site! A personal portfolio with Borderlands-style art, dark mode, and way too many coconuts.
+                  A personal portfolio showcasing who I am and the things I enjoy spending time on.
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {['React', 'Tailwind', 'Vite'].map(tech => (
@@ -1197,7 +1220,11 @@ const JuanitoDev = () => {
                   ? 'linear-gradient(135deg, rgba(91, 163, 181, 0.2) 0%, rgba(61, 138, 156, 0.3) 100%)'
                   : 'linear-gradient(135deg, #E0F4FF 0%, #B0E0E6 100%)'
               }}>
-                <span className="text-6xl group-hover:scale-110 transition-transform">🥤</span>
+                <div className="w-20 h-20 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform" style={{
+                  background: darkMode ? 'rgba(91, 163, 181, 0.3)' : 'rgba(91, 163, 181, 0.2)'
+                }}>
+                  <Calculator className="w-10 h-10" style={{ color: '#3D8A9C' }} />
+                </div>
                 <div className="absolute bottom-4 left-4">
                   <span className="px-2 py-1 rounded-full text-xs font-medium" style={{ 
                     background: 'rgba(129, 178, 154, 0.2)', 
@@ -1254,7 +1281,11 @@ const JuanitoDev = () => {
                   ? 'linear-gradient(135deg, rgba(224, 122, 95, 0.2) 0%, rgba(180, 90, 70, 0.3) 100%)'
                   : 'linear-gradient(135deg, #FFF0E8 0%, #FFE0D0 100%)'
               }}>
-                <span className="text-6xl group-hover:scale-110 transition-transform">📐</span>
+                <div className="w-20 h-20 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform" style={{
+                  background: darkMode ? 'rgba(224, 122, 95, 0.3)' : 'rgba(224, 122, 95, 0.2)'
+                }}>
+                  <Scale className="w-10 h-10" style={{ color: '#E07A5F' }} />
+                </div>
                 <div className="absolute bottom-4 left-4">
                   <span className="px-2 py-1 rounded-full text-xs font-medium" style={{ 
                     background: 'rgba(129, 178, 154, 0.2)', 
@@ -1412,17 +1443,21 @@ const JuanitoDev = () => {
           </motion.div>
 
           {/* More coming */}
-          <div className="mt-8 p-6 rounded-2xl text-center" style={{ 
-            background: darkMode ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.04)',
-            border: `2px dashed ${darkMode ? 'rgba(255,255,255,0.2)' : '#C4B4A0'}`
+          <div className="mt-8 p-8 rounded-2xl text-center" style={{ 
+            background: darkMode ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.06)',
+            border: `2px dashed ${darkMode ? 'rgba(255,255,255,0.25)' : '#B0A090'}`
           }}>
-            <div className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3" style={{
-              background: darkMode ? 'rgba(242, 204, 143, 0.2)' : 'rgba(242, 204, 143, 0.3)'
+            <div className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4" style={{
+              background: darkMode ? 'rgba(242, 204, 143, 0.25)' : 'rgba(242, 204, 143, 0.4)',
+              border: `2px solid ${darkMode ? 'rgba(212, 165, 116, 0.4)' : 'rgba(212, 165, 116, 0.5)'}`
             }}>
-              <Construction className="w-6 h-6" style={{ color: '#D4A574' }} />
+              <Construction className="w-7 h-7" style={{ color: '#C49664' }} />
             </div>
-            <p className="text-sm font-medium" style={{ color: theme.textMuted }}>
-              More projects in the works — always building something new.
+            <p className="text-base font-medium mb-1" style={{ color: theme.text }}>
+              More on the way
+            </p>
+            <p className="text-sm" style={{ color: theme.textMuted }}>
+              Always building something new.
             </p>
           </div>
         </div>
@@ -1539,10 +1574,10 @@ const JuanitoDev = () => {
           </h2>
           <Squiggle color="#81B29A" width={100} />
           
-          <div className="grid md:grid-cols-3 gap-6 mt-12">
+          <div className="flex flex-col gap-6 mt-12">
             {/* Ceramics */}
             <div 
-              className="rounded-3xl overflow-hidden cursor-pointer transition-all duration-300 hover:scale-[1.02]"
+              className="rounded-3xl overflow-hidden cursor-pointer transition-all duration-300 hover:translate-x-1"
               style={{
                 background: theme.cardBg,
                 border: `3px solid ${theme.cardBorder}`,
@@ -1550,25 +1585,27 @@ const JuanitoDev = () => {
               }}
               onClick={() => setExpandedHobby(expandedHobby === 'ceramics' ? null : 'ceramics')}
             >
-              <div className="p-6">
-                <span className="text-4xl block mb-4">🏺</span>
-                <h3 className="font-semibold text-lg mb-2" style={{ color: theme.text }}>Ceramics</h3>
-                <p className="text-sm mb-4" style={{ color: theme.textMuted }}>
-                  My way of slowing down. There's something grounding about working with clay — no screens, just your hands shaping something real.
-                </p>
-                <span className="text-xs" style={{ color: theme.accent }}>Click to learn more →</span>
-              </div>
-              <div className="h-40 flex flex-col items-center justify-center" style={{ 
-                background: darkMode ? 'rgba(40, 40, 70, 0.8)' : 'repeating-linear-gradient(45deg, #F5EDE6, #F5EDE6 10px, #FAF6F1 10px, #FAF6F1 20px)',
-                borderTop: `2px dashed ${darkMode ? 'rgba(255,255,255,0.1)' : '#D4C4B0'}`
-              }}>
-                <span className="text-5xl">🫖</span>
+              <div className="flex flex-col md:flex-row">
+                <div className="flex-1 p-6">
+                  <span className="text-4xl block mb-4">🏺</span>
+                  <h3 className="font-semibold text-lg mb-2" style={{ color: theme.text }}>Ceramics</h3>
+                  <p className="text-sm mb-4" style={{ color: theme.textMuted }}>
+                    My way of slowing down. There's something grounding about working with clay — no screens, just your hands shaping something real.
+                  </p>
+                  <span className="text-xs" style={{ color: theme.accent }}>Click to learn more →</span>
+                </div>
+                <div className="w-full md:w-48 h-40 md:h-auto flex items-center justify-center" style={{ 
+                  background: darkMode ? 'rgba(40, 40, 70, 0.8)' : 'repeating-linear-gradient(45deg, #F5EDE6, #F5EDE6 10px, #FAF6F1 10px, #FAF6F1 20px)',
+                  borderLeft: `2px dashed ${darkMode ? 'rgba(255,255,255,0.1)' : '#D4C4B0'}`
+                }}>
+                  <span className="text-5xl">🫖</span>
+                </div>
               </div>
             </div>
 
-            {/* Game Dev - Primordial Soup */}
+            {/* Game Dev */}
             <div 
-              className="rounded-3xl overflow-hidden cursor-pointer transition-all duration-300 hover:scale-[1.02]"
+              className="rounded-3xl overflow-hidden cursor-pointer transition-all duration-300 hover:translate-x-1"
               style={{
                 background: theme.cardBg,
                 border: `3px solid ${theme.cardBorder}`,
@@ -1576,30 +1613,32 @@ const JuanitoDev = () => {
               }}
               onClick={() => setExpandedHobby(expandedHobby === 'gamedev' ? null : 'gamedev')}
             >
-              <div className="p-6">
-                <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-4" style={{ background: darkMode ? 'rgba(129, 178, 154, 0.2)' : 'rgba(129, 178, 154, 0.15)' }}>
-                  <Gamepad2 className="w-6 h-6" style={{ color: '#81B29A' }} />
+              <div className="flex flex-col md:flex-row">
+                <div className="flex-1 p-6">
+                  <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-4" style={{ background: darkMode ? 'rgba(129, 178, 154, 0.2)' : 'rgba(129, 178, 154, 0.15)' }}>
+                    <Gamepad2 className="w-6 h-6" style={{ color: '#81B29A' }} />
+                  </div>
+                  <h3 className="font-semibold text-lg mb-2" style={{ color: theme.text }}>Game Dev</h3>
+                  <p className="text-sm mb-4" style={{ color: theme.textMuted }}>
+                    Building worlds where systems thinking meets play. Currently crafting "Primordial Soup" — an evolution sim.
+                  </p>
+                  <span className="text-xs" style={{ color: theme.accent }}>Click to learn more →</span>
                 </div>
-                <h3 className="font-semibold text-lg mb-2" style={{ color: theme.text }}>Game Dev</h3>
-                <p className="text-sm mb-4" style={{ color: theme.textMuted }}>
-                  Building worlds where systems thinking meets play. Currently crafting "Primordial Soup" — an evolution sim.
-                </p>
-                <span className="text-xs" style={{ color: theme.accent }}>Click to learn more →</span>
-              </div>
-              <div className="h-40 flex flex-col items-center justify-center relative overflow-hidden" style={{ 
-                background: 'linear-gradient(180deg, #2D3A3A 0%, #1A2626 100%)',
-                borderTop: '2px dashed #81B29A'
-              }}>
-                <BubblingMolecules />
-                <div className="relative z-10 text-center">
-                  <KawaiiFace />
+                <div className="w-full md:w-48 h-40 md:h-auto flex items-center justify-center relative overflow-hidden" style={{ 
+                  background: 'linear-gradient(180deg, #2D3A3A 0%, #1A2626 100%)',
+                  borderLeft: '2px dashed #81B29A'
+                }}>
+                  <BubblingMolecules />
+                  <div className="relative z-10">
+                    <KawaiiFace />
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* Bouldering */}
             <div 
-              className="rounded-3xl overflow-hidden cursor-pointer transition-all duration-300 hover:scale-[1.02]"
+              className="rounded-3xl overflow-hidden cursor-pointer transition-all duration-300 hover:translate-x-1"
               style={{
                 background: theme.cardBg,
                 border: `3px solid ${theme.cardBorder}`,
@@ -1607,42 +1646,41 @@ const JuanitoDev = () => {
               }}
               onClick={() => setExpandedHobby(expandedHobby === 'bouldering' ? null : 'bouldering')}
             >
-              <div className="p-6">
-                <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-4" style={{ background: darkMode ? 'rgba(224, 122, 95, 0.2)' : 'rgba(224, 122, 95, 0.15)' }}>
-                  <Mountain className="w-6 h-6" style={{ color: '#E07A5F' }} />
+              <div className="flex flex-col md:flex-row">
+                <div className="flex-1 p-6">
+                  <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-4" style={{ background: darkMode ? 'rgba(224, 122, 95, 0.2)' : 'rgba(224, 122, 95, 0.15)' }}>
+                    <Mountain className="w-6 h-6" style={{ color: '#E07A5F' }} />
+                  </div>
+                  <h3 className="font-semibold text-lg mb-2" style={{ color: theme.text }}>Bouldering</h3>
+                  <p className="text-sm mb-4" style={{ color: theme.textMuted }}>
+                    Problem-solving with your body. Every route is a puzzle that demands both strength and strategy.
+                  </p>
+                  <span className="text-xs" style={{ color: theme.accent }}>Click to learn more →</span>
                 </div>
-                <h3 className="font-semibold text-lg mb-2" style={{ color: theme.text }}>Bouldering</h3>
-                <p className="text-sm mb-4" style={{ color: theme.textMuted }}>
-                  Problem-solving with your body. Every route is a puzzle that demands both strength and strategy.
-                </p>
-                <span className="text-xs" style={{ color: theme.accent }}>Click to learn more →</span>
-              </div>
-              <div className="h-40 flex flex-col items-center justify-center relative overflow-hidden" style={{ 
-                background: 'linear-gradient(180deg, #3D405B 0%, #2C3049 100%)',
-                borderTop: '2px solid #4A4E6A'
-              }}>
-                {/* Climbing holds */}
-                <div className="absolute" style={{ top: '15%', left: '20%' }}>
-                  <div className="w-6 h-6 rounded-full" style={{ background: '#E07A5F', boxShadow: '2px 2px 0 #B85A45' }} />
-                </div>
-                <div className="absolute" style={{ top: '45%', right: '25%' }}>
-                  <div className="w-8 h-5 rounded-full" style={{ background: '#81B29A', boxShadow: '2px 2px 0 #5A8A6A' }} />
-                </div>
-                <div className="absolute" style={{ bottom: '20%', left: '35%' }}>
-                  <div className="w-5 h-7 rounded-full" style={{ background: '#F2CC8F', boxShadow: '2px 2px 0 #C9A66A' }} />
-                </div>
-                <div className="absolute" style={{ top: '30%', left: '55%' }}>
-                  <div className="w-4 h-4 rounded-full" style={{ background: '#E07A5F', boxShadow: '2px 2px 0 #B85A45' }} />
+                <div className="w-full md:w-48 h-40 md:h-auto flex items-center justify-center relative overflow-hidden" style={{ 
+                  background: 'linear-gradient(180deg, #3D405B 0%, #2C3049 100%)',
+                  borderLeft: '2px solid #4A4E6A'
+                }}>
+                  {/* Climbing holds */}
+                  <div className="absolute" style={{ top: '15%', left: '20%' }}>
+                    <div className="w-6 h-6 rounded-full" style={{ background: '#E07A5F', boxShadow: '2px 2px 0 #B85A45' }} />
+                  </div>
+                  <div className="absolute" style={{ top: '45%', right: '25%' }}>
+                    <div className="w-8 h-5 rounded-full" style={{ background: '#81B29A', boxShadow: '2px 2px 0 #5A8A6A' }} />
+                  </div>
+                  <div className="absolute" style={{ bottom: '20%', left: '35%' }}>
+                    <div className="w-5 h-7 rounded-full" style={{ background: '#F2CC8F', boxShadow: '2px 2px 0 #C9A66A' }} />
+                  </div>
+                  <div className="absolute" style={{ top: '30%', left: '55%' }}>
+                    <div className="w-4 h-4 rounded-full" style={{ background: '#E07A5F', boxShadow: '2px 2px 0 #B85A45' }} />
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          {/* Second row of hobbies */}
-          <div className="grid md:grid-cols-3 gap-6 mt-6">
             {/* Drink Creations */}
             <div 
-              className="rounded-3xl overflow-hidden cursor-pointer transition-all duration-300 hover:scale-[1.02]"
+              className="rounded-3xl overflow-hidden cursor-pointer transition-all duration-300 hover:translate-x-1"
               style={{
                 background: theme.cardBg,
                 border: `3px solid ${theme.cardBorder}`,
@@ -1650,31 +1688,33 @@ const JuanitoDev = () => {
               }}
               onClick={() => setExpandedHobby(expandedHobby === 'drinks' ? null : 'drinks')}
             >
-              <div className="p-6">
-                <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-4" style={{ background: darkMode ? 'rgba(91, 163, 181, 0.2)' : 'rgba(91, 163, 181, 0.15)' }}>
-                  <Wine className="w-6 h-6" style={{ color: '#5BA3B5' }} />
+              <div className="flex flex-col md:flex-row">
+                <div className="flex-1 p-6">
+                  <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-4" style={{ background: darkMode ? 'rgba(91, 163, 181, 0.2)' : 'rgba(91, 163, 181, 0.15)' }}>
+                    <Wine className="w-6 h-6" style={{ color: '#5BA3B5' }} />
+                  </div>
+                  <h3 className="font-semibold text-lg mb-2" style={{ color: theme.text }}>Drink Creations</h3>
+                  <p className="text-sm mb-4" style={{ color: theme.textMuted }}>
+                    Part of my job, part of my passion. Developing signature beverages and pushing what coconut water can do.
+                  </p>
+                  <span className="text-xs" style={{ color: theme.accent }}>Click to learn more →</span>
                 </div>
-                <h3 className="font-semibold text-lg mb-2" style={{ color: theme.text }}>Drink Creations</h3>
-                <p className="text-sm mb-4" style={{ color: theme.textMuted }}>
-                  Part of my job, part of my passion. Developing signature beverages and pushing what coconut water can do.
-                </p>
-                <span className="text-xs" style={{ color: theme.accent }}>Click to learn more →</span>
-              </div>
-              <div className="h-32 flex flex-col items-center justify-center relative overflow-hidden" style={{ 
-                background: 'linear-gradient(180deg, #5BA3B5 0%, #3D8A9C 100%)',
-                borderTop: '2px solid #7BC3D5'
-              }}>
-                <div className="flex gap-2 items-center">
-                  <span className="text-3xl">🥥</span>
-                  <span className="text-xl" style={{ color: 'white' }}>+</span>
-                  <span className="text-3xl">☕</span>
+                <div className="w-full md:w-48 h-40 md:h-auto flex items-center justify-center relative overflow-hidden" style={{ 
+                  background: 'linear-gradient(180deg, #5BA3B5 0%, #3D8A9C 100%)',
+                  borderLeft: '2px solid #7BC3D5'
+                }}>
+                  <div className="flex gap-2 items-center">
+                    <span className="text-3xl">🥥</span>
+                    <span className="text-xl" style={{ color: 'white' }}>+</span>
+                    <span className="text-3xl">☕</span>
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* Cooking */}
             <div 
-              className="rounded-3xl overflow-hidden cursor-pointer transition-all duration-300 hover:scale-[1.02]"
+              className="rounded-3xl overflow-hidden cursor-pointer transition-all duration-300 hover:translate-x-1"
               style={{
                 background: theme.cardBg,
                 border: `3px solid ${theme.cardBorder}`,
@@ -1682,27 +1722,29 @@ const JuanitoDev = () => {
               }}
               onClick={() => setExpandedHobby(expandedHobby === 'cooking' ? null : 'cooking')}
             >
-              <div className="p-6">
-                <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-4" style={{ background: darkMode ? 'rgba(242, 204, 143, 0.2)' : 'rgba(242, 204, 143, 0.15)' }}>
-                  <ChefHat className="w-6 h-6" style={{ color: '#D4A574' }} />
+              <div className="flex flex-col md:flex-row">
+                <div className="flex-1 p-6">
+                  <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-4" style={{ background: darkMode ? 'rgba(242, 204, 143, 0.2)' : 'rgba(242, 204, 143, 0.15)' }}>
+                    <ChefHat className="w-6 h-6" style={{ color: '#D4A574' }} />
+                  </div>
+                  <h3 className="font-semibold text-lg mb-2" style={{ color: theme.text }}>Cooking</h3>
+                  <p className="text-sm mb-4" style={{ color: theme.textMuted }}>
+                    Elaborate meals are my love language. Wagyu, Puerto Rican classics, and everything in between.
+                  </p>
+                  <span className="text-xs" style={{ color: theme.accent }}>Click to learn more →</span>
                 </div>
-                <h3 className="font-semibold text-lg mb-2" style={{ color: theme.text }}>Cooking</h3>
-                <p className="text-sm mb-4" style={{ color: theme.textMuted }}>
-                  Elaborate meals are my love language. Wagyu, Puerto Rican classics, and everything in between.
-                </p>
-                <span className="text-xs" style={{ color: theme.accent }}>Click to learn more →</span>
-              </div>
-              <div className="h-32 flex flex-col items-center justify-center" style={{ 
-                background: darkMode ? 'rgba(40, 40, 70, 0.8)' : 'linear-gradient(180deg, #FAF6F1 0%, #F5EDE6 100%)',
-                borderTop: `2px dashed ${darkMode ? 'rgba(255,255,255,0.1)' : '#D4C4B0'}`
-              }}>
-                <span className="text-4xl">🥩</span>
+                <div className="w-full md:w-48 h-40 md:h-auto flex items-center justify-center" style={{ 
+                  background: darkMode ? 'rgba(40, 40, 70, 0.8)' : 'linear-gradient(180deg, #FAF6F1 0%, #F5EDE6 100%)',
+                  borderLeft: `2px dashed ${darkMode ? 'rgba(255,255,255,0.1)' : '#D4C4B0'}`
+                }}>
+                  <span className="text-4xl">🥩</span>
+                </div>
               </div>
             </div>
 
             {/* Systems Thinking */}
             <div 
-              className="rounded-3xl overflow-hidden cursor-pointer transition-all duration-300 hover:scale-[1.02]"
+              className="rounded-3xl overflow-hidden cursor-pointer transition-all duration-300 hover:translate-x-1"
               style={{
                 background: theme.cardBg,
                 border: `3px solid ${theme.cardBorder}`,
@@ -1710,21 +1752,23 @@ const JuanitoDev = () => {
               }}
               onClick={() => setExpandedHobby(expandedHobby === 'reading' ? null : 'reading')}
             >
-              <div className="p-6">
-                <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-4" style={{ background: darkMode ? 'rgba(155, 89, 182, 0.2)' : 'rgba(155, 89, 182, 0.15)' }}>
-                  <Brain className="w-6 h-6" style={{ color: '#9B59B6' }} />
+              <div className="flex flex-col md:flex-row">
+                <div className="flex-1 p-6">
+                  <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-4" style={{ background: darkMode ? 'rgba(155, 89, 182, 0.2)' : 'rgba(155, 89, 182, 0.15)' }}>
+                    <Brain className="w-6 h-6" style={{ color: '#9B59B6' }} />
+                  </div>
+                  <h3 className="font-semibold text-lg mb-2" style={{ color: theme.text }}>Systems Thinking</h3>
+                  <p className="text-sm mb-4" style={{ color: theme.textMuted }}>
+                    Obsessed with how things connect. Patterns are everywhere once you know how to look.
+                  </p>
+                  <span className="text-xs" style={{ color: theme.accent }}>Click to learn more →</span>
                 </div>
-                <h3 className="font-semibold text-lg mb-2" style={{ color: theme.text }}>Systems Thinking</h3>
-                <p className="text-sm mb-4" style={{ color: theme.textMuted }}>
-                  Obsessed with how things connect. Patterns are everywhere once you know how to look.
-                </p>
-                <span className="text-xs" style={{ color: theme.accent }}>Click to learn more →</span>
-              </div>
-              <div className="h-32 flex flex-col items-center justify-center" style={{ 
-                background: darkMode ? 'rgba(40, 40, 70, 0.8)' : 'linear-gradient(180deg, #FAF6F1 0%, #F5EDE6 100%)',
-                borderTop: `2px dashed ${darkMode ? 'rgba(255,255,255,0.1)' : '#D4C4B0'}`
-              }}>
-                <span className="text-4xl">🔮</span>
+                <div className="w-full md:w-48 h-40 md:h-auto flex items-center justify-center" style={{ 
+                  background: darkMode ? 'rgba(40, 40, 70, 0.8)' : 'linear-gradient(180deg, #FAF6F1 0%, #F5EDE6 100%)',
+                  borderLeft: `2px dashed ${darkMode ? 'rgba(255,255,255,0.1)' : '#D4C4B0'}`
+                }}>
+                  <span className="text-4xl">🔮</span>
+                </div>
               </div>
             </div>
           </div>
@@ -2011,10 +2055,10 @@ const JuanitoDev = () => {
                 ))}
               </div>
               
-              {/* Availability Status - Neon Red Flash */}
+              {/* Availability Status - Coral Neon in dark mode only */}
               <div className="mt-6 flex justify-center">
                 <div 
-                  className="red-neon-flicker px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2"
+                  className={`px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2 ${darkMode ? 'coral-neon-flicker' : ''}`}
                   style={{
                     background: 'transparent',
                     border: '2px solid #E07A5F',
@@ -2298,6 +2342,10 @@ const JuanitoDev = () => {
         }
         
         .red-neon-flicker {
+          animation: redNeonFlicker 3s infinite;
+        }
+        
+        .coral-neon-flicker {
           animation: redNeonFlicker 3s infinite;
         }
         
