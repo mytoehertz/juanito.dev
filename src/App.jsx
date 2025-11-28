@@ -865,9 +865,9 @@ const JuanitoDev = () => {
                   />
                 </div>
                 <div className="absolute -bottom-4 -right-4 px-4 py-2 rounded-full text-sm" style={{
-                  background: '#81B29A',
+                  background: '#E07A5F',
                   color: 'white',
-                  boxShadow: '0 2px 8px rgba(129, 178, 154, 0.4)'
+                  boxShadow: '0 2px 8px rgba(224, 122, 95, 0.4)'
                 }}>
                   📍 Brooklyn, NY
                 </div>
@@ -1110,24 +1110,39 @@ const JuanitoDev = () => {
             </div>
 
             {/* Beverage Calculator */}
-            <div className="rounded-3xl overflow-hidden group transition-all duration-300 hover:translate-y-[-4px]" style={{
-              background: theme.cardBg,
-              border: `3px solid ${theme.cardBorder}`,
-              boxShadow: `8px 8px 0px ${theme.cardShadow}`
-            }}>
+            <a 
+              href="/calculator" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-3xl overflow-hidden group transition-all duration-300 hover:translate-y-[-4px] block cursor-pointer"
+              style={{
+                background: theme.cardBg,
+                border: `3px solid ${theme.cardBorder}`,
+                boxShadow: `8px 8px 0px ${theme.cardShadow}`,
+                textDecoration: 'none'
+              }}
+            >
               <div className="h-48 relative overflow-hidden flex items-center justify-center" style={{
                 background: darkMode 
                   ? 'linear-gradient(135deg, rgba(91, 163, 181, 0.2) 0%, rgba(61, 138, 156, 0.3) 100%)'
                   : 'linear-gradient(135deg, #E0F4FF 0%, #B0E0E6 100%)'
               }}>
-                <span className="text-6xl">🥤</span>
+                <span className="text-6xl group-hover:scale-110 transition-transform">🥤</span>
                 <div className="absolute bottom-4 left-4">
                   <span className="px-2 py-1 rounded-full text-xs font-medium" style={{ 
-                    background: 'rgba(91, 163, 181, 0.2)', 
-                    color: '#3D8A9C',
-                    border: '1px solid rgba(91, 163, 181, 0.3)'
+                    background: 'rgba(129, 178, 154, 0.2)', 
+                    color: '#81B29A',
+                    border: '1px solid rgba(129, 178, 154, 0.3)'
                   }}>
-                    Planned
+                    Live
+                  </span>
+                </div>
+                <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <span className="px-3 py-1 rounded-full text-xs font-medium" style={{ 
+                    background: '#E07A5F', 
+                    color: 'white'
+                  }}>
+                    Try it →
                   </span>
                 </div>
               </div>
@@ -1136,10 +1151,10 @@ const JuanitoDev = () => {
                   Beverage Program Calculator
                 </h3>
                 <p className="text-sm mb-4" style={{ color: theme.textMuted }}>
-                  A tool to help operators build profitable beverage programs. Cost analysis, menu optimization, and ROI projections.
+                  Calculate drink costs, pricing, and profit margins. Supports cocktails, mocktails, coffee, refreshers, and dirty sodas.
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  {['React', 'TypeScript', 'Charts'].map(tech => (
+                  {['React', 'Cost Analysis', 'Free'].map(tech => (
                     <span key={tech} className="px-2 py-1 rounded text-xs" style={{ 
                       background: darkMode ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)', 
                       color: theme.textSubtle 
@@ -1149,27 +1164,42 @@ const JuanitoDev = () => {
                   ))}
                 </div>
               </div>
-            </div>
+            </a>
 
             {/* Recipe Scaler */}
-            <div className="rounded-3xl overflow-hidden group transition-all duration-300 hover:translate-y-[-4px]" style={{
-              background: theme.cardBg,
-              border: `3px solid ${theme.cardBorder}`,
-              boxShadow: `8px 8px 0px ${theme.cardShadow}`
-            }}>
+            <a 
+              href="/scaler" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-3xl overflow-hidden group transition-all duration-300 hover:translate-y-[-4px] block cursor-pointer"
+              style={{
+                background: theme.cardBg,
+                border: `3px solid ${theme.cardBorder}`,
+                boxShadow: `8px 8px 0px ${theme.cardShadow}`,
+                textDecoration: 'none'
+              }}
+            >
               <div className="h-48 relative overflow-hidden flex items-center justify-center" style={{
                 background: darkMode 
                   ? 'linear-gradient(135deg, rgba(224, 122, 95, 0.2) 0%, rgba(180, 90, 70, 0.3) 100%)'
                   : 'linear-gradient(135deg, #FFF0E8 0%, #FFE0D0 100%)'
               }}>
-                <span className="text-6xl">📊</span>
+                <span className="text-6xl group-hover:scale-110 transition-transform">📐</span>
                 <div className="absolute bottom-4 left-4">
                   <span className="px-2 py-1 rounded-full text-xs font-medium" style={{ 
-                    background: 'rgba(224, 122, 95, 0.2)', 
-                    color: '#E07A5F',
-                    border: '1px solid rgba(224, 122, 95, 0.3)'
+                    background: 'rgba(129, 178, 154, 0.2)', 
+                    color: '#81B29A',
+                    border: '1px solid rgba(129, 178, 154, 0.3)'
                   }}>
-                    Planned
+                    Live
+                  </span>
+                </div>
+                <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <span className="px-3 py-1 rounded-full text-xs font-medium" style={{ 
+                    background: '#E07A5F', 
+                    color: 'white'
+                  }}>
+                    Try it →
                   </span>
                 </div>
               </div>
@@ -1178,10 +1208,10 @@ const JuanitoDev = () => {
                   Recipe Scaler
                 </h3>
                 <p className="text-sm mb-4" style={{ color: theme.textMuted }}>
-                  Scale recipes up or down with smart unit conversions. Built for home cooks and professional kitchens alike.
+                  Scale drinks from single servings to batches. Convert between oz, ml, cups, and more. Copy-ready output.
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  {['React', 'PWA', 'Offline'].map(tech => (
+                  {['React', 'Unit Conversion', 'Free'].map(tech => (
                     <span key={tech} className="px-2 py-1 rounded text-xs" style={{ 
                       background: darkMode ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)', 
                       color: theme.textSubtle 
@@ -1191,7 +1221,7 @@ const JuanitoDev = () => {
                   ))}
                 </div>
               </div>
-            </div>
+            </a>
           </div>
 
           {/* More coming */}
@@ -1692,15 +1722,16 @@ const JuanitoDev = () => {
       )}
 
       {/* Connect */}
-      <section id="connect" className="py-20 md:py-24 px-4 md:px-8 relative z-10" style={{ background: darkMode ? '#0a0a1e' : '#3D405B', color: '#FDF8F3', scrollMarginTop: '80px' }}>
+      <section id="connect" className="py-20 md:py-24 px-4 md:px-8 relative z-10" style={{ background: theme.sectionAlt, scrollMarginTop: '80px' }}>
         <div className="max-w-4xl mx-auto">
           <div className="flex items-center justify-center gap-3 mb-6">
-            <span className="text-xs tracking-widest uppercase" style={{ color: darkMode ? '#7070A0' : 'rgba(255,255,255,0.5)' }}>06</span>
-            <div className="w-8 h-0.5" style={{ background: darkMode ? 'rgba(255,255,255,0.2)' : 'rgba(255,255,255,0.3)' }} />
-            <span className="text-xs tracking-widest uppercase" style={{ color: darkMode ? '#7070A0' : 'rgba(255,255,255,0.5)' }}>Connect</span>
+            <span className="text-xs tracking-widest uppercase" style={{ color: theme.textSubtle }}>06</span>
+            <div className="w-8 h-0.5" style={{ background: darkMode ? 'rgba(255,255,255,0.2)' : '#D4C4B0' }} />
+            <span className="text-xs tracking-widest uppercase" style={{ color: theme.textSubtle }}>Connect</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-light mb-4 text-center" style={{
-            fontFamily: "'Instrument Serif', Georgia, serif"
+            fontFamily: "'Instrument Serif', Georgia, serif",
+            color: theme.text
           }}>
             Let's connect
           </h2>
@@ -1723,17 +1754,19 @@ const JuanitoDev = () => {
                 className="px-6 py-3 rounded-full text-sm font-medium transition-all duration-300"
                 style={{
                   background: 'transparent',
-                  border: `2px solid rgba(255,255,255,0.3)`,
-                  color: '#FDF8F3',
+                  border: `2px solid ${theme.cardBorder}`,
+                  color: theme.text,
                   textDecoration: 'none'
                 }}
                 onMouseEnter={(e) => {
                   e.target.style.background = '#E07A5F';
                   e.target.style.borderColor = '#E07A5F';
+                  e.target.style.color = 'white';
                 }}
                 onMouseLeave={(e) => {
                   e.target.style.background = 'transparent';
-                  e.target.style.borderColor = 'rgba(255,255,255,0.3)';
+                  e.target.style.borderColor = darkMode ? 'rgba(255,255,255,0.2)' : 'rgba(0,0,0,0.1)';
+                  e.target.style.color = darkMode ? '#FDF8F3' : '#3D2914';
                 }}
               >
                 {link.label}
@@ -1745,13 +1778,13 @@ const JuanitoDev = () => {
           <div className="grid md:grid-cols-2 gap-8 mt-16">
             {/* Services Offered */}
             <div className="p-6 rounded-2xl" style={{
-              background: darkMode ? 'rgba(255,255,255,0.05)' : 'rgba(255,255,255,0.1)',
-              border: `2px solid rgba(255,255,255,0.15)`
+              background: theme.cardBg,
+              border: `2px solid ${theme.cardBorder}`
             }}>
-              <h3 className="text-xl font-medium mb-4" style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}>
+              <h3 className="text-xl font-medium mb-4" style={{ fontFamily: "'Instrument Serif', Georgia, serif", color: theme.text }}>
                 Services
               </h3>
-              <p className="text-sm mb-6" style={{ color: 'rgba(255,255,255,0.6)' }}>
+              <p className="text-sm mb-6" style={{ color: theme.textMuted }}>
                 Limited availability for select projects.
               </p>
               <div className="space-y-3">
@@ -1763,12 +1796,12 @@ const JuanitoDev = () => {
                   { icon: '🛠️', title: 'Personal Projects', desc: 'Bringing your ideas to life' }
                 ].map((service, i) => (
                   <div key={i} className="flex items-start gap-3 p-3 rounded-xl" style={{
-                    background: darkMode ? 'rgba(255,255,255,0.03)' : 'rgba(255,255,255,0.08)'
+                    background: darkMode ? 'rgba(255,255,255,0.03)' : 'rgba(0,0,0,0.03)'
                   }}>
                     <span className="text-xl">{service.icon}</span>
                     <div>
-                      <p className="font-medium text-sm">{service.title}</p>
-                      <p className="text-xs" style={{ color: 'rgba(255,255,255,0.5)' }}>{service.desc}</p>
+                      <p className="font-medium text-sm" style={{ color: theme.text }}>{service.title}</p>
+                      <p className="text-xs" style={{ color: theme.textMuted }}>{service.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -1793,10 +1826,10 @@ const JuanitoDev = () => {
 
             {/* Contact Form */}
             <div className="p-6 rounded-2xl" style={{
-              background: darkMode ? 'rgba(255,255,255,0.05)' : 'rgba(255,255,255,0.1)',
-              border: `2px solid rgba(255,255,255,0.15)`
+              background: theme.cardBg,
+              border: `2px solid ${theme.cardBorder}`
             }}>
-              <h3 className="text-xl font-medium mb-4" style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}>
+              <h3 className="text-xl font-medium mb-4" style={{ fontFamily: "'Instrument Serif', Georgia, serif", color: theme.text }}>
                 Get in touch
               </h3>
               <form 
@@ -1812,7 +1845,7 @@ const JuanitoDev = () => {
                 </p>
                 
                 <div>
-                  <label className="block text-xs uppercase tracking-wider mb-2" style={{ color: 'rgba(255,255,255,0.5)' }}>
+                  <label className="block text-xs uppercase tracking-wider mb-2" style={{ color: theme.textMuted }}>
                     Name
                   </label>
                   <input
@@ -1822,9 +1855,9 @@ const JuanitoDev = () => {
                     disabled
                     className="w-full px-4 py-3 rounded-xl text-sm transition-all"
                     style={{
-                      background: darkMode ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0.12)',
-                      border: `2px solid rgba(255,255,255,0.15)`,
-                      color: '#FDF8F3',
+                      background: theme.inputBg,
+                      border: `2px solid ${theme.cardBorder}`,
+                      color: theme.text,
                       opacity: 0.5,
                       cursor: 'not-allowed'
                     }}
@@ -1833,7 +1866,7 @@ const JuanitoDev = () => {
                 </div>
                 
                 <div>
-                  <label className="block text-xs uppercase tracking-wider mb-2" style={{ color: 'rgba(255,255,255,0.5)' }}>
+                  <label className="block text-xs uppercase tracking-wider mb-2" style={{ color: theme.textMuted }}>
                     Email
                   </label>
                   <input
@@ -1843,9 +1876,9 @@ const JuanitoDev = () => {
                     disabled
                     className="w-full px-4 py-3 rounded-xl text-sm transition-all"
                     style={{
-                      background: darkMode ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0.12)',
-                      border: `2px solid rgba(255,255,255,0.15)`,
-                      color: '#FDF8F3',
+                      background: theme.inputBg,
+                      border: `2px solid ${theme.cardBorder}`,
+                      color: theme.text,
                       opacity: 0.5,
                       cursor: 'not-allowed'
                     }}
@@ -1854,7 +1887,7 @@ const JuanitoDev = () => {
                 </div>
                 
                 <div>
-                  <label className="block text-xs uppercase tracking-wider mb-2" style={{ color: 'rgba(255,255,255,0.5)' }}>
+                  <label className="block text-xs uppercase tracking-wider mb-2" style={{ color: theme.textMuted }}>
                     Project Type
                   </label>
                   <select
@@ -1862,9 +1895,9 @@ const JuanitoDev = () => {
                     disabled
                     className="w-full px-4 py-3 rounded-xl text-sm"
                     style={{
-                      background: darkMode ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0.12)',
-                      border: `2px solid rgba(255,255,255,0.15)`,
-                      color: '#FDF8F3',
+                      background: theme.inputBg,
+                      border: `2px solid ${theme.cardBorder}`,
+                      color: theme.text,
                       opacity: 0.5,
                       cursor: 'not-allowed'
                     }}
@@ -1880,7 +1913,7 @@ const JuanitoDev = () => {
                 </div>
                 
                 <div>
-                  <label className="block text-xs uppercase tracking-wider mb-2" style={{ color: 'rgba(255,255,255,0.5)' }}>
+                  <label className="block text-xs uppercase tracking-wider mb-2" style={{ color: theme.textMuted }}>
                     Message
                   </label>
                   <textarea
@@ -1890,9 +1923,9 @@ const JuanitoDev = () => {
                     rows={4}
                     className="w-full px-4 py-3 rounded-xl text-sm resize-none"
                     style={{
-                      background: darkMode ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0.12)',
-                      border: `2px solid rgba(255,255,255,0.15)`,
-                      color: '#FDF8F3',
+                      background: theme.inputBg,
+                      border: `2px solid ${theme.cardBorder}`,
+                      color: theme.text,
                       opacity: 0.5,
                       cursor: 'not-allowed'
                     }}
@@ -1905,9 +1938,9 @@ const JuanitoDev = () => {
                   disabled
                   className="w-full py-3 rounded-xl text-sm font-medium transition-all"
                   style={{
-                    background: 'rgba(224, 122, 95, 0.3)',
+                    background: 'rgba(224, 122, 95, 0.2)',
                     border: '2px solid rgba(224, 122, 95, 0.3)',
-                    color: 'rgba(253, 248, 243, 0.5)',
+                    color: theme.textMuted,
                     cursor: 'not-allowed'
                   }}
                 >
@@ -1917,8 +1950,8 @@ const JuanitoDev = () => {
             </div>
           </div>
 
-          <p className="mt-16 text-xs text-center" style={{ color: 'rgba(255,255,255,0.4)' }}>
-            © 2024 Juan Hernandez · Built with coffee and curiosity
+          <p className="mt-16 text-xs text-center" style={{ color: theme.textSubtle }}>
+            © 2025 Juan Hernandez · Built with coffee and curiosity
           </p>
         </div>
       </section>
