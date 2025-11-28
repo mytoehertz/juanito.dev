@@ -6,7 +6,8 @@ import {
   Sun, Moon, Linkedin, Instagram, Github,
   Wine, ChefHat, Brain, Mountain, BookOpen,
   Briefcase, Globe, Gamepad2, Wrench, Construction, Ban,
-  Calculator, Scale
+  Calculator, Scale, Coffee, Flame, Network, Palette, Soup,
+  Atom, Compass, RefreshCw
 } from 'lucide-react';
 
 // Helper Components - defined outside main component
@@ -300,58 +301,174 @@ const IslandScene = ({ darkMode, opacity }) => (
       }}
     />
     
+    {/* Ocean waves/ripples */}
+    <svg className="absolute bottom-24 left-0 right-0 w-full" height="40" preserveAspectRatio="none" viewBox="0 0 1440 40">
+      <path 
+        d="M0 20 Q60 10 120 20 Q180 30 240 20 Q300 10 360 20 Q420 30 480 20 Q540 10 600 20 Q660 30 720 20 Q780 10 840 20 Q900 30 960 20 Q1020 10 1080 20 Q1140 30 1200 20 Q1260 10 1320 20 Q1380 30 1440 20" 
+        stroke={darkMode ? '#1a4a5a' : '#7BC3D5'}
+        strokeWidth="2"
+        fill="none"
+        opacity="0.4"
+      />
+    </svg>
+    
+    {/* Cute swimming shark - swimming right */}
+    <svg className="absolute shark-swim" style={{ bottom: '60px', left: '20%' }} width="80" height="50" viewBox="0 0 80 50">
+      {/* Shark body */}
+      <ellipse cx="40" cy="28" rx="28" ry="14" fill={darkMode ? '#2a4a5a' : '#6B8B9B'} />
+      {/* Shark belly */}
+      <ellipse cx="40" cy="32" rx="20" ry="8" fill={darkMode ? '#3a5a6a' : '#9BB0BD'} />
+      {/* Dorsal fin */}
+      <path d="M40 14 L35 28 L45 28 Z" fill={darkMode ? '#1a3a4a' : '#5A7A8A'} />
+      {/* Tail fin - now on left */}
+      <path d="M12 28 L0 18 L0 38 Z" fill={darkMode ? '#1a3a4a' : '#5A7A8A'} />
+      {/* Side fin */}
+      <ellipse cx="48" cy="35" rx="8" ry="4" fill={darkMode ? '#1a3a4a' : '#5A7A8A'} transform="rotate(20 48 35)" />
+      {/* Cute eye - now on right */}
+      <circle cx="60" cy="25" r="5" fill="white" />
+      <circle cx="61" cy="24" r="3" fill={darkMode ? '#1a1a3e' : '#2A3040'} />
+      <circle cx="62" cy="23" r="1" fill="white" />
+      {/* Happy smile - now on right */}
+      <path d="M58 32 Q62 36 68 32" stroke={darkMode ? '#0a1a2a' : '#3A4A5A'} strokeWidth="2" fill="none" strokeLinecap="round" />
+      {/* Blush */}
+      <ellipse cx="56" cy="30" rx="3" ry="2" fill="#E07A5F" opacity="0.5" />
+    </svg>
+    
+    {/* Second small shark in background - also flipped */}
+    <svg className="absolute shark-swim-slow" style={{ bottom: '90px', right: '30%' }} width="50" height="30" viewBox="0 0 80 50" opacity="0.6">
+      <ellipse cx="40" cy="28" rx="28" ry="14" fill={darkMode ? '#1a3a4a' : '#5A7A8A'} />
+      <path d="M40 14 L35 28 L45 28 Z" fill={darkMode ? '#0a2a3a' : '#4A6A7A'} />
+      <path d="M12 28 L0 18 L0 38 Z" fill={darkMode ? '#0a2a3a' : '#4A6A7A'} />
+    </svg>
+    
     {/* Far island - left */}
     <svg className="absolute bottom-28 left-[8%]" width="220" height="130" viewBox="0 0 220 130">
       {/* Island base with gradient */}
       <defs>
         <linearGradient id="islandGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stopColor={darkMode ? '#2a4a3a' : '#D4A574'} />
-          <stop offset="100%" stopColor={darkMode ? '#1a3a2a' : '#A07A5A'} />
+          <stop offset="0%" stopColor={darkMode ? '#2a4a3a' : '#E8C49A'} />
+          <stop offset="50%" stopColor={darkMode ? '#1a3a2a' : '#D4A574'} />
+          <stop offset="100%" stopColor={darkMode ? '#0a2a1a' : '#A07A5A'} />
         </linearGradient>
+        <pattern id="sandTexture1" patternUnits="userSpaceOnUse" width="4" height="4">
+          <circle cx="2" cy="2" r="0.5" fill={darkMode ? '#3a5a4a' : '#F0D8B0'} opacity="0.5" />
+        </pattern>
       </defs>
       <ellipse cx="110" cy="110" rx="100" ry="20" fill="url(#islandGrad1)" stroke={darkMode ? '#3a5a4a' : '#8B6344'} strokeWidth="4" />
+      {/* Sand texture overlay */}
+      <ellipse cx="110" cy="110" rx="95" ry="17" fill="url(#sandTexture1)" />
       {/* Sand highlight */}
-      <ellipse cx="110" cy="105" rx="80" ry="12" fill={darkMode ? '#3a5a4a' : '#E8C49A'} opacity="0.4" />
+      <ellipse cx="110" cy="105" rx="80" ry="12" fill={darkMode ? '#3a5a4a' : '#F5E0B8'} opacity="0.5" />
+      {/* Wet sand near water */}
+      <ellipse cx="110" cy="118" rx="90" ry="8" fill={darkMode ? '#1a3a2a' : '#B08A60'} opacity="0.4" />
       
-      {/* Palm tree trunk with shading */}
-      <path d="M100 110 Q95 70 100 35" stroke={darkMode ? '#1a2a1a' : '#4A3020'} strokeWidth="8" fill="none" strokeLinecap="round" />
-      <path d="M103 110 Q98 70 103 38" stroke={darkMode ? '#2a3a2a' : '#6B5040'} strokeWidth="3" fill="none" strokeLinecap="round" />
+      {/* Message in a bottle on beach! */}
+      <g transform="translate(145, 100) rotate(-15)">
+        <ellipse cx="0" cy="0" rx="8" ry="4" fill={darkMode ? '#2a5a5a' : '#7BC3D5'} opacity="0.8" />
+        <rect x="-6" y="-10" width="12" height="14" rx="3" fill={darkMode ? '#3a6a6a' : '#98D4E0'} stroke={darkMode ? '#1a4a4a' : '#5BA3B5'} strokeWidth="1.5" />
+        <rect x="-4" y="-12" width="8" height="3" fill={darkMode ? '#4a3a2a' : '#A07A5A'} rx="1" />
+        {/* Cork */}
+        <ellipse cx="0" cy="-12" rx="3" ry="2" fill={darkMode ? '#5a4a3a' : '#C4956A'} />
+        {/* Paper inside */}
+        <rect x="-3" y="-6" width="6" height="8" fill={darkMode ? '#d0d0c0' : '#FFF8E8'} rx="1" />
+      </g>
       
-      {/* Palm leaves with gradients and bold outlines */}
-      <path d="M100 40 Q60 25 45 45" stroke={darkMode ? '#1a3a1a' : '#3D6030'} strokeWidth="5" fill="none" strokeLinecap="round" />
-      <path d="M100 40 Q65 30 55 45" stroke={darkMode ? '#3a6a4a' : '#5B8C4A'} strokeWidth="3" fill="none" strokeLinecap="round" />
+      {/* Palm tree trunk with texture */}
+      <path d="M100 110 Q95 70 100 35" stroke={darkMode ? '#1a2a1a' : '#4A3020'} strokeWidth="10" fill="none" strokeLinecap="round" />
+      <path d="M100 110 Q95 70 100 35" stroke={darkMode ? '#2a3a2a' : '#6B5040'} strokeWidth="6" fill="none" strokeLinecap="round" />
+      {/* Trunk segments */}
+      <path d="M94 95 Q100 93 106 95" stroke={darkMode ? '#1a2a1a' : '#3A2010'} strokeWidth="2" fill="none" />
+      <path d="M95 80 Q100 78 105 80" stroke={darkMode ? '#1a2a1a' : '#3A2010'} strokeWidth="2" fill="none" />
+      <path d="M96 65 Q100 63 104 65" stroke={darkMode ? '#1a2a1a' : '#3A2010'} strokeWidth="2" fill="none" />
+      <path d="M97 50 Q100 48 103 50" stroke={darkMode ? '#1a2a1a' : '#3A2010'} strokeWidth="2" fill="none" />
       
-      <path d="M100 38 Q100 10 85 20" stroke={darkMode ? '#1a3a1a' : '#3D6030'} strokeWidth="5" fill="none" strokeLinecap="round" />
-      <path d="M100 38 Q100 15 90 22" stroke={darkMode ? '#3a6a4a' : '#6B9B5A'} strokeWidth="3" fill="none" strokeLinecap="round" />
+      {/* Palm fronds - more realistic with multiple layers */}
+      {/* Left drooping frond */}
+      <path d="M100 38 Q70 30 40 50 Q55 40 100 38" fill={darkMode ? '#2a5a3a' : '#4A7A40'} stroke={darkMode ? '#1a3a2a' : '#3D6030'} strokeWidth="2" />
+      <path d="M100 38 Q75 35 50 48" stroke={darkMode ? '#3a6a4a' : '#6B9B5A'} strokeWidth="1.5" fill="none" />
       
-      <path d="M100 40 Q140 25 155 45" stroke={darkMode ? '#1a3a1a' : '#3D6030'} strokeWidth="5" fill="none" strokeLinecap="round" />
-      <path d="M100 40 Q135 30 145 45" stroke={darkMode ? '#3a6a4a' : '#5B8C4A'} strokeWidth="3" fill="none" strokeLinecap="round" />
+      {/* Upper left frond */}
+      <path d="M100 36 Q85 15 70 25 Q80 18 100 36" fill={darkMode ? '#2a5a3a' : '#5B8C4A'} stroke={darkMode ? '#1a3a2a' : '#3D6030'} strokeWidth="2" />
+      <path d="M100 36 Q88 20 75 26" stroke={darkMode ? '#4a7a5a' : '#7BAC6A'} strokeWidth="1.5" fill="none" />
       
-      <path d="M100 38 Q115 15 130 25" stroke={darkMode ? '#1a3a1a' : '#3D6030'} strokeWidth="5" fill="none" strokeLinecap="round" />
-      <path d="M100 38 Q112 18 125 27" stroke={darkMode ? '#3a6a4a' : '#6B9B5A'} strokeWidth="3" fill="none" strokeLinecap="round" />
+      {/* Right drooping frond */}
+      <path d="M100 38 Q130 30 160 50 Q145 40 100 38" fill={darkMode ? '#2a5a3a' : '#4A7A40'} stroke={darkMode ? '#1a3a2a' : '#3D6030'} strokeWidth="2" />
+      <path d="M100 38 Q125 35 150 48" stroke={darkMode ? '#3a6a4a' : '#6B9B5A'} strokeWidth="1.5" fill="none" />
+      
+      {/* Upper right frond */}
+      <path d="M100 36 Q115 15 130 25 Q120 18 100 36" fill={darkMode ? '#2a5a3a' : '#5B8C4A'} stroke={darkMode ? '#1a3a2a' : '#3D6030'} strokeWidth="2" />
+      <path d="M100 36 Q112 20 125 26" stroke={darkMode ? '#4a7a5a' : '#7BAC6A'} strokeWidth="1.5" fill="none" />
+      
+      {/* Center frond going up */}
+      <path d="M100 35 Q100 10 95 5 Q105 5 100 35" fill={darkMode ? '#3a6a4a' : '#5B8C4A'} stroke={darkMode ? '#1a3a2a' : '#3D6030'} strokeWidth="2" />
+      <path d="M100 35 Q100 15 98 8" stroke={darkMode ? '#4a7a5a' : '#7BAC6A'} strokeWidth="1.5" fill="none" />
+      
+      {/* Coconut cluster */}
+      <circle cx="96" cy="42" r="6" fill={darkMode ? '#3a4a3a' : '#8B6B40'} stroke={darkMode ? '#1a2a1a' : '#5A4030'} strokeWidth="2" />
+      <circle cx="104" cy="44" r="5" fill={darkMode ? '#3a4a3a' : '#9B7B50'} stroke={darkMode ? '#1a2a1a' : '#5A4030'} strokeWidth="2" />
+      <circle cx="100" cy="48" r="5" fill={darkMode ? '#2a3a2a' : '#7B5B30'} stroke={darkMode ? '#1a2a1a' : '#5A4030'} strokeWidth="2" />
+      {/* Coconut highlights */}
+      <circle cx="94" cy="40" r="2" fill={darkMode ? '#4a5a4a' : '#AB8B60'} />
+      <circle cx="102" cy="42" r="1.5" fill={darkMode ? '#4a5a4a' : '#AB8B60'} />
     </svg>
     
     {/* Main island - right with multiple palm trees */}
     <svg className="absolute bottom-24 right-[10%]" width="400" height="200" viewBox="0 0 400 200">
       <defs>
         <linearGradient id="islandGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stopColor={darkMode ? '#2a4a3a' : '#D4A574'} />
-          <stop offset="50%" stopColor={darkMode ? '#1a3a2a' : '#C4956A'} />
-          <stop offset="100%" stopColor={darkMode ? '#0a2a1a' : '#A07A5A'} />
+          <stop offset="0%" stopColor={darkMode ? '#2a4a3a' : '#F5E0B8'} />
+          <stop offset="30%" stopColor={darkMode ? '#1a3a2a' : '#D4A574'} />
+          <stop offset="70%" stopColor={darkMode ? '#0a2a1a' : '#C4956A'} />
+          <stop offset="100%" stopColor={darkMode ? '#051a0a' : '#A07A5A'} />
         </linearGradient>
         <linearGradient id="trunkGrad" x1="0%" y1="0%" x2="100%" y2="0%">
           <stop offset="0%" stopColor={darkMode ? '#1a2a1a' : '#3D2510'} />
           <stop offset="50%" stopColor={darkMode ? '#2a3a2a' : '#6B5040'} />
           <stop offset="100%" stopColor={darkMode ? '#1a2a1a' : '#4A3020'} />
         </linearGradient>
+        <pattern id="sandTexture2" patternUnits="userSpaceOnUse" width="6" height="6">
+          <circle cx="3" cy="3" r="0.8" fill={darkMode ? '#3a5a4a' : '#F0D8B0'} opacity="0.4" />
+          <circle cx="1" cy="5" r="0.5" fill={darkMode ? '#2a4a3a' : '#E8D0A8'} opacity="0.3" />
+        </pattern>
       </defs>
       
       {/* Island base */}
       <ellipse cx="200" cy="175" rx="180" ry="30" fill="url(#islandGrad2)" stroke={darkMode ? '#3a5a4a' : '#8B6344'} strokeWidth="5" />
+      {/* Sand texture */}
+      <ellipse cx="200" cy="175" rx="175" ry="27" fill="url(#sandTexture2)" />
       {/* Sand highlight stripe */}
-      <ellipse cx="200" cy="168" rx="150" ry="18" fill={darkMode ? '#3a5a4a' : '#E8C49A'} opacity="0.5" />
+      <ellipse cx="200" cy="165" rx="150" ry="15" fill={darkMode ? '#3a5a4a' : '#FFF0D8'} opacity="0.5" />
+      {/* Wet sand near water */}
+      <ellipse cx="200" cy="188" rx="170" ry="10" fill={darkMode ? '#0a2a1a' : '#A08060'} opacity="0.4" />
       {/* Shadow on sand */}
       <ellipse cx="180" cy="178" rx="60" ry="8" fill={darkMode ? '#0a1a0a' : '#8B6344'} opacity="0.3" />
+      
+      {/* Bottles washed up on shore */}
+      {/* Green bottle */}
+      <g transform="translate(320, 168) rotate(25)">
+        <rect x="-4" y="-12" width="8" height="16" rx="2" fill={darkMode ? '#2a5a3a' : '#81B29A'} stroke={darkMode ? '#1a4a2a' : '#5A8A6A'} strokeWidth="1.5" />
+        <rect x="-2" y="-16" width="4" height="5" fill={darkMode ? '#2a5a3a' : '#81B29A'} stroke={darkMode ? '#1a4a2a' : '#5A8A6A'} strokeWidth="1" />
+        <ellipse cx="0" cy="-16" rx="2.5" ry="1.5" fill={darkMode ? '#4a3a2a' : '#A07A5A'} />
+      </g>
+      
+      {/* Blue bottle */}
+      <g transform="translate(90, 172) rotate(-10)">
+        <rect x="-3" y="-10" width="6" height="12" rx="2" fill={darkMode ? '#2a4a6a' : '#5BA3B5'} stroke={darkMode ? '#1a3a5a' : '#3D8A9C'} strokeWidth="1.5" />
+        <rect x="-1.5" y="-13" width="3" height="4" fill={darkMode ? '#2a4a6a' : '#5BA3B5'} stroke={darkMode ? '#1a3a5a' : '#3D8A9C'} strokeWidth="1" />
+      </g>
+      
+      {/* Seashell */}
+      <g transform="translate(250, 175)">
+        <path d="M0 0 Q-8 -8 0 -12 Q8 -8 0 0" fill={darkMode ? '#6a5a5a' : '#F5E0D0'} stroke={darkMode ? '#4a4a4a' : '#D4B8A8'} strokeWidth="1.5" />
+        <path d="M0 -2 L0 -10" stroke={darkMode ? '#4a4a4a' : '#D4B8A8'} strokeWidth="1" />
+        <path d="M-3 -3 L-5 -9" stroke={darkMode ? '#4a4a4a' : '#D4B8A8'} strokeWidth="1" />
+        <path d="M3 -3 L5 -9" stroke={darkMode ? '#4a4a4a' : '#D4B8A8'} strokeWidth="1" />
+      </g>
+      
+      {/* Small starfish */}
+      <g transform="translate(130, 178)">
+        <path d="M0 -6 L1.5 -2 L6 -2 L2.5 1 L4 5 L0 2.5 L-4 5 L-2.5 1 L-6 -2 L-1.5 -2 Z" fill={darkMode ? '#6a4a4a' : '#E07A5F'} stroke={darkMode ? '#4a3a3a' : '#C45A45'} strokeWidth="1" />
+      </g>
       
       {/* Big palm tree */}
       <path d="M160 175 Q150 110 165 50" stroke={darkMode ? '#0a1a0a' : '#2A1808'} strokeWidth="12" fill="none" strokeLinecap="round" />
@@ -380,6 +497,11 @@ const IslandScene = ({ darkMode, opacity }) => (
       <path d="M165 48 Q165 5 155 15" stroke={darkMode ? '#0a2a0a' : '#2A4A20'} strokeWidth="5" fill="none" strokeLinecap="round" />
       <path d="M165 48 Q165 12 158 18" stroke={darkMode ? '#3a6a3a' : '#5B8C4A'} strokeWidth="3" fill="none" strokeLinecap="round" />
       
+      {/* Coconuts cluster */}
+      <circle cx="162" cy="55" r="6" fill={darkMode ? '#2a3a2a' : '#6B5040'} stroke={darkMode ? '#1a2a1a' : '#4A3020'} strokeWidth="2" />
+      <circle cx="170" cy="58" r="5" fill={darkMode ? '#3a4a3a' : '#7B6050'} stroke={darkMode ? '#1a2a1a' : '#4A3020'} strokeWidth="2" />
+      <circle cx="165" cy="62" r="4" fill={darkMode ? '#2a3a2a' : '#8B7060'} stroke={darkMode ? '#1a2a1a' : '#4A3020'} strokeWidth="1.5" />
+      
       {/* Small palm tree */}
       <path d="M280 175 Q285 130 282 95" stroke={darkMode ? '#0a1a0a' : '#2A1808'} strokeWidth="8" fill="none" strokeLinecap="round" />
       <path d="M280 175 Q285 130 282 95" stroke={darkMode ? '#2a3a2a' : '#5D4030'} strokeWidth="5" fill="none" strokeLinecap="round" />
@@ -405,6 +527,28 @@ const IslandScene = ({ darkMode, opacity }) => (
       <ellipse cx="50" cy="55" rx="45" ry="15" fill="url(#rockGrad)" stroke={darkMode ? '#3a4a4a' : '#5D4037'} strokeWidth="4" />
       <ellipse cx="50" cy="50" rx="35" ry="8" fill={darkMode ? '#3a4a4a' : '#B8A090'} opacity="0.4" />
     </svg>
+    
+    {/* CSS for shark animation */}
+    <style>{`
+      .shark-swim {
+        animation: sharkSwim 8s ease-in-out infinite;
+      }
+      .shark-swim-slow {
+        animation: sharkSwimSlow 12s ease-in-out infinite;
+      }
+      @keyframes sharkSwim {
+        0%, 100% { transform: translateX(0) scaleX(1); }
+        45% { transform: translateX(100px) scaleX(1); }
+        50% { transform: translateX(100px) scaleX(-1); }
+        95% { transform: translateX(0) scaleX(-1); }
+      }
+      @keyframes sharkSwimSlow {
+        0%, 100% { transform: translateX(0) scaleX(-1); }
+        45% { transform: translateX(-80px) scaleX(-1); }
+        50% { transform: translateX(-80px) scaleX(1); }
+        95% { transform: translateX(0) scaleX(1); }
+      }
+    `}</style>
   </div>
 );
 
@@ -415,14 +559,27 @@ const BorderlandsSun = () => (
     style={{
       top: '8%',
       right: '12%',
-      width: '80px',
-      height: '80px',
+      width: '100px',
+      height: '100px',
     }}
   >
+    {/* Outer glow */}
+    <div 
+      className="absolute rounded-full"
+      style={{
+        top: '10px',
+        left: '10px',
+        width: '80px',
+        height: '80px',
+        background: 'radial-gradient(circle, rgba(255,215,0,0.4) 0%, rgba(255,215,0,0) 70%)',
+        animation: 'pulse 3s ease-in-out infinite',
+      }}
+    />
+    
     {/* Rays with bold outlines */}
     <div 
       className="absolute inset-0"
-      style={{ animation: 'spin 30s linear infinite' }}
+      style={{ animation: 'spin 60s linear infinite' }}
     >
       {[...Array(12)].map((_, i) => (
         <div
@@ -431,58 +588,115 @@ const BorderlandsSun = () => (
           style={{
             top: '50%',
             left: '50%',
-            width: '6px',
-            height: '25px',
-            background: '#FFD700',
-            border: '2px solid #CC9900',
-            transformOrigin: 'center -20px',
-            transform: `rotate(${i * 30}deg) translateY(-40px)`,
-            borderRadius: '3px',
+            width: '8px',
+            height: '28px',
+            background: 'linear-gradient(to top, #FFD700, #FFEC8B)',
+            border: '2px solid #DAA520',
+            transformOrigin: 'center -15px',
+            transform: `rotate(${i * 30}deg) translateY(-45px)`,
+            borderRadius: '4px',
           }}
         />
       ))}
     </div>
     
-    {/* Sun body with bold outline */}
+    {/* Sun body with gradient */}
     <div 
       className="absolute rounded-full"
       style={{
-        top: '10px',
-        left: '10px',
-        width: '60px',
-        height: '60px',
-        background: 'linear-gradient(135deg, #FFE87C 0%, #FFD700 50%, #FFA500 100%)',
-        border: '4px solid #CC8800',
-        boxShadow: '0 0 30px rgba(255, 215, 0, 0.6)',
+        top: '15px',
+        left: '15px',
+        width: '70px',
+        height: '70px',
+        background: 'radial-gradient(circle at 30% 30%, #FFF8DC 0%, #FFE87C 20%, #FFD700 50%, #FFA500 100%)',
+        border: '4px solid #DAA520',
+        boxShadow: '0 0 40px rgba(255, 215, 0, 0.6), inset -8px -8px 20px rgba(255,140,0,0.4)',
       }}
     >
-      {/* Kawaii face with bold lines */}
-      <div className="absolute rounded-full" style={{ width: '8px', height: '10px', background: '#CC6600', top: '18px', left: '16px', border: '1px solid #AA4400' }} />
-      <div className="absolute rounded-full" style={{ width: '8px', height: '10px', background: '#CC6600', top: '18px', right: '16px', border: '1px solid #AA4400' }} />
-      <div className="absolute" style={{ width: '16px', height: '8px', borderBottom: '3px solid #CC6600', borderRadius: '0 0 50% 50%', top: '32px', left: '50%', transform: 'translateX(-50%)' }} />
+      {/* Kawaii eyes */}
+      <div className="absolute" style={{ top: '20px', left: '15px', width: '12px', height: '14px' }}>
+        <div className="absolute w-full h-full rounded-full" style={{ background: '#4A3000', border: '2px solid #2A1A00' }} />
+        <div className="absolute rounded-full" style={{ width: '5px', height: '5px', background: 'white', top: '3px', left: '2px' }} />
+      </div>
+      <div className="absolute" style={{ top: '20px', right: '15px', width: '12px', height: '14px' }}>
+        <div className="absolute w-full h-full rounded-full" style={{ background: '#4A3000', border: '2px solid #2A1A00' }} />
+        <div className="absolute rounded-full" style={{ width: '5px', height: '5px', background: 'white', top: '3px', left: '2px' }} />
+      </div>
+      
+      {/* Rosy cheeks */}
+      <div className="absolute rounded-full" style={{ width: '10px', height: '6px', background: '#FF9999', opacity: 0.7, top: '32px', left: '8px' }} />
+      <div className="absolute rounded-full" style={{ width: '10px', height: '6px', background: '#FF9999', opacity: 0.7, top: '32px', right: '8px' }} />
+      
+      {/* Happy smile */}
+      <svg className="absolute" style={{ top: '36px', left: '50%', transform: 'translateX(-50%)' }} width="24" height="14" viewBox="0 0 24 14">
+        <path d="M2 2 Q12 14 22 2" stroke="#4A3000" strokeWidth="3" fill="none" strokeLinecap="round" />
+      </svg>
     </div>
   </div>
 );
 
-// Borderlands-style Moon
+// Borderlands-style Moon with kawaii face
 const BorderlandsMoon = () => (
   <div 
     className="absolute"
     style={{
       top: '10%',
       right: '10%',
-      width: '70px',
-      height: '70px',
-      borderRadius: '50%',
-      background: 'linear-gradient(135deg, #F5F5DC 0%, #FFFACD 50%, #E8E8C8 100%)',
-      border: '4px solid #C0C090',
-      boxShadow: '0 0 20px rgba(255, 250, 205, 0.5), 0 0 40px rgba(255, 250, 205, 0.3)',
+      width: '90px',
+      height: '90px',
     }}
   >
-    {/* Craters with outlines */}
-    <div className="absolute rounded-full" style={{ width: '12px', height: '12px', background: '#D8D8B8', border: '2px solid #B0B090', top: '12px', left: '18px' }} />
-    <div className="absolute rounded-full" style={{ width: '10px', height: '10px', background: '#D8D8B8', border: '2px solid #B0B090', top: '35px', left: '38px' }} />
-    <div className="absolute rounded-full" style={{ width: '8px', height: '8px', background: '#D8D8B8', border: '2px solid #B0B090', top: '25px', left: '10px' }} />
+    {/* Outer glow */}
+    <div 
+      className="absolute rounded-full"
+      style={{
+        top: '5px',
+        left: '5px',
+        width: '80px',
+        height: '80px',
+        background: 'radial-gradient(circle, rgba(255,250,205,0.3) 0%, rgba(255,250,205,0) 70%)',
+      }}
+    />
+    
+    {/* Moon body */}
+    <div 
+      className="absolute rounded-full"
+      style={{
+        top: '10px',
+        left: '10px',
+        width: '70px',
+        height: '70px',
+        background: 'radial-gradient(circle at 30% 30%, #FFFFF0 0%, #FFFACD 30%, #F5F5DC 70%, #E8E8C8 100%)',
+        border: '4px solid #B8B890',
+        boxShadow: '0 0 25px rgba(255, 250, 205, 0.5), inset -6px -6px 15px rgba(200,200,180,0.4)',
+      }}
+    >
+      {/* Craters */}
+      <div className="absolute rounded-full" style={{ width: '10px', height: '10px', background: 'rgba(200,200,180,0.5)', border: '1px solid #B0B090', top: '8px', left: '12px' }} />
+      <div className="absolute rounded-full" style={{ width: '8px', height: '8px', background: 'rgba(200,200,180,0.5)', border: '1px solid #B0B090', top: '45px', left: '40px' }} />
+      <div className="absolute rounded-full" style={{ width: '6px', height: '6px', background: 'rgba(200,200,180,0.5)', border: '1px solid #B0B090', top: '20px', left: '45px' }} />
+      
+      {/* Kawaii eyes - sleepy/content */}
+      <svg className="absolute" style={{ top: '22px', left: '12px' }} width="14" height="8" viewBox="0 0 14 8">
+        <path d="M2 6 Q7 2 12 6" stroke="#6B6B50" strokeWidth="3" fill="none" strokeLinecap="round" />
+      </svg>
+      <svg className="absolute" style={{ top: '22px', right: '12px' }} width="14" height="8" viewBox="0 0 14 8">
+        <path d="M2 6 Q7 2 12 6" stroke="#6B6B50" strokeWidth="3" fill="none" strokeLinecap="round" />
+      </svg>
+      
+      {/* Rosy cheeks */}
+      <div className="absolute rounded-full" style={{ width: '8px', height: '5px', background: '#FFB6C1', opacity: 0.6, top: '32px', left: '6px' }} />
+      <div className="absolute rounded-full" style={{ width: '8px', height: '5px', background: '#FFB6C1', opacity: 0.6, top: '32px', right: '6px' }} />
+      
+      {/* Small content smile */}
+      <svg className="absolute" style={{ top: '38px', left: '50%', transform: 'translateX(-50%)' }} width="16" height="10" viewBox="0 0 16 10">
+        <path d="M3 3 Q8 9 13 3" stroke="#6B6B50" strokeWidth="2.5" fill="none" strokeLinecap="round" />
+      </svg>
+    </div>
+    
+    {/* Stars around moon */}
+    <div className="absolute" style={{ top: '-5px', right: '0px', fontSize: '10px', color: '#FFFACD', textShadow: '0 0 5px rgba(255,250,205,0.8)' }}>✦</div>
+    <div className="absolute" style={{ bottom: '5px', left: '-5px', fontSize: '8px', color: '#FFFACD', textShadow: '0 0 5px rgba(255,250,205,0.8)' }}>✦</div>
   </div>
 );
 
@@ -675,39 +889,43 @@ const JuanitoDev = () => {
   const interests = [
     {
       id: 'physics',
-      icon: '🔬',
+      Icon: Atom,
+      color: '#5BA3B5',
       label: 'Physics',
       sub: 'Quantum consciousness',
       mentor: { name: 'Roger Penrose', why: 'Orch-OR theory — consciousness arising from quantum processes in microtubules' },
       funFact: 'Currently obsessed with: the measurement problem and why observation seems to collapse possibilities into reality',
-      bookRec: '📚 Next: "The Emperor\'s New Mind"'
+      bookRec: 'Next: "The Emperor\'s New Mind"'
     },
     {
       id: 'psychology',
-      icon: '🧠',
+      Icon: Brain,
+      color: '#E07A5F',
       label: 'Psychology',
       sub: 'Evolution & decisions',
       mentor: { name: 'Richard Dawkins', why: 'The Selfish Gene changed how I see every human behavior' },
       funFact: 'Hot take: most of what we think is "choice" is just evolutionary programming running in the background',
-      bookRec: '📖 Reading: "The Selfish Gene"'
+      bookRec: 'Reading: "The Selfish Gene"'
     },
     {
       id: 'philosophy',
-      icon: '📐',
+      Icon: Compass,
+      color: '#9B59B6',
       label: 'Philosophy',
       sub: 'What is real?',
       mentor: { name: 'Immanuel Kant', why: 'We can never know things as they truly are — only as they appear through our senses' },
       funFact: 'The question that keeps me up: if our senses evolved for survival, not truth, what are we actually missing?',
-      bookRec: '📚 Exploring: Epistemology & Metaphysics'
+      bookRec: 'Exploring: Epistemology & Metaphysics'
     },
     {
       id: 'systems',
-      icon: '🔄',
+      Icon: RefreshCw,
+      color: '#81B29A',
       label: 'Systems',
       sub: 'Emergence & design',
       mentor: { name: 'Donella Meadows', why: 'Thinking in Systems — the most practical framework for understanding anything complex' },
       funFact: 'I see feedback loops everywhere now. Supply chains, coffee shops, relationships — it\'s all systems.',
-      bookRec: '📚 Next: "Thinking in Systems"'
+      bookRec: 'Next: "Thinking in Systems"'
     }
   ];
 
@@ -835,8 +1053,9 @@ const JuanitoDev = () => {
                 style={{ background: '#81B29A' }}
               />
             )}
-            <span className="relative z-10">
-              📖 Currently reading: <span style={{ fontStyle: 'italic' }}>The Selfish Gene</span>
+            <span className="relative z-10 flex items-center gap-2">
+              <BookOpen className="w-4 h-4" />
+              Currently reading: <span style={{ fontStyle: 'italic' }}>The Selfish Gene</span>
             </span>
           </div>
           <h1 className="text-4xl md:text-7xl font-light leading-tight mb-4" style={{
@@ -1049,21 +1268,21 @@ const JuanitoDev = () => {
             background: theme.inputBg,
             border: `2px solid ${darkMode ? 'rgba(224, 122, 95, 0.2)' : 'rgba(224, 122, 95, 0.3)'}`
           }}>
-            <span className="text-xs tracking-widest uppercase block mb-4 flex items-center gap-2" style={{ color: theme.textSubtle }}>
-              <span>⚡</span> The day-to-day
+            <span className="text-xs tracking-widest uppercase block mb-4" style={{ color: theme.textSubtle }}>
+              The day-to-day
             </span>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
               {[
-                { emoji: '🧪', text: 'Collaborating with R&D on signature drinks' },
-                { emoji: '🤝', text: 'Building national account relationships' },
-                { emoji: '🥤', text: 'Designing beverage programs' },
-                { emoji: '🎯', text: 'Strategic account planning' },
-                { emoji: '✈️', text: 'Trade shows across the country' },
-                { emoji: '📊', text: 'Market expansion strategy' }
+                'Collaborating with R&D on signature drinks',
+                'Building national account relationships',
+                'Designing beverage programs',
+                'Strategic account planning',
+                'Trade shows across the country',
+                'Market expansion strategy'
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-3 p-2 rounded-lg">
-                  <span className="text-lg">{item.emoji}</span>
-                  <span className="text-sm" style={{ color: theme.textMuted }}>{item.text}</span>
+                  <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style={{ background: '#E07A5F' }} />
+                  <span className="text-sm" style={{ color: theme.textMuted }}>{item}</span>
                 </div>
               ))}
             </div>
@@ -1095,7 +1314,7 @@ const JuanitoDev = () => {
           </motion.div>
           
           <motion.div 
-            className="grid md:grid-cols-2 gap-6 mt-12"
+            className="grid md:grid-cols-3 gap-6 mt-12"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, margin: "-50px" }}
@@ -1440,26 +1659,26 @@ const JuanitoDev = () => {
                 </div>
               </div>
             </div>
-          </motion.div>
 
-          {/* More coming */}
-          <div className="mt-8 p-8 rounded-2xl text-center" style={{ 
-            background: darkMode ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.06)',
-            border: `2px dashed ${darkMode ? 'rgba(255,255,255,0.25)' : '#B0A090'}`
-          }}>
-            <div className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4" style={{
-              background: darkMode ? 'rgba(242, 204, 143, 0.25)' : 'rgba(242, 204, 143, 0.4)',
-              border: `2px solid ${darkMode ? 'rgba(212, 165, 116, 0.4)' : 'rgba(212, 165, 116, 0.5)'}`
+            {/* More coming - spans all 3 columns */}
+            <div className="md:col-span-3 p-8 rounded-2xl text-center" style={{ 
+              background: darkMode ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.06)',
+              border: `2px dashed ${darkMode ? 'rgba(255,255,255,0.25)' : '#B0A090'}`
             }}>
-              <Construction className="w-7 h-7" style={{ color: '#C49664' }} />
+              <div className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4" style={{
+                background: darkMode ? 'rgba(242, 204, 143, 0.25)' : 'rgba(242, 204, 143, 0.4)',
+                border: `2px solid ${darkMode ? 'rgba(212, 165, 116, 0.4)' : 'rgba(212, 165, 116, 0.5)'}`
+              }}>
+                <Construction className="w-7 h-7" style={{ color: '#C49664' }} />
+              </div>
+              <p className="text-base font-medium mb-1" style={{ color: theme.text }}>
+                More on the way
+              </p>
+              <p className="text-sm" style={{ color: theme.textMuted }}>
+                Always building something new.
+              </p>
             </div>
-            <p className="text-base font-medium mb-1" style={{ color: theme.text }}>
-              More on the way
-            </p>
-            <p className="text-sm" style={{ color: theme.textMuted }}>
-              Always building something new.
-            </p>
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -1506,7 +1725,9 @@ const JuanitoDev = () => {
                   }}
                 >
                   <div>
-                    <span className="text-3xl block mb-3">{item.icon}</span>
+                    <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-3" style={{ background: `${item.color}20` }}>
+                      <item.Icon className="w-6 h-6" style={{ color: item.color }} />
+                    </div>
                     <h3 className="font-semibold text-lg mb-1" style={{ color: theme.text }}>{item.label}</h3>
                     <p className="text-sm" style={{ color: theme.textSubtle }}>{item.sub}</p>
                   </div>
@@ -1549,7 +1770,10 @@ const JuanitoDev = () => {
                       <p className="text-sm italic" style={{ color: theme.textMuted }}>{item.funFact}</p>
                     </div>
                     
-                    <p className="text-xs" style={{ color: theme.textSubtle }}>{item.bookRec}</p>
+                    <p className="text-xs flex items-center gap-2" style={{ color: theme.textSubtle }}>
+                      <BookOpen className="w-4 h-4" />
+                      {item.bookRec}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -1574,7 +1798,7 @@ const JuanitoDev = () => {
           </h2>
           <Squiggle color="#81B29A" width={100} />
           
-          <div className="flex flex-col gap-6 mt-12">
+          <div className="grid md:grid-cols-2 gap-6 mt-12">
             {/* Ceramics */}
             <div 
               className="rounded-3xl overflow-hidden cursor-pointer transition-all duration-300 hover:translate-x-1"
@@ -1587,7 +1811,9 @@ const JuanitoDev = () => {
             >
               <div className="flex flex-col md:flex-row">
                 <div className="flex-1 p-6">
-                  <span className="text-4xl block mb-4">🏺</span>
+                  <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-4" style={{ background: darkMode ? 'rgba(212, 165, 116, 0.2)' : 'rgba(212, 165, 116, 0.15)' }}>
+                    <Palette className="w-6 h-6" style={{ color: '#D4A574' }} />
+                  </div>
                   <h3 className="font-semibold text-lg mb-2" style={{ color: theme.text }}>Ceramics</h3>
                   <p className="text-sm mb-4" style={{ color: theme.textMuted }}>
                     My way of slowing down. There's something grounding about working with clay — no screens, just your hands shaping something real.
@@ -1598,7 +1824,9 @@ const JuanitoDev = () => {
                   background: darkMode ? 'rgba(40, 40, 70, 0.8)' : 'repeating-linear-gradient(45deg, #F5EDE6, #F5EDE6 10px, #FAF6F1 10px, #FAF6F1 20px)',
                   borderLeft: `2px dashed ${darkMode ? 'rgba(255,255,255,0.1)' : '#D4C4B0'}`
                 }}>
-                  <span className="text-5xl">🫖</span>
+                  <div className="w-16 h-16 rounded-full flex items-center justify-center" style={{ background: darkMode ? 'rgba(212, 165, 116, 0.3)' : 'rgba(212, 165, 116, 0.25)' }}>
+                    <Soup className="w-8 h-8" style={{ color: '#C49664' }} />
+                  </div>
                 </div>
               </div>
             </div>
@@ -1703,10 +1931,14 @@ const JuanitoDev = () => {
                   background: 'linear-gradient(180deg, #5BA3B5 0%, #3D8A9C 100%)',
                   borderLeft: '2px solid #7BC3D5'
                 }}>
-                  <div className="flex gap-2 items-center">
-                    <span className="text-3xl">🥥</span>
-                    <span className="text-xl" style={{ color: 'white' }}>+</span>
-                    <span className="text-3xl">☕</span>
+                  <div className="flex gap-3 items-center">
+                    <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ background: 'rgba(255,255,255,0.2)' }}>
+                      <Sparkles className="w-6 h-6" style={{ color: 'white' }} />
+                    </div>
+                    <span className="text-xl font-bold" style={{ color: 'white' }}>+</span>
+                    <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ background: 'rgba(255,255,255,0.2)' }}>
+                      <Coffee className="w-6 h-6" style={{ color: 'white' }} />
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1737,7 +1969,9 @@ const JuanitoDev = () => {
                   background: darkMode ? 'rgba(40, 40, 70, 0.8)' : 'linear-gradient(180deg, #FAF6F1 0%, #F5EDE6 100%)',
                   borderLeft: `2px dashed ${darkMode ? 'rgba(255,255,255,0.1)' : '#D4C4B0'}`
                 }}>
-                  <span className="text-4xl">🥩</span>
+                  <div className="w-16 h-16 rounded-full flex items-center justify-center" style={{ background: darkMode ? 'rgba(242, 204, 143, 0.3)' : 'rgba(242, 204, 143, 0.25)' }}>
+                    <Flame className="w-8 h-8" style={{ color: '#E07A5F' }} />
+                  </div>
                 </div>
               </div>
             </div>
@@ -1767,7 +2001,9 @@ const JuanitoDev = () => {
                   background: darkMode ? 'rgba(40, 40, 70, 0.8)' : 'linear-gradient(180deg, #FAF6F1 0%, #F5EDE6 100%)',
                   borderLeft: `2px dashed ${darkMode ? 'rgba(255,255,255,0.1)' : '#D4C4B0'}`
                 }}>
-                  <span className="text-4xl">🔮</span>
+                  <div className="w-16 h-16 rounded-full flex items-center justify-center" style={{ background: darkMode ? 'rgba(155, 89, 182, 0.3)' : 'rgba(155, 89, 182, 0.25)' }}>
+                    <Network className="w-8 h-8" style={{ color: '#9B59B6' }} />
+                  </div>
                 </div>
               </div>
             </div>
@@ -1804,7 +2040,9 @@ const JuanitoDev = () => {
 
             {expandedHobby === 'ceramics' && (
               <div className="p-8">
-                <span className="text-6xl block mb-6">🏺</span>
+                <div className="w-20 h-20 rounded-2xl flex items-center justify-center mb-6" style={{ background: darkMode ? 'rgba(212, 165, 116, 0.2)' : 'rgba(212, 165, 116, 0.15)' }}>
+                  <Palette className="w-10 h-10" style={{ color: '#D4A574' }} />
+                </div>
                 <h3 className="text-2xl font-semibold mb-4" style={{ color: theme.text, fontFamily: "'Instrument Serif', Georgia, serif" }}>Ceramics</h3>
                 <div className="space-y-4 text-base" style={{ color: theme.textMuted }}>
                   <p>
@@ -1826,7 +2064,9 @@ const JuanitoDev = () => {
 
             {expandedHobby === 'gamedev' && (
               <div className="p-8">
-                <span className="text-6xl block mb-6">🎮</span>
+                <div className="w-20 h-20 rounded-2xl flex items-center justify-center mb-6" style={{ background: darkMode ? 'rgba(129, 178, 154, 0.2)' : 'rgba(129, 178, 154, 0.15)' }}>
+                  <Gamepad2 className="w-10 h-10" style={{ color: '#81B29A' }} />
+                </div>
                 <h3 className="text-2xl font-semibold mb-4" style={{ color: theme.text, fontFamily: "'Instrument Serif', Georgia, serif" }}>Game Development</h3>
                 <div className="space-y-4 text-base" style={{ color: theme.textMuted }}>
                   <p>
@@ -1855,7 +2095,9 @@ const JuanitoDev = () => {
 
             {expandedHobby === 'bouldering' && (
               <div className="p-8">
-                <span className="text-6xl block mb-6">🧗</span>
+                <div className="w-20 h-20 rounded-2xl flex items-center justify-center mb-6" style={{ background: darkMode ? 'rgba(224, 122, 95, 0.2)' : 'rgba(224, 122, 95, 0.15)' }}>
+                  <Mountain className="w-10 h-10" style={{ color: '#E07A5F' }} />
+                </div>
                 <h3 className="text-2xl font-semibold mb-4" style={{ color: theme.text, fontFamily: "'Instrument Serif', Georgia, serif" }}>Bouldering</h3>
                 <div className="space-y-4 text-base" style={{ color: theme.textMuted }}>
                   <p>
@@ -1877,7 +2119,9 @@ const JuanitoDev = () => {
 
             {expandedHobby === 'cooking' && (
               <div className="p-8">
-                <span className="text-6xl block mb-6">👨‍🍳</span>
+                <div className="w-20 h-20 rounded-2xl flex items-center justify-center mb-6" style={{ background: darkMode ? 'rgba(242, 204, 143, 0.2)' : 'rgba(242, 204, 143, 0.15)' }}>
+                  <ChefHat className="w-10 h-10" style={{ color: '#D4A574' }} />
+                </div>
                 <h3 className="text-2xl font-semibold mb-4" style={{ color: theme.text, fontFamily: "'Instrument Serif', Georgia, serif" }}>Cooking</h3>
                 <div className="space-y-4 text-base" style={{ color: theme.textMuted }}>
                   <p>
@@ -1906,7 +2150,9 @@ const JuanitoDev = () => {
 
             {expandedHobby === 'reading' && (
               <div className="p-8">
-                <span className="text-6xl block mb-6">📚</span>
+                <div className="w-20 h-20 rounded-2xl flex items-center justify-center mb-6" style={{ background: darkMode ? 'rgba(155, 89, 182, 0.2)' : 'rgba(155, 89, 182, 0.15)' }}>
+                  <Brain className="w-10 h-10" style={{ color: '#9B59B6' }} />
+                </div>
                 <h3 className="text-2xl font-semibold mb-4" style={{ color: theme.text, fontFamily: "'Instrument Serif', Georgia, serif" }}>Systems Thinking</h3>
                 <div className="space-y-4 text-base" style={{ color: theme.textMuted }}>
                   <p>
@@ -1920,19 +2166,27 @@ const JuanitoDev = () => {
                   </p>
                 </div>
                 <div className="mt-6 p-4 rounded-2xl" style={{ background: darkMode ? 'rgba(129, 178, 154, 0.1)' : 'rgba(129, 178, 154, 0.15)' }}>
-                  <span className="text-sm font-medium" style={{ color: '#81B29A' }}>📖 Currently reading: </span>
-                  <span className="text-sm" style={{ color: theme.textMuted }}>The Selfish Gene by Richard Dawkins</span>
+                  <span className="text-sm font-medium flex items-center gap-2" style={{ color: '#81B29A' }}>
+                    <BookOpen className="w-4 h-4" />
+                    Currently reading:
+                  </span>
+                  <span className="text-sm block mt-1" style={{ color: theme.textMuted }}>The Selfish Gene by Richard Dawkins</span>
                 </div>
                 <div className="mt-3 p-4 rounded-2xl" style={{ background: darkMode ? 'rgba(61, 64, 91, 0.2)' : 'rgba(61, 64, 91, 0.08)' }}>
-                  <span className="text-sm font-medium" style={{ color: '#3D405B' }}>📚 Next in line: </span>
-                  <span className="text-sm" style={{ color: theme.textMuted }}>Thinking in Systems by Donella Meadows</span>
+                  <span className="text-sm font-medium flex items-center gap-2" style={{ color: '#3D405B' }}>
+                    <BookOpen className="w-4 h-4" />
+                    Next in line:
+                  </span>
+                  <span className="text-sm block mt-1" style={{ color: theme.textMuted }}>Thinking in Systems by Donella Meadows</span>
                 </div>
               </div>
             )}
 
             {expandedHobby === 'drinks' && (
               <div className="p-8">
-                <span className="text-6xl block mb-6">🍹</span>
+                <div className="w-20 h-20 rounded-2xl flex items-center justify-center mb-6" style={{ background: darkMode ? 'rgba(91, 163, 181, 0.2)' : 'rgba(91, 163, 181, 0.15)' }}>
+                  <Wine className="w-10 h-10" style={{ color: '#5BA3B5' }} />
+                </div>
                 <h3 className="text-2xl font-semibold mb-4" style={{ color: theme.text, fontFamily: "'Instrument Serif', Georgia, serif" }}>Drink Creations</h3>
                 <div className="space-y-4 text-base" style={{ color: theme.textMuted }}>
                   <p>
@@ -1946,8 +2200,11 @@ const JuanitoDev = () => {
                   </p>
                 </div>
                 <div className="mt-6 p-4 rounded-2xl" style={{ background: darkMode ? 'rgba(91, 163, 181, 0.15)' : 'rgba(91, 163, 181, 0.15)' }}>
-                  <span className="text-sm font-medium" style={{ color: '#3D8A9C' }}>🥥 Current favorite: </span>
-                  <span className="text-sm" style={{ color: theme.textMuted }}>Coconut cold brew with a splash of vanilla</span>
+                  <span className="text-sm font-medium flex items-center gap-2" style={{ color: '#3D8A9C' }}>
+                    <Sparkles className="w-4 h-4" />
+                    Current favorite:
+                  </span>
+                  <span className="text-sm block mt-1" style={{ color: theme.textMuted }}>Coconut cold brew with a splash of vanilla</span>
                 </div>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {['Coconut Water', 'Cold Brew', 'Smoothies', 'Specialty Lattes', 'Refreshers'].map(drink => (
@@ -2011,7 +2268,7 @@ const JuanitoDev = () => {
                 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <link.icon className="w-5 h-5" />
+                <link.icon className="w-5 h-5" strokeWidth={2} />
               </motion.a>
             ))}
           </div>
@@ -2034,7 +2291,7 @@ const JuanitoDev = () => {
                   { Icon: Briefcase, title: 'Consulting', desc: 'Beverage industry strategy & insights', color: '#E07A5F' },
                   { Icon: Globe, title: 'Landing Pages', desc: 'Simple, beautiful web presence', color: '#5BA3B5' },
                   { Icon: Gamepad2, title: 'Game Development', desc: 'Simple to complex video games', color: '#81B29A' },
-                  { icon: '🏺', title: 'Custom Ceramics', desc: 'Handcrafted functional pieces', color: '#D4A574' },
+                  { Icon: Palette, title: 'Custom Ceramics', desc: 'Handcrafted functional pieces', color: '#D4A574' },
                   { Icon: Wrench, title: 'Personal Projects', desc: 'Bringing your ideas to life', color: '#9B59B6' }
                 ].map((service, i) => (
                   <div key={i} className="flex items-start gap-3 p-3 rounded-xl" style={{
@@ -2254,6 +2511,17 @@ const JuanitoDev = () => {
           }
           to {
             transform: rotate(360deg);
+          }
+        }
+        
+        @keyframes pulse {
+          0%, 100% {
+            transform: scale(1);
+            opacity: 0.4;
+          }
+          50% {
+            transform: scale(1.1);
+            opacity: 0.6;
           }
         }
         
