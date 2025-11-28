@@ -629,7 +629,7 @@ const JuanitoDev = () => {
       sub: 'Quantum consciousness',
       mentor: { name: 'Roger Penrose', why: 'Orch-OR theory — consciousness arising from quantum processes in microtubules' },
       funFact: 'Currently obsessed with: the measurement problem and why observation seems to collapse possibilities into reality',
-      bookRec: '📖 Reading: "The Emperor\'s New Mind"'
+      bookRec: '📚 Next: "The Emperor\'s New Mind"'
     },
     {
       id: 'psychology',
@@ -647,7 +647,7 @@ const JuanitoDev = () => {
       sub: 'What is real?',
       mentor: { name: 'Immanuel Kant', why: 'We can never know things as they truly are — only as they appear through our senses' },
       funFact: 'The question that keeps me up: if our senses evolved for survival, not truth, what are we actually missing?',
-      bookRec: '📖 Exploring: Epistemology & Metaphysics'
+      bookRec: '📚 Exploring: Epistemology & Metaphysics'
     },
     {
       id: 'systems',
@@ -656,7 +656,7 @@ const JuanitoDev = () => {
       sub: 'Emergence & design',
       mentor: { name: 'Donella Meadows', why: 'Thinking in Systems — the most practical framework for understanding anything complex' },
       funFact: 'I see feedback loops everywhere now. Supply chains, coffee shops, relationships — it\'s all systems.',
-      bookRec: '📖 Reading: "Thinking in Systems"'
+      bookRec: '📚 Next: "Thinking in Systems"'
     }
   ];
 
@@ -727,8 +727,10 @@ const JuanitoDev = () => {
           Juan Hernandez
         </span>
         <div className="flex gap-6 text-sm items-center" style={{ color: theme.textSubtle }}>
-          <a href="#about" onClick={(e) => scrollToSection(e, 'about')} className="hover:opacity-70 transition-opacity cursor-pointer">About</a>
-          <a href="#interests" onClick={(e) => scrollToSection(e, 'interests')} className="hover:opacity-70 transition-opacity cursor-pointer">Interests</a>
+          <a href="#about" onClick={(e) => scrollToSection(e, 'about')} className="hover:opacity-70 transition-opacity cursor-pointer hidden md:block">About</a>
+          <a href="#experience" onClick={(e) => scrollToSection(e, 'experience')} className="hover:opacity-70 transition-opacity cursor-pointer">Experience</a>
+          <a href="#projects" onClick={(e) => scrollToSection(e, 'projects')} className="hover:opacity-70 transition-opacity cursor-pointer">Projects</a>
+          <a href="#interests" onClick={(e) => scrollToSection(e, 'interests')} className="hover:opacity-70 transition-opacity cursor-pointer hidden md:block">Interests</a>
           <a href="#hobbies" onClick={(e) => scrollToSection(e, 'hobbies')} className="hover:opacity-70 transition-opacity cursor-pointer">Hobbies</a>
           <a href="#connect" onClick={(e) => scrollToSection(e, 'connect')} className="hover:opacity-70 transition-opacity cursor-pointer">Connect</a>
           
@@ -751,12 +753,33 @@ const JuanitoDev = () => {
       <section className="min-h-screen flex items-center justify-center px-4 md:px-8 pt-24 md:pt-20 relative overflow-hidden">
         
         <div className="max-w-3xl text-center relative z-10">
-          <div className="inline-block px-5 py-2 rounded-full text-xs tracking-widest uppercase mb-8 relative" style={{
-            background: darkMode ? 'rgba(255,255,255,0.1)' : '#F5EDE6',
-            color: theme.textSubtle,
-            border: `2px dashed ${darkMode ? 'rgba(255,255,255,0.2)' : '#D4C4B0'}`
-          }}>
-            Polymath in progress ✨
+          <div 
+            className={`inline-block px-6 py-3 rounded-full mb-8 relative ${darkMode ? 'neon-flicker' : ''}`}
+            style={{
+              background: darkMode 
+                ? 'rgba(20, 20, 50, 0.9)'
+                : 'linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%)',
+              color: darkMode ? '#81B29A' : '#5B8C5A',
+              border: darkMode 
+                ? '2px solid #81B29A'
+                : '1px solid rgba(0,0,0,0.08)',
+              boxShadow: darkMode 
+                ? '0 0 10px #81B29A, 0 0 20px rgba(129, 178, 154, 0.5), 0 0 40px rgba(129, 178, 154, 0.3)'
+                : '0 4px 12px rgba(0,0,0,0.08)',
+              fontFamily: darkMode ? "'Instrument Serif', Georgia, serif" : 'inherit',
+              fontSize: '0.875rem',
+              letterSpacing: darkMode ? '0.05em' : 'normal'
+            }}
+          >
+            {darkMode && (
+              <div 
+                className="absolute inset-0 rounded-full opacity-30 blur-xl neon-glow"
+                style={{ background: '#81B29A' }}
+              />
+            )}
+            <span className="relative z-10">
+              📖 Currently reading: <span style={{ fontStyle: 'italic' }}>The Selfish Gene</span>
+            </span>
           </div>
           <h1 className="text-4xl md:text-7xl font-light leading-tight mb-4" style={{
             fontFamily: "'Instrument Serif', Georgia, serif",
@@ -798,151 +821,388 @@ const JuanitoDev = () => {
         </div>
       </section>
 
-      {/* About */}
-      <section id="about" className="min-h-screen px-4 md:px-8 py-20 md:py-24 relative z-10" style={{ scrollMarginTop: '80px' }}>
+      {/* About / Background */}
+      <section id="about" className="py-20 md:py-24 px-4 md:px-8 relative z-10" style={{ scrollMarginTop: '80px' }}>
         <div className="max-w-5xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-start">
+          <div className="flex items-center gap-3 mb-6">
+            <span className="text-xs tracking-widest uppercase" style={{ color: theme.textSubtle }}>01</span>
+            <div className="w-8 h-0.5" style={{ background: darkMode ? 'rgba(255,255,255,0.2)' : '#D4C4B0' }} />
+            <span className="text-xs tracking-widest uppercase" style={{ color: theme.textSubtle }}>Background</span>
+          </div>
+          <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="flex items-center gap-3 mb-6">
-                <span className="text-xs tracking-widest uppercase" style={{ color: theme.textSubtle }}>01</span>
-                <div className="w-8 h-0.5" style={{ background: darkMode ? 'rgba(255,255,255,0.2)' : '#D4C4B0' }} />
-                <span className="text-xs tracking-widest uppercase" style={{ color: theme.textSubtle }}>Background</span>
-              </div>
               <h2 className="text-3xl md:text-4xl font-light leading-snug mb-8" style={{
                 fontFamily: "'Instrument Serif', Georgia, serif",
                 color: theme.text
               }}>
-                I grew up in Caguana, Utuado — surrounded by Taíno heritage and wild coffee trees.
+                I grew up in Caguana, Utuado — surrounded by Taíno heritage, citrus hybrids, coffee, wild raspberries, and a fully functioning animal farm.
               </h2>
               <Squiggle color="#81B29A" width={80} />
               <div className="space-y-6 text-base leading-relaxed mt-8" style={{ color: theme.textMuted }}>
                 <p>
-                  I've been in specialty coffee and beverage for almost 20 years now. Started behind the bar, 
-                  opened my own café, ran operations at Blue Bottle, then made the jump to sales.
+                  Puerto Rico shaped how I see the world. The mountains, the culture, the resilience of the people — 
+                  it all comes with me wherever I go.
                 </p>
                 <p>
-                  These days I'm focused on national accounts and building beverage programs that 
-                  actually make sense for operators.
+                  I studied Computer Science, but found my first real passion behind an espresso machine. 
+                  That led me down a path I never expected — from barista to café owner to beverage industry executive.
+                </p>
+                <p>
+                  Now based in Brooklyn, I'm an aspiring polymath — still chasing that intersection of craft, technology, and human connection.
                 </p>
               </div>
             </div>
-            
-            {/* Current Role */}
-            <div className="space-y-6">
-              <div className="p-8 rounded-3xl relative overflow-hidden" style={{ 
-                background: darkMode 
-                  ? 'linear-gradient(135deg, rgba(30, 30, 60, 0.9) 0%, rgba(20, 50, 40, 0.9) 100%)'
-                  : 'linear-gradient(135deg, #FFF8F0 0%, #E8F5E8 50%, #FDF3E7 100%)',
-                border: `3px solid ${theme.cardBorder}`,
-                boxShadow: `8px 8px 0px ${theme.cardShadow}`
-              }}>
-                {/* Decorative background pattern */}
-                <div className="absolute inset-0 opacity-5" style={{
-                  backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23${darkMode ? 'ffffff' : '5B8C5A'}' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-                }} />
+            <div className="flex justify-center">
+              <div className="relative">
+                <div className="w-64 h-80 rounded-3xl overflow-hidden" style={{
+                  border: `3px solid ${theme.cardBorder}`,
+                  boxShadow: `8px 8px 0px ${theme.cardShadow}`
+                }}>
+                  <img 
+                    src="/juan.jpg" 
+                    alt="Juan in a blue cloud sweater holding a fancy drink"
+                    className="w-full h-full object-cover object-top"
+                  />
+                </div>
+                <div className="absolute -bottom-4 -right-4 px-4 py-2 rounded-full text-sm" style={{
+                  background: '#81B29A',
+                  color: 'white',
+                  boxShadow: '0 2px 8px rgba(129, 178, 154, 0.4)'
+                }}>
+                  📍 Brooklyn, NY
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Experience */}
+      <section id="experience" className="py-20 md:py-24 px-4 md:px-8 relative z-10" style={{ background: theme.sectionAlt, scrollMarginTop: '80px' }}>
+        <div className="max-w-5xl mx-auto">
+          <div className="flex items-center gap-3 mb-6">
+            <span className="text-xs tracking-widest uppercase" style={{ color: theme.textSubtle }}>02</span>
+            <div className="w-8 h-0.5" style={{ background: darkMode ? 'rgba(255,255,255,0.2)' : '#D4C4B0' }} />
+            <span className="text-xs tracking-widest uppercase" style={{ color: theme.textSubtle }}>Experience</span>
+          </div>
+          <h2 className="text-3xl md:text-4xl font-light leading-snug mb-4" style={{
+            fontFamily: "'Instrument Serif', Georgia, serif",
+            color: theme.text
+          }}>
+            Almost 20 years in specialty coffee & beverage
+          </h2>
+          <Squiggle color="#E07A5F" width={100} />
+          
+          <div className="grid md:grid-cols-2 gap-8 mt-12">
+            {/* Current Adventure */}
+            <div className="p-8 rounded-3xl relative overflow-hidden" style={{ 
+              background: darkMode 
+                ? 'linear-gradient(135deg, #1a1a3e 0%, #24243e 100%)'
+                : 'linear-gradient(135deg, #FFF8F0 0%, #FAF6F1 50%, #FDF3E7 100%)',
+              border: `3px solid ${theme.cardBorder}`,
+              boxShadow: `8px 8px 0px ${theme.cardShadow}`
+            }}>
+              <div className="absolute inset-0 opacity-5" style={{
+                backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23${darkMode ? 'ffffff' : 'E07A5F'}' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+              }} />
+              
+              <div className="relative z-10">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-medium mb-6" style={{
+                  background: darkMode 
+                    ? 'linear-gradient(135deg, #E07A5F 0%, #c96a52 100%)'
+                    : 'linear-gradient(135deg, #E07A5F 0%, #d4705a 100%)',
+                  color: 'white',
+                  boxShadow: '0 2px 8px rgba(224, 122, 95, 0.4)'
+                }}>
+                  <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
+                  Current Adventure
+                </div>
                 
-                <div className="absolute top-3 right-3">
-                  <KawaiiCoconut />
-                </div>
-                <div className="relative z-10">
-                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-medium mb-6" style={{
-                    background: 'linear-gradient(135deg, #81B29A 0%, #5B8C5A 100%)',
-                    color: 'white',
-                    boxShadow: '0 2px 8px rgba(129, 178, 154, 0.4)'
-                  }}>
-                    <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
-                    Current Adventure
-                  </div>
-                  
-                  <h3 className="text-2xl font-medium mb-2" style={{ 
-                    fontFamily: "'Instrument Serif', Georgia, serif",
-                    color: theme.text
-                  }}>
-                    Vita Coco 🥥
-                  </h3>
-                  <h3 className="text-3xl font-medium mb-6" style={{ 
-                    fontFamily: "'Instrument Serif', Georgia, serif",
-                    color: theme.text
-                  }}>
-                    Director of Foodservice Commercial Sales
-                  </h3>
-                  
-                  <p className="text-sm mb-6 leading-relaxed" style={{ color: theme.textMuted }}>
-                    Leading the charge to bring coconut water into restaurants, coffee shops, and QSRs across the country. 
-                    It's about more than sales — it's about building beverage programs that actually work for operators.
-                  </p>
-                  
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {['National Accounts', 'QSR', 'Coffee Chains', 'R&D', 'Trade Shows'].map(tag => (
-                      <span key={tag} className="px-3 py-1 rounded-full text-xs" style={{
-                        background: darkMode ? 'rgba(129, 178, 154, 0.2)' : 'rgba(129, 178, 154, 0.15)',
-                        color: '#5B8C5A',
-                        border: '1px solid rgba(129, 178, 154, 0.3)'
-                      }}>
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  
-                  <p className="text-xs flex items-center gap-2" style={{ color: theme.textSubtle }}>
-                    <span>📍</span> New York City
-                  </p>
-                </div>
-              </div>
-
-              <div className="p-6 rounded-2xl" style={{ 
-                background: theme.inputBg,
-                border: `2px solid ${darkMode ? 'rgba(129, 178, 154, 0.2)' : 'rgba(129, 178, 154, 0.3)'}`
-              }}>
-                <span className="text-xs tracking-widest uppercase block mb-4 flex items-center gap-2" style={{ color: theme.textSubtle }}>
-                  <span>⚡</span> The day-to-day
-                </span>
-                <div className="space-y-3">
-                  {[
-                    { emoji: '🧪', text: 'Collaborating with R&D teams to create signature drinks' },
-                    { emoji: '🤝', text: 'Building relationships with national accounts like Starbucks, Chick-fil-A, Dutch Bros' },
-                    { emoji: '🥤', text: 'Designing beverage programs that fit operator needs' },
-                    { emoji: '🎯', text: 'Strategic account planning and market expansion' },
-                    { emoji: '✈️', text: 'Trade shows and industry events across the country' }
-                  ].map((item, i) => (
-                    <div key={i} className="flex items-start gap-3 p-2 rounded-lg transition-colors hover:bg-black/5">
-                      <span className="text-lg">{item.emoji}</span>
-                      <span className="text-sm" style={{ color: theme.textMuted }}>{item.text}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Journey */}
-              <div className="p-6 rounded-2xl" style={{ 
-                background: darkMode ? 'rgba(30, 30, 60, 0.6)' : 'linear-gradient(180deg, #F5EDE6 0%, #FAF6F1 100%)',
-                border: `2px solid ${theme.cardBorder}`
-              }}>
-                <span className="text-xs tracking-widest uppercase block mb-5" style={{ color: theme.textSubtle }}>
-                  The journey here
-                </span>
-                <div className="space-y-4">
-                  {journey.map((stop, i) => (
-                    <div key={i} className="flex items-start gap-4 group">
-                      <div className="w-10 h-10 rounded-xl flex items-center justify-center text-lg transition-transform group-hover:scale-110 group-hover:rotate-6 flex-shrink-0 mt-1" style={{
-                        background: darkMode ? 'rgba(255,255,255,0.1)' : '#FFF8F0',
-                        border: `2px solid ${theme.cardBorder}`
-                      }}>
-                        {stop.icon}
-                      </div>
-                      <div className="flex-1">
-                        <p className="font-semibold text-sm" style={{ color: theme.text }}>{stop.company}</p>
-                        <p className="text-xs" style={{ color: theme.textMuted }}>{stop.role}</p>
-                        {stop.role2 && (
-                          <p className="text-xs" style={{ color: theme.textMuted }}>{stop.role2}</p>
-                        )}
-                        <p className="text-xs mt-1 italic" style={{ color: theme.textSubtle }}>{stop.detail}</p>
-                      </div>
-                    </div>
+                <h3 className="text-2xl font-medium mb-2" style={{ 
+                  fontFamily: "'Instrument Serif', Georgia, serif",
+                  color: theme.text
+                }}>
+                  Vita Coco 🥥
+                </h3>
+                <h3 className="text-xl font-medium mb-6" style={{ 
+                  fontFamily: "'Instrument Serif', Georgia, serif",
+                  color: theme.text
+                }}>
+                  Director of Foodservice Commercial Sales
+                </h3>
+                
+                <p className="text-sm mb-6 leading-relaxed" style={{ color: theme.textMuted }}>
+                  Leading the charge to bring coconut water into restaurants, coffee shops, and QSRs across the country. 
+                  Building beverage programs that actually work for operators.
+                </p>
+                
+                <div className="flex flex-wrap gap-2">
+                  {['National Accounts', 'QSR', 'Coffee Chains', 'R&D'].map(tag => (
+                    <span key={tag} className="px-3 py-1 rounded-full text-xs" style={{
+                      background: darkMode ? 'rgba(224, 122, 95, 0.2)' : 'rgba(224, 122, 95, 0.15)',
+                      color: '#E07A5F',
+                      border: '1px solid rgba(224, 122, 95, 0.3)'
+                    }}>
+                      {tag}
+                    </span>
                   ))}
                 </div>
               </div>
             </div>
+
+            {/* Journey */}
+            <div className="p-6 rounded-2xl" style={{ 
+              background: darkMode ? '#1a1a3e' : 'linear-gradient(180deg, #F5EDE6 0%, #FAF6F1 100%)',
+              border: `2px solid ${theme.cardBorder}`
+            }}>
+              <span className="text-xs tracking-widest uppercase block mb-5" style={{ color: theme.textSubtle }}>
+                The journey here
+              </span>
+              <div className="space-y-4">
+                {journey.map((stop, i) => (
+                  <div key={i} className="flex items-start gap-4 group">
+                    <div className="w-10 h-10 rounded-xl flex items-center justify-center text-lg transition-transform group-hover:scale-110 group-hover:rotate-6 flex-shrink-0 mt-1" style={{
+                      background: darkMode ? 'rgba(255,255,255,0.1)' : '#FFF8F0',
+                      border: `2px solid ${theme.cardBorder}`
+                    }}>
+                      {stop.icon}
+                    </div>
+                    <div className="flex-1">
+                      <p className="font-semibold text-sm" style={{ color: theme.text }}>{stop.company}</p>
+                      <p className="text-xs" style={{ color: theme.textMuted }}>{stop.role}</p>
+                      {stop.role2 && (
+                        <p className="text-xs" style={{ color: theme.textMuted }}>{stop.role2}</p>
+                      )}
+                      <p className="text-xs mt-1 italic" style={{ color: theme.textSubtle }}>{stop.detail}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Day to day */}
+          <div className="mt-8 p-6 rounded-2xl" style={{ 
+            background: theme.inputBg,
+            border: `2px solid ${darkMode ? 'rgba(224, 122, 95, 0.2)' : 'rgba(224, 122, 95, 0.3)'}`
+          }}>
+            <span className="text-xs tracking-widest uppercase block mb-4 flex items-center gap-2" style={{ color: theme.textSubtle }}>
+              <span>⚡</span> The day-to-day
+            </span>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+              {[
+                { emoji: '🧪', text: 'Collaborating with R&D on signature drinks' },
+                { emoji: '🤝', text: 'Building national account relationships' },
+                { emoji: '🥤', text: 'Designing beverage programs' },
+                { emoji: '🎯', text: 'Strategic account planning' },
+                { emoji: '✈️', text: 'Trade shows across the country' },
+                { emoji: '📊', text: 'Market expansion strategy' }
+              ].map((item, i) => (
+                <div key={i} className="flex items-start gap-3 p-2 rounded-lg">
+                  <span className="text-lg">{item.emoji}</span>
+                  <span className="text-sm" style={{ color: theme.textMuted }}>{item.text}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Projects */}
+      <section id="projects" className="py-20 md:py-24 px-4 md:px-8 relative z-10" style={{ scrollMarginTop: '80px' }}>
+        <div className="max-w-5xl mx-auto">
+          <div className="flex items-center gap-3 mb-6">
+            <span className="text-xs tracking-widest uppercase" style={{ color: theme.textSubtle }}>03</span>
+            <div className="w-8 h-0.5" style={{ background: darkMode ? 'rgba(255,255,255,0.2)' : '#D4C4B0' }} />
+            <span className="text-xs tracking-widest uppercase" style={{ color: theme.textSubtle }}>Projects</span>
+          </div>
+          <h2 className="text-3xl md:text-4xl font-light leading-snug mb-4" style={{
+            fontFamily: "'Instrument Serif', Georgia, serif",
+            color: theme.text
+          }}>
+            Things I'm building
+          </h2>
+          <Squiggle color="#E07A5F" width={100} />
+          
+          <div className="grid md:grid-cols-2 gap-6 mt-12">
+            {/* Primordial Soup */}
+            <div className="rounded-3xl overflow-hidden group transition-all duration-300 hover:translate-y-[-4px]" style={{
+              background: 'linear-gradient(135deg, #1a2a2a 0%, #0d1a1a 100%)',
+              border: `3px solid #2a4a4a`,
+              boxShadow: `8px 8px 0px ${darkMode ? '#0a1a1a' : '#1a3a3a'}`
+            }}>
+              <div className="h-48 relative overflow-hidden">
+                <BubblingMolecules />
+                <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#0d1a1a] to-transparent" />
+                <div className="absolute bottom-4 left-4">
+                  <span className="px-2 py-1 rounded-full text-xs font-medium" style={{ 
+                    background: 'rgba(129, 178, 154, 0.2)', 
+                    color: '#81B29A',
+                    border: '1px solid rgba(129, 178, 154, 0.3)'
+                  }}>
+                    In Development
+                  </span>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-2 text-white" style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}>
+                  Primordial Soup 🧬
+                </h3>
+                <p className="text-sm mb-4" style={{ color: '#a0b0b0' }}>
+                  An evolution simulation where chemistry meets life. Watch elements combine, molecules form, and creatures emerge.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {['Phaser', 'React', 'WebGL'].map(tech => (
+                    <span key={tech} className="px-2 py-1 rounded text-xs" style={{ 
+                      background: 'rgba(255,255,255,0.1)', 
+                      color: '#8090a0' 
+                    }}>
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* This Portfolio */}
+            <div className="rounded-3xl overflow-hidden group transition-all duration-300 hover:translate-y-[-4px]" style={{
+              background: theme.cardBg,
+              border: `3px solid ${theme.cardBorder}`,
+              boxShadow: `8px 8px 0px ${theme.cardShadow}`
+            }}>
+              <div className="h-48 relative overflow-hidden" style={{
+                background: darkMode 
+                  ? 'linear-gradient(180deg, #0a0a20 0%, #1a1a3e 100%)'
+                  : 'linear-gradient(180deg, #5B9BD5 0%, #87CEEB 100%)'
+              }}>
+                <div className="absolute bottom-4 left-4">
+                  <span className="px-2 py-1 rounded-full text-xs font-medium" style={{ 
+                    background: 'rgba(224, 122, 95, 0.2)', 
+                    color: '#E07A5F',
+                    border: '1px solid rgba(224, 122, 95, 0.3)'
+                  }}>
+                    Live
+                  </span>
+                </div>
+                <div className="absolute top-4 right-4 w-8 h-8 rounded-full" style={{
+                  background: darkMode ? '#FFFACD' : '#FFD700',
+                  boxShadow: '0 0 15px rgba(255, 215, 0, 0.5)'
+                }} />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-2" style={{ color: theme.text, fontFamily: "'Instrument Serif', Georgia, serif" }}>
+                  juanito.dev 🌴
+                </h3>
+                <p className="text-sm mb-4" style={{ color: theme.textMuted }}>
+                  This site! A personal portfolio with Borderlands-style art, dark mode, and way too many coconuts.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {['React', 'Tailwind', 'Vite'].map(tech => (
+                    <span key={tech} className="px-2 py-1 rounded text-xs" style={{ 
+                      background: darkMode ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)', 
+                      color: theme.textSubtle 
+                    }}>
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Beverage Calculator */}
+            <div className="rounded-3xl overflow-hidden group transition-all duration-300 hover:translate-y-[-4px]" style={{
+              background: theme.cardBg,
+              border: `3px solid ${theme.cardBorder}`,
+              boxShadow: `8px 8px 0px ${theme.cardShadow}`
+            }}>
+              <div className="h-48 relative overflow-hidden flex items-center justify-center" style={{
+                background: darkMode 
+                  ? 'linear-gradient(135deg, rgba(91, 163, 181, 0.2) 0%, rgba(61, 138, 156, 0.3) 100%)'
+                  : 'linear-gradient(135deg, #E0F4FF 0%, #B0E0E6 100%)'
+              }}>
+                <span className="text-6xl">🥤</span>
+                <div className="absolute bottom-4 left-4">
+                  <span className="px-2 py-1 rounded-full text-xs font-medium" style={{ 
+                    background: 'rgba(91, 163, 181, 0.2)', 
+                    color: '#3D8A9C',
+                    border: '1px solid rgba(91, 163, 181, 0.3)'
+                  }}>
+                    Planned
+                  </span>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-2" style={{ color: theme.text, fontFamily: "'Instrument Serif', Georgia, serif" }}>
+                  Beverage Program Calculator
+                </h3>
+                <p className="text-sm mb-4" style={{ color: theme.textMuted }}>
+                  A tool to help operators build profitable beverage programs. Cost analysis, menu optimization, and ROI projections.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {['React', 'TypeScript', 'Charts'].map(tech => (
+                    <span key={tech} className="px-2 py-1 rounded text-xs" style={{ 
+                      background: darkMode ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)', 
+                      color: theme.textSubtle 
+                    }}>
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Recipe Scaler */}
+            <div className="rounded-3xl overflow-hidden group transition-all duration-300 hover:translate-y-[-4px]" style={{
+              background: theme.cardBg,
+              border: `3px solid ${theme.cardBorder}`,
+              boxShadow: `8px 8px 0px ${theme.cardShadow}`
+            }}>
+              <div className="h-48 relative overflow-hidden flex items-center justify-center" style={{
+                background: darkMode 
+                  ? 'linear-gradient(135deg, rgba(224, 122, 95, 0.2) 0%, rgba(180, 90, 70, 0.3) 100%)'
+                  : 'linear-gradient(135deg, #FFF0E8 0%, #FFE0D0 100%)'
+              }}>
+                <span className="text-6xl">📊</span>
+                <div className="absolute bottom-4 left-4">
+                  <span className="px-2 py-1 rounded-full text-xs font-medium" style={{ 
+                    background: 'rgba(224, 122, 95, 0.2)', 
+                    color: '#E07A5F',
+                    border: '1px solid rgba(224, 122, 95, 0.3)'
+                  }}>
+                    Planned
+                  </span>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-2" style={{ color: theme.text, fontFamily: "'Instrument Serif', Georgia, serif" }}>
+                  Recipe Scaler
+                </h3>
+                <p className="text-sm mb-4" style={{ color: theme.textMuted }}>
+                  Scale recipes up or down with smart unit conversions. Built for home cooks and professional kitchens alike.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {['React', 'PWA', 'Offline'].map(tech => (
+                    <span key={tech} className="px-2 py-1 rounded text-xs" style={{ 
+                      background: darkMode ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)', 
+                      color: theme.textSubtle 
+                    }}>
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* More coming */}
+          <div className="mt-8 p-6 rounded-2xl text-center" style={{ 
+            background: darkMode ? 'rgba(255,255,255,0.03)' : 'rgba(0,0,0,0.02)',
+            border: `2px dashed ${darkMode ? 'rgba(255,255,255,0.1)' : '#D4C4B0'}`
+          }}>
+            <span className="text-2xl block mb-2">🚧</span>
+            <p className="text-sm" style={{ color: theme.textSubtle }}>
+              More projects in the works — always building something new.
+            </p>
           </div>
         </div>
       </section>
@@ -951,7 +1211,7 @@ const JuanitoDev = () => {
       <section id="interests" className="py-20 md:py-24 px-4 md:px-8 relative z-10" style={{ background: theme.sectionAlt, scrollMarginTop: '80px' }}>
         <div className="max-w-5xl mx-auto">
           <div className="flex items-center gap-3 mb-6">
-            <span className="text-xs tracking-widest uppercase" style={{ color: theme.textSubtle }}>02</span>
+            <span className="text-xs tracking-widest uppercase" style={{ color: theme.textSubtle }}>04</span>
             <div className="w-8 h-0.5" style={{ background: darkMode ? 'rgba(255,255,255,0.2)' : '#D4C4B0' }} />
             <span className="text-xs tracking-widest uppercase" style={{ color: theme.textSubtle }}>Interests</span>
           </div>
@@ -1043,10 +1303,10 @@ const JuanitoDev = () => {
       </section>
 
       {/* Hobbies */}
-      <section id="hobbies" className="py-20 md:py-24 px-4 md:px-8 relative z-10" style={{ background: theme.sectionAlt, scrollMarginTop: '80px' }}>
+      <section id="hobbies" className="py-20 md:py-24 px-4 md:px-8 relative z-10" style={{ scrollMarginTop: '80px' }}>
         <div className="max-w-5xl mx-auto">
           <div className="flex items-center gap-3 mb-6">
-            <span className="text-xs tracking-widest uppercase" style={{ color: theme.textSubtle }}>03</span>
+            <span className="text-xs tracking-widest uppercase" style={{ color: theme.textSubtle }}>05</span>
             <div className="w-8 h-0.5" style={{ background: darkMode ? 'rgba(255,255,255,0.2)' : '#D4C4B0' }} />
             <span className="text-xs tracking-widest uppercase" style={{ color: theme.textSubtle }}>Hobbies</span>
           </div>
@@ -1346,20 +1606,25 @@ const JuanitoDev = () => {
                 <h3 className="text-2xl font-semibold mb-4" style={{ color: theme.text, fontFamily: "'Instrument Serif', Georgia, serif" }}>Cooking</h3>
                 <div className="space-y-4 text-base" style={{ color: theme.textMuted }}>
                   <p>
-                    Cooking elaborate meals is how I show love. There's something deeply satisfying about transforming quality ingredients into an experience for people you care about.
+                    I love food. Cooking elaborate meals is how I show love — there's something deeply satisfying about transforming quality ingredients into an experience for people you care about.
                   </p>
                   <p>
-                    I gravitate toward two poles: <strong style={{ color: theme.text }}>premium preparations</strong> (wagyu, dry-aged steaks, whole fish) and <strong style={{ color: theme.text }}>Puerto Rican comfort food</strong> (mofongo, pernil, arroz con gandules).
+                    I enjoy working with different cuisines, but my favorites come from <strong style={{ color: theme.text }}>Asia</strong> and <strong style={{ color: theme.text }}>Latin America</strong>. The bold flavors, the layering of spices, the way a dish can tell a story about a place and its people.
                   </p>
                   <p>
-                    Recent highlight: Thanksgiving wagyu tenderloin with roasted vegetables, homemade chimichurri, and a red wine reduction. Six hours of prep, gone in forty minutes of pure joy.
+                    Whether it's mastering a new technique or recreating something I tasted while traveling, the kitchen is where I experiment and unwind.
                   </p>
                 </div>
-                <div className="mt-6 flex gap-4">
-                  <span className="text-4xl">🥩</span>
-                  <span className="text-4xl">🍚</span>
-                  <span className="text-4xl">🧄</span>
-                  <span className="text-4xl">🌿</span>
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {['Asian', 'Latin American', 'Puerto Rican', 'Japanese', 'Thai', 'Mexican'].map(cuisine => (
+                    <span key={cuisine} className="px-3 py-1 rounded-full text-sm" style={{ 
+                      background: darkMode ? 'rgba(224, 122, 95, 0.2)' : 'rgba(224, 122, 95, 0.15)',
+                      color: '#E07A5F',
+                      border: '1px solid rgba(224, 122, 95, 0.3)'
+                    }}>
+                      {cuisine}
+                    </span>
+                  ))}
                 </div>
               </div>
             )}
@@ -1379,8 +1644,12 @@ const JuanitoDev = () => {
                     Currently exploring: emergence theory, complexity science, and how these ideas apply to game design and simulation. Every game world is a system waiting to surprise you.
                   </p>
                 </div>
-                <div className="mt-6 p-4 rounded-2xl" style={{ background: darkMode ? 'rgba(61, 64, 91, 0.3)' : 'rgba(61, 64, 91, 0.1)' }}>
-                  <span className="text-sm font-medium" style={{ color: '#3D405B' }}>📖 Currently reading: </span>
+                <div className="mt-6 p-4 rounded-2xl" style={{ background: darkMode ? 'rgba(129, 178, 154, 0.1)' : 'rgba(129, 178, 154, 0.15)' }}>
+                  <span className="text-sm font-medium" style={{ color: '#81B29A' }}>📖 Currently reading: </span>
+                  <span className="text-sm" style={{ color: theme.textMuted }}>The Selfish Gene by Richard Dawkins</span>
+                </div>
+                <div className="mt-3 p-4 rounded-2xl" style={{ background: darkMode ? 'rgba(61, 64, 91, 0.2)' : 'rgba(61, 64, 91, 0.08)' }}>
+                  <span className="text-sm font-medium" style={{ color: '#3D405B' }}>📚 Next in line: </span>
                   <span className="text-sm" style={{ color: theme.textMuted }}>Thinking in Systems by Donella Meadows</span>
                 </div>
               </div>
@@ -1423,22 +1692,24 @@ const JuanitoDev = () => {
       )}
 
       {/* Connect */}
-      <section id="connect" className="py-20 md:py-24 px-4 md:px-8 relative z-10" style={{ background: darkMode ? 'rgba(10, 10, 30, 0.9)' : '#3D2914', color: '#FDF8F3', scrollMarginTop: '80px' }}>
-        <div className="max-w-3xl mx-auto text-center">
+      <section id="connect" className="py-20 md:py-24 px-4 md:px-8 relative z-10" style={{ background: darkMode ? '#0a0a1e' : '#3D405B', color: '#FDF8F3', scrollMarginTop: '80px' }}>
+        <div className="max-w-4xl mx-auto">
           <div className="flex items-center justify-center gap-3 mb-6">
-            <span className="text-xs tracking-widest uppercase" style={{ color: darkMode ? '#7070A0' : '#A08060' }}>04</span>
-            <div className="w-8 h-0.5" style={{ background: darkMode ? 'rgba(255,255,255,0.2)' : '#5D4037' }} />
-            <span className="text-xs tracking-widest uppercase" style={{ color: darkMode ? '#7070A0' : '#A08060' }}>Connect</span>
+            <span className="text-xs tracking-widest uppercase" style={{ color: darkMode ? '#7070A0' : 'rgba(255,255,255,0.5)' }}>06</span>
+            <div className="w-8 h-0.5" style={{ background: darkMode ? 'rgba(255,255,255,0.2)' : 'rgba(255,255,255,0.3)' }} />
+            <span className="text-xs tracking-widest uppercase" style={{ color: darkMode ? '#7070A0' : 'rgba(255,255,255,0.5)' }}>Connect</span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-light mb-4" style={{
+          <h2 className="text-3xl md:text-4xl font-light mb-4 text-center" style={{
             fontFamily: "'Instrument Serif', Georgia, serif"
           }}>
             Let's connect
           </h2>
-          <div className="flex justify-center mb-12">
+          <div className="flex justify-center mb-8">
             <Squiggle color="#E07A5F" width={80} />
           </div>
-          <div className="flex gap-4 justify-center flex-wrap">
+          
+          {/* Social Links */}
+          <div className="flex gap-4 justify-center flex-wrap mb-12">
             {[
               { label: 'LinkedIn', href: 'https://www.linkedin.com/in/juan-hernandez-a3880276/' },
               { label: 'Instagram', href: 'https://www.instagram.com/mytoehertz/' },
@@ -1452,7 +1723,7 @@ const JuanitoDev = () => {
                 className="px-6 py-3 rounded-full text-sm font-medium transition-all duration-300"
                 style={{
                   background: 'transparent',
-                  border: `2px solid ${darkMode ? 'rgba(255,255,255,0.2)' : '#5D4037'}`,
+                  border: `2px solid rgba(255,255,255,0.3)`,
                   color: '#FDF8F3',
                   textDecoration: 'none'
                 }}
@@ -1462,14 +1733,191 @@ const JuanitoDev = () => {
                 }}
                 onMouseLeave={(e) => {
                   e.target.style.background = 'transparent';
-                  e.target.style.borderColor = darkMode ? 'rgba(255,255,255,0.2)' : '#5D4037';
+                  e.target.style.borderColor = 'rgba(255,255,255,0.3)';
                 }}
               >
                 {link.label}
               </a>
             ))}
           </div>
-          <p className="mt-16 text-xs" style={{ color: darkMode ? '#5050A0' : '#6B5344' }}>
+
+          {/* Services Section */}
+          <div className="grid md:grid-cols-2 gap-8 mt-16">
+            {/* Services Offered */}
+            <div className="p-6 rounded-2xl" style={{
+              background: darkMode ? 'rgba(255,255,255,0.05)' : 'rgba(255,255,255,0.1)',
+              border: `2px solid rgba(255,255,255,0.15)`
+            }}>
+              <h3 className="text-xl font-medium mb-4" style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}>
+                Services
+              </h3>
+              <p className="text-sm mb-6" style={{ color: 'rgba(255,255,255,0.6)' }}>
+                Limited availability for select projects.
+              </p>
+              <div className="space-y-3">
+                {[
+                  { icon: '💼', title: 'Consulting', desc: 'Beverage industry strategy & insights' },
+                  { icon: '🌐', title: 'Landing Pages', desc: 'Simple, beautiful web presence' },
+                  { icon: '🎮', title: 'Game Development', desc: 'Simple to complex video games' },
+                  { icon: '🏺', title: 'Custom Ceramics', desc: 'Handcrafted functional pieces' },
+                  { icon: '🛠️', title: 'Personal Projects', desc: 'Bringing your ideas to life' }
+                ].map((service, i) => (
+                  <div key={i} className="flex items-start gap-3 p-3 rounded-xl" style={{
+                    background: darkMode ? 'rgba(255,255,255,0.03)' : 'rgba(255,255,255,0.08)'
+                  }}>
+                    <span className="text-xl">{service.icon}</span>
+                    <div>
+                      <p className="font-medium text-sm">{service.title}</p>
+                      <p className="text-xs" style={{ color: 'rgba(255,255,255,0.5)' }}>{service.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              
+              {/* Availability Status - Neon Red Flash */}
+              <div className="mt-6 flex justify-center">
+                <div 
+                  className="red-neon-flicker px-4 py-2 rounded-lg text-sm font-medium"
+                  style={{
+                    background: 'transparent',
+                    border: '2px solid #E07A5F',
+                    color: '#E07A5F',
+                    fontFamily: "'Instrument Serif', Georgia, serif",
+                    letterSpacing: '0.05em'
+                  }}
+                >
+                  🚫 Currently not taking work
+                </div>
+              </div>
+            </div>
+
+            {/* Contact Form */}
+            <div className="p-6 rounded-2xl" style={{
+              background: darkMode ? 'rgba(255,255,255,0.05)' : 'rgba(255,255,255,0.1)',
+              border: `2px solid rgba(255,255,255,0.15)`
+            }}>
+              <h3 className="text-xl font-medium mb-4" style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}>
+                Get in touch
+              </h3>
+              <form 
+                name="contact" 
+                method="POST" 
+                data-netlify="true"
+                netlify-honeypot="bot-field"
+                className="space-y-4"
+              >
+                <input type="hidden" name="form-name" value="contact" />
+                <p className="hidden">
+                  <label>Don't fill this out: <input name="bot-field" /></label>
+                </p>
+                
+                <div>
+                  <label className="block text-xs uppercase tracking-wider mb-2" style={{ color: 'rgba(255,255,255,0.5)' }}>
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    required
+                    disabled
+                    className="w-full px-4 py-3 rounded-xl text-sm transition-all"
+                    style={{
+                      background: darkMode ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0.12)',
+                      border: `2px solid rgba(255,255,255,0.15)`,
+                      color: '#FDF8F3',
+                      opacity: 0.5,
+                      cursor: 'not-allowed'
+                    }}
+                    placeholder="Your name"
+                  />
+                </div>
+                
+                <div>
+                  <label className="block text-xs uppercase tracking-wider mb-2" style={{ color: 'rgba(255,255,255,0.5)' }}>
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    required
+                    disabled
+                    className="w-full px-4 py-3 rounded-xl text-sm transition-all"
+                    style={{
+                      background: darkMode ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0.12)',
+                      border: `2px solid rgba(255,255,255,0.15)`,
+                      color: '#FDF8F3',
+                      opacity: 0.5,
+                      cursor: 'not-allowed'
+                    }}
+                    placeholder="your@email.com"
+                  />
+                </div>
+                
+                <div>
+                  <label className="block text-xs uppercase tracking-wider mb-2" style={{ color: 'rgba(255,255,255,0.5)' }}>
+                    Project Type
+                  </label>
+                  <select
+                    name="project-type"
+                    disabled
+                    className="w-full px-4 py-3 rounded-xl text-sm"
+                    style={{
+                      background: darkMode ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0.12)',
+                      border: `2px solid rgba(255,255,255,0.15)`,
+                      color: '#FDF8F3',
+                      opacity: 0.5,
+                      cursor: 'not-allowed'
+                    }}
+                  >
+                    <option value="">Select a service...</option>
+                    <option value="consulting">Consulting</option>
+                    <option value="landing-page">Landing Page</option>
+                    <option value="game-dev">Game Development</option>
+                    <option value="ceramics">Custom Ceramics</option>
+                    <option value="personal-project">Personal Project</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+                
+                <div>
+                  <label className="block text-xs uppercase tracking-wider mb-2" style={{ color: 'rgba(255,255,255,0.5)' }}>
+                    Message
+                  </label>
+                  <textarea
+                    name="message"
+                    required
+                    disabled
+                    rows={4}
+                    className="w-full px-4 py-3 rounded-xl text-sm resize-none"
+                    style={{
+                      background: darkMode ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0.12)',
+                      border: `2px solid rgba(255,255,255,0.15)`,
+                      color: '#FDF8F3',
+                      opacity: 0.5,
+                      cursor: 'not-allowed'
+                    }}
+                    placeholder="Tell me about your project..."
+                  />
+                </div>
+                
+                <button
+                  type="submit"
+                  disabled
+                  className="w-full py-3 rounded-xl text-sm font-medium transition-all"
+                  style={{
+                    background: 'rgba(224, 122, 95, 0.3)',
+                    border: '2px solid rgba(224, 122, 95, 0.3)',
+                    color: 'rgba(253, 248, 243, 0.5)',
+                    cursor: 'not-allowed'
+                  }}
+                >
+                  Send Message (Unavailable)
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <p className="mt-16 text-xs text-center" style={{ color: 'rgba(255,255,255,0.4)' }}>
             © 2024 Juan Hernandez · Built with coffee and curiosity
           </p>
         </div>
@@ -1566,6 +2014,53 @@ const JuanitoDev = () => {
         
         .animate-wiggle {
           animation: wiggle 0.3s ease-in-out;
+        }
+        
+        @keyframes neonFlicker {
+          0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+            opacity: 1;
+            text-shadow: 0 0 10px #81B29A, 0 0 20px #81B29A, 0 0 30px #81B29A;
+            box-shadow: 0 0 10px #81B29A, 0 0 20px rgba(129, 178, 154, 0.5), 0 0 40px rgba(129, 178, 154, 0.3), inset 0 0 10px rgba(129, 178, 154, 0.1);
+          }
+          20%, 24%, 55% {
+            opacity: 0.6;
+            text-shadow: none;
+            box-shadow: 0 0 5px #81B29A, 0 0 10px rgba(129, 178, 154, 0.3);
+          }
+        }
+        
+        .neon-flicker {
+          animation: neonFlicker 4s infinite;
+        }
+        
+        @keyframes neonGlow {
+          0%, 100% {
+            opacity: 0.3;
+          }
+          50% {
+            opacity: 0.5;
+          }
+        }
+        
+        .neon-glow {
+          animation: neonGlow 2s ease-in-out infinite;
+        }
+        
+        @keyframes redNeonFlicker {
+          0%, 18%, 22%, 25%, 53%, 57%, 100% {
+            opacity: 1;
+            text-shadow: 0 0 10px #E07A5F, 0 0 20px #E07A5F, 0 0 30px #E07A5F;
+            box-shadow: 0 0 10px #E07A5F, 0 0 20px rgba(224, 122, 95, 0.5), 0 0 40px rgba(224, 122, 95, 0.3);
+          }
+          20%, 24%, 55% {
+            opacity: 0.5;
+            text-shadow: 0 0 5px #E07A5F;
+            box-shadow: 0 0 5px #E07A5F, 0 0 10px rgba(224, 122, 95, 0.3);
+          }
+        }
+        
+        .red-neon-flicker {
+          animation: redNeonFlicker 3s infinite;
         }
         
         ::selection {
