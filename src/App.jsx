@@ -830,60 +830,84 @@ const JuanitoDev = () => {
             {/* Current Role */}
             <div className="space-y-6">
               <div className="p-8 rounded-3xl relative overflow-hidden" style={{ 
-                background: darkMode ? 'rgba(30, 30, 60, 0.8)' : 'linear-gradient(135deg, #FFF8F0 0%, #FDF3E7 100%)',
+                background: darkMode 
+                  ? 'linear-gradient(135deg, rgba(30, 30, 60, 0.9) 0%, rgba(20, 50, 40, 0.9) 100%)'
+                  : 'linear-gradient(135deg, #FFF8F0 0%, #E8F5E8 50%, #FDF3E7 100%)',
                 border: `3px solid ${theme.cardBorder}`,
                 boxShadow: `8px 8px 0px ${theme.cardShadow}`
               }}>
+                {/* Decorative background pattern */}
+                <div className="absolute inset-0 opacity-5" style={{
+                  backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23${darkMode ? 'ffffff' : '5B8C5A'}' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+                }} />
+                
                 <div className="absolute top-3 right-3">
                   <KawaiiCoconut />
                 </div>
                 <div className="relative z-10">
-                  <div className="inline-block px-3 py-1 rounded-full text-xs font-medium mb-4" style={{
-                    background: '#81B29A',
-                    color: 'white'
+                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-medium mb-6" style={{
+                    background: 'linear-gradient(135deg, #81B29A 0%, #5B8C5A 100%)',
+                    color: 'white',
+                    boxShadow: '0 2px 8px rgba(129, 178, 154, 0.4)'
                   }}>
+                    <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
                     Current Adventure
                   </div>
-                  <h3 className="text-xl font-medium mb-3" style={{ 
+                  
+                  <h3 className="text-2xl font-medium mb-2" style={{ 
                     fontFamily: "'Instrument Serif', Georgia, serif",
                     color: theme.text
                   }}>
                     Vita Coco 🥥
                   </h3>
-                  <h3 className="text-2xl font-medium" style={{ 
+                  <h3 className="text-3xl font-medium mb-6" style={{ 
                     fontFamily: "'Instrument Serif', Georgia, serif",
                     color: theme.text
                   }}>
-                    Director of Foodservice
+                    Director of Foodservice Commercial Sales
                   </h3>
-                  <h3 className="text-2xl font-medium mb-4" style={{ 
-                    fontFamily: "'Instrument Serif', Georgia, serif",
-                    color: theme.text
-                  }}>
-                    Commercial Sales
-                  </h3>
-                  <p className="text-sm" style={{ color: theme.textSubtle }}>New York City</p>
+                  
+                  <p className="text-sm mb-6 leading-relaxed" style={{ color: theme.textMuted }}>
+                    Leading the charge to bring coconut water into restaurants, coffee shops, and QSRs across the country. 
+                    It's about more than sales — it's about building beverage programs that actually work for operators.
+                  </p>
+                  
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {['National Accounts', 'QSR', 'Coffee Chains', 'R&D', 'Trade Shows'].map(tag => (
+                      <span key={tag} className="px-3 py-1 rounded-full text-xs" style={{
+                        background: darkMode ? 'rgba(129, 178, 154, 0.2)' : 'rgba(129, 178, 154, 0.15)',
+                        color: '#5B8C5A',
+                        border: '1px solid rgba(129, 178, 154, 0.3)'
+                      }}>
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  
+                  <p className="text-xs flex items-center gap-2" style={{ color: theme.textSubtle }}>
+                    <span>📍</span> New York City
+                  </p>
                 </div>
               </div>
 
               <div className="p-6 rounded-2xl" style={{ 
                 background: theme.inputBg,
-                border: `2px dashed ${darkMode ? 'rgba(255,255,255,0.1)' : '#D4C4B0'}`
+                border: `2px solid ${darkMode ? 'rgba(129, 178, 154, 0.2)' : 'rgba(129, 178, 154, 0.3)'}`
               }}>
-                <span className="text-xs tracking-widest uppercase block mb-4" style={{ color: theme.textSubtle }}>
-                  The day-to-day
+                <span className="text-xs tracking-widest uppercase block mb-4 flex items-center gap-2" style={{ color: theme.textSubtle }}>
+                  <span>⚡</span> The day-to-day
                 </span>
                 <div className="space-y-3">
                   {[
-                    'Dreaming up new drinks with R&D teams',
-                    'Building beverage programs that operators actually want',
-                    'Connecting coconut water with coffee, smoothies & QSR',
-                    'Making the case at trade shows across the country',
-                    'Growing relationships with national accounts'
+                    { emoji: '🧪', text: 'Collaborating with R&D teams to create signature drinks' },
+                    { emoji: '🤝', text: 'Building relationships with national accounts like Starbucks, Chick-fil-A, Dutch Bros' },
+                    { emoji: '🥤', text: 'Designing beverage programs that fit operator needs' },
+                    { emoji: '🎯', text: 'Strategic account planning and market expansion' },
+                    { emoji: '✈️', text: 'Trade shows and industry events across the country' }
                   ].map((item, i) => (
-                    <div key={i} className="flex items-start gap-3">
-                      <span className="text-lg" style={{ color: '#E07A5F' }}>→</span>
-                      <span className="text-sm" style={{ color: theme.textMuted }}>{item}</span>
+                    <div key={i} className="flex items-start gap-3 p-2 rounded-lg transition-colors hover:bg-black/5">
+                      <span className="text-lg">{item.emoji}</span>
+                      <span className="text-sm" style={{ color: theme.textMuted }}>{item.text}</span>
                     </div>
                   ))}
                 </div>
@@ -1049,7 +1073,7 @@ const JuanitoDev = () => {
                 <span className="text-4xl block mb-4">🏺</span>
                 <h3 className="font-semibold text-lg mb-2" style={{ color: theme.text }}>Ceramics</h3>
                 <p className="text-sm mb-4" style={{ color: theme.textMuted }}>
-                  Amateur ceramicist exploring wheel throwing and hand-building. There's something meditative about shaping clay.
+                  My way of slowing down. There's something grounding about working with clay — no screens, just your hands shaping something real.
                 </p>
                 <span className="text-xs" style={{ color: theme.accent }}>Click to learn more →</span>
               </div>
@@ -1130,7 +1154,37 @@ const JuanitoDev = () => {
           </div>
 
           {/* Second row of hobbies */}
-          <div className="grid md:grid-cols-2 gap-6 mt-6">
+          <div className="grid md:grid-cols-3 gap-6 mt-6">
+            {/* Drink Creations */}
+            <div 
+              className="rounded-3xl overflow-hidden cursor-pointer transition-all duration-300 hover:scale-[1.02]"
+              style={{
+                background: theme.cardBg,
+                border: `3px solid ${theme.cardBorder}`,
+                boxShadow: `6px 6px 0px ${theme.cardShadow}`
+              }}
+              onClick={() => setExpandedHobby(expandedHobby === 'drinks' ? null : 'drinks')}
+            >
+              <div className="p-6">
+                <span className="text-4xl block mb-4">🍹</span>
+                <h3 className="font-semibold text-lg mb-2" style={{ color: theme.text }}>Drink Creations</h3>
+                <p className="text-sm mb-4" style={{ color: theme.textMuted }}>
+                  Part of my job, part of my passion. Developing signature beverages and pushing what coconut water can do.
+                </p>
+                <span className="text-xs" style={{ color: theme.accent }}>Click to learn more →</span>
+              </div>
+              <div className="h-32 flex flex-col items-center justify-center relative overflow-hidden" style={{ 
+                background: 'linear-gradient(180deg, #5BA3B5 0%, #3D8A9C 100%)',
+                borderTop: '2px solid #7BC3D5'
+              }}>
+                <div className="flex gap-2 items-center">
+                  <span className="text-3xl">🥥</span>
+                  <span className="text-xl" style={{ color: 'white' }}>+</span>
+                  <span className="text-3xl">☕</span>
+                </div>
+              </div>
+            </div>
+
             {/* Cooking */}
             <div 
               className="rounded-3xl overflow-hidden cursor-pointer transition-all duration-300 hover:scale-[1.02]"
@@ -1141,24 +1195,23 @@ const JuanitoDev = () => {
               }}
               onClick={() => setExpandedHobby(expandedHobby === 'cooking' ? null : 'cooking')}
             >
-              <div className="p-6 flex gap-6">
-                <div className="flex-1">
-                  <span className="text-4xl block mb-4">👨‍🍳</span>
-                  <h3 className="font-semibold text-lg mb-2" style={{ color: theme.text }}>Cooking</h3>
-                  <p className="text-sm mb-4" style={{ color: theme.textMuted }}>
-                    Elaborate meals are my love language. From wagyu preparations to Puerto Rican classics, the kitchen is where I experiment.
-                  </p>
-                  <span className="text-xs" style={{ color: theme.accent }}>Click to learn more →</span>
-                </div>
-                <div className="w-32 h-32 rounded-2xl flex items-center justify-center" style={{ 
-                  background: darkMode ? 'rgba(40, 40, 70, 0.8)' : '#FAF6F1'
-                }}>
-                  <span className="text-6xl">🥩</span>
-                </div>
+              <div className="p-6">
+                <span className="text-4xl block mb-4">👨‍🍳</span>
+                <h3 className="font-semibold text-lg mb-2" style={{ color: theme.text }}>Cooking</h3>
+                <p className="text-sm mb-4" style={{ color: theme.textMuted }}>
+                  Elaborate meals are my love language. Wagyu, Puerto Rican classics, and everything in between.
+                </p>
+                <span className="text-xs" style={{ color: theme.accent }}>Click to learn more →</span>
+              </div>
+              <div className="h-32 flex flex-col items-center justify-center" style={{ 
+                background: darkMode ? 'rgba(40, 40, 70, 0.8)' : 'linear-gradient(180deg, #FAF6F1 0%, #F5EDE6 100%)',
+                borderTop: `2px dashed ${darkMode ? 'rgba(255,255,255,0.1)' : '#D4C4B0'}`
+              }}>
+                <span className="text-4xl">🥩</span>
               </div>
             </div>
 
-            {/* Reading/Learning */}
+            {/* Systems Thinking */}
             <div 
               className="rounded-3xl overflow-hidden cursor-pointer transition-all duration-300 hover:scale-[1.02]"
               style={{
@@ -1168,20 +1221,19 @@ const JuanitoDev = () => {
               }}
               onClick={() => setExpandedHobby(expandedHobby === 'reading' ? null : 'reading')}
             >
-              <div className="p-6 flex gap-6">
-                <div className="flex-1">
-                  <span className="text-4xl block mb-4">📚</span>
-                  <h3 className="font-semibold text-lg mb-2" style={{ color: theme.text }}>Systems Thinking</h3>
-                  <p className="text-sm mb-4" style={{ color: theme.textMuted }}>
-                    Obsessed with how things connect. From Buckminster Fuller's synergetics to emergence theory — patterns are everywhere.
-                  </p>
-                  <span className="text-xs" style={{ color: theme.accent }}>Click to learn more →</span>
-                </div>
-                <div className="w-32 h-32 rounded-2xl flex items-center justify-center" style={{ 
-                  background: darkMode ? 'rgba(40, 40, 70, 0.8)' : '#FAF6F1'
-                }}>
-                  <span className="text-6xl">🔮</span>
-                </div>
+              <div className="p-6">
+                <span className="text-4xl block mb-4">📚</span>
+                <h3 className="font-semibold text-lg mb-2" style={{ color: theme.text }}>Systems Thinking</h3>
+                <p className="text-sm mb-4" style={{ color: theme.textMuted }}>
+                  Obsessed with how things connect. Patterns are everywhere once you know how to look.
+                </p>
+                <span className="text-xs" style={{ color: theme.accent }}>Click to learn more →</span>
+              </div>
+              <div className="h-32 flex flex-col items-center justify-center" style={{ 
+                background: darkMode ? 'rgba(40, 40, 70, 0.8)' : 'linear-gradient(180deg, #FAF6F1 0%, #F5EDE6 100%)',
+                borderTop: `2px dashed ${darkMode ? 'rgba(255,255,255,0.1)' : '#D4C4B0'}`
+              }}>
+                <span className="text-4xl">🔮</span>
               </div>
             </div>
           </div>
@@ -1221,18 +1273,18 @@ const JuanitoDev = () => {
                 <h3 className="text-2xl font-semibold mb-4" style={{ color: theme.text, fontFamily: "'Instrument Serif', Georgia, serif" }}>Ceramics</h3>
                 <div className="space-y-4 text-base" style={{ color: theme.textMuted }}>
                   <p>
-                    I started ceramics as a way to disconnect from screens and work with my hands. There's something deeply satisfying about transforming a lump of clay into something functional and beautiful.
+                    Ceramics is my way of slowing down. In a world of screens and notifications, there's something grounding about sitting at a wheel with nothing but clay and your hands.
                   </p>
                   <p>
-                    Currently focusing on wheel throwing — mostly mugs and bowls. The centering process is incredibly meditative. When you're at the wheel, your mind has to be fully present.
+                    It forces presence. You can't rush centering. You can't multitask while pulling walls. Your mind quiets because it has to — the clay demands your full attention.
                   </p>
                   <p>
-                    Next goal: mastering glazing techniques. There's a whole chemistry aspect to it that appeals to my systems-thinking brain.
+                    I'm drawn to functional pieces — mugs, bowls, things you actually use. There's something special about drinking your morning coffee from something you made yourself.
                   </p>
                 </div>
                 <div className="mt-6 p-4 rounded-2xl" style={{ background: darkMode ? 'rgba(129, 178, 154, 0.1)' : 'rgba(129, 178, 154, 0.15)' }}>
-                  <span className="text-sm font-medium" style={{ color: '#81B29A' }}>📍 Currently learning at: </span>
-                  <span className="text-sm" style={{ color: theme.textMuted }}>Local studio in Brooklyn</span>
+                  <span className="text-sm font-medium" style={{ color: '#81B29A' }}>🎯 Current focus: </span>
+                  <span className="text-sm" style={{ color: theme.textMuted }}>Wheel throwing — getting consistent wall thickness</span>
                 </div>
               </div>
             )}
@@ -1330,6 +1382,39 @@ const JuanitoDev = () => {
                 <div className="mt-6 p-4 rounded-2xl" style={{ background: darkMode ? 'rgba(61, 64, 91, 0.3)' : 'rgba(61, 64, 91, 0.1)' }}>
                   <span className="text-sm font-medium" style={{ color: '#3D405B' }}>📖 Currently reading: </span>
                   <span className="text-sm" style={{ color: theme.textMuted }}>Thinking in Systems by Donella Meadows</span>
+                </div>
+              </div>
+            )}
+
+            {expandedHobby === 'drinks' && (
+              <div className="p-8">
+                <span className="text-6xl block mb-6">🍹</span>
+                <h3 className="text-2xl font-semibold mb-4" style={{ color: theme.text, fontFamily: "'Instrument Serif', Georgia, serif" }}>Drink Creations</h3>
+                <div className="space-y-4 text-base" style={{ color: theme.textMuted }}>
+                  <p>
+                    This is where work and passion blur. Part of my job at Vita Coco is developing signature beverages with R&D teams — figuring out how coconut water can elevate coffee drinks, smoothies, and specialty beverages.
+                  </p>
+                  <p>
+                    I love the creative challenge: balancing flavor profiles, understanding what operators need for their menus, and creating something people actually want to order twice.
+                  </p>
+                  <p>
+                    The barista background helps. Twenty years of understanding extraction, texture, and flavor layering translates directly to beverage development. I know what works behind the bar because I've been there.
+                  </p>
+                </div>
+                <div className="mt-6 p-4 rounded-2xl" style={{ background: darkMode ? 'rgba(91, 163, 181, 0.15)' : 'rgba(91, 163, 181, 0.15)' }}>
+                  <span className="text-sm font-medium" style={{ color: '#3D8A9C' }}>🥥 Current favorite: </span>
+                  <span className="text-sm" style={{ color: theme.textMuted }}>Coconut cold brew with a splash of vanilla</span>
+                </div>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {['Coconut Water', 'Cold Brew', 'Smoothies', 'Specialty Lattes', 'Refreshers'].map(drink => (
+                    <span key={drink} className="px-3 py-1 rounded-full text-sm" style={{ 
+                      background: darkMode ? 'rgba(91, 163, 181, 0.2)' : 'rgba(91, 163, 181, 0.15)',
+                      color: '#3D8A9C',
+                      border: '1px solid rgba(91, 163, 181, 0.3)'
+                    }}>
+                      {drink}
+                    </span>
+                  ))}
                 </div>
               </div>
             )}
