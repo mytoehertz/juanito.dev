@@ -131,85 +131,146 @@ const STARS_DATA = [
 ];
 
 // Borderlands-style Mountain Range - Smoother curves with trees
-const MountainRange = ({ darkMode }) => (
+// Parallax Mountain Layers - Each layer moves at different speed
+const MountainLayerFar = ({ darkMode, offsetY = 0 }) => (
+  <svg 
+    className="absolute bottom-0 w-full transition-transform duration-100" 
+    height="250" 
+    viewBox="0 0 1440 250" 
+    preserveAspectRatio="none"
+    style={{ transform: `translateY(${offsetY}px)` }}
+  >
+    <defs>
+      <linearGradient id="farMountainGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stopColor={darkMode ? '#2a2a5a' : '#8BB3B3'} />
+        <stop offset="100%" stopColor={darkMode ? '#1a1a3e' : '#7BA3A3'} />
+      </linearGradient>
+    </defs>
+    <path 
+      d="M0 250 L0 160 Q60 145 120 155 Q180 165 240 140 Q320 105 400 130 Q480 155 560 115 Q640 75 720 100 Q800 125 880 95 Q960 65 1040 85 Q1120 105 1200 80 Q1280 55 1360 75 Q1400 90 1440 100 L1440 250 Z" 
+      fill="url(#farMountainGrad)"
+      stroke={darkMode ? '#3a3a6a' : '#6A9292'}
+      strokeWidth="2"
+    />
+    {/* Mist/haze overlay for depth */}
+    <path 
+      d="M0 250 L0 180 Q200 170 400 185 Q600 200 800 175 Q1000 150 1200 170 Q1400 190 1440 180 L1440 250 Z" 
+      fill={darkMode ? 'rgba(10,10,30,0.3)' : 'rgba(255,255,255,0.2)'}
+    />
+  </svg>
+);
+
+const MountainLayerMid = ({ darkMode, offsetY = 0 }) => (
+  <svg 
+    className="absolute bottom-0 w-full transition-transform duration-100" 
+    height="200" 
+    viewBox="0 0 1440 200" 
+    preserveAspectRatio="none"
+    style={{ transform: `translateY(${offsetY}px)` }}
+  >
+    <defs>
+      <linearGradient id="midMountainGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stopColor={darkMode ? '#1a1a3e' : '#6A9292'} />
+        <stop offset="100%" stopColor={darkMode ? '#12122a' : '#5A8282'} />
+      </linearGradient>
+      <filter id="mountainShadow" x="-20%" y="-20%" width="140%" height="140%">
+        <feDropShadow dx="0" dy="-4" stdDeviation="6" floodColor={darkMode ? '#000' : '#2A4A4A'} floodOpacity="0.3"/>
+      </filter>
+    </defs>
+    <path 
+      d="M0 200 L0 130 Q80 145 160 115 Q240 85 320 110 Q400 135 480 95 Q560 55 640 80 Q720 105 800 70 Q880 35 960 60 Q1040 85 1120 55 Q1200 25 1280 50 Q1360 75 1440 60 L1440 200 Z" 
+      fill="url(#midMountainGrad)"
+      stroke={darkMode ? '#2a2a4a' : '#4A7272'}
+      strokeWidth="3"
+      filter="url(#mountainShadow)"
+    />
+    {/* Abstract trees - triangular pines */}
+    <g fill={darkMode ? '#0a1a0a' : '#2A4A30'} stroke={darkMode ? '#1a2a1a' : '#1A3A20'} strokeWidth="2">
+      <path d="M200 130 L210 95 L220 130 Z" />
+      <path d="M215 130 L225 100 L235 130 Z" />
+      <path d="M400 110 L412 70 L424 110 Z" />
+      <path d="M418 110 L428 80 L438 110 Z" />
+      <path d="M700 85 L712 50 L724 85 Z" />
+      <path d="M715 85 L725 55 L735 85 Z" />
+      <path d="M730 85 L740 60 L750 85 Z" />
+      <path d="M1000 75 L1012 40 L1024 75 Z" />
+      <path d="M1015 75 L1025 45 L1035 75 Z" />
+      <path d="M1250 65 L1262 30 L1274 65 Z" />
+      <path d="M1268 65 L1278 38 L1288 65 Z" />
+    </g>
+    {/* Tree highlight strokes */}
+    <g fill={darkMode ? '#1a3a1a' : '#3D6040'}>
+      <path d="M205 120 L210 100 L215 120 Z" />
+      <path d="M405 100 L412 78 L419 100 Z" />
+      <path d="M705 75 L712 58 L719 75 Z" />
+      <path d="M1005 65 L1012 48 L1019 65 Z" />
+      <path d="M1255 55 L1262 38 L1269 55 Z" />
+    </g>
+  </svg>
+);
+
+const MountainLayerNear = ({ darkMode, offsetY = 0 }) => (
+  <svg 
+    className="absolute bottom-0 w-full transition-transform duration-100" 
+    height="150" 
+    viewBox="0 0 1440 150" 
+    preserveAspectRatio="none"
+    style={{ transform: `translateY(${offsetY}px)` }}
+  >
+    <defs>
+      <linearGradient id="nearMountainGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stopColor={darkMode ? '#12122a' : '#4A7272'} />
+        <stop offset="100%" stopColor={darkMode ? '#0a0a1a' : '#3D6363'} />
+      </linearGradient>
+      <filter id="nearShadow" x="-20%" y="-20%" width="140%" height="140%">
+        <feDropShadow dx="0" dy="-6" stdDeviation="10" floodColor={darkMode ? '#000' : '#1A3A3A'} floodOpacity="0.4"/>
+      </filter>
+    </defs>
+    <path 
+      d="M0 150 L0 100 Q80 115 160 85 Q240 55 320 80 Q400 105 480 70 Q560 35 640 55 Q720 75 800 45 Q880 15 960 40 Q1040 65 1120 35 Q1200 5 1280 30 Q1360 55 1440 40 L1440 150 Z" 
+      fill="url(#nearMountainGrad)"
+      stroke={darkMode ? '#1a1a3a' : '#2A5050'}
+      strokeWidth="4"
+      filter="url(#nearShadow)"
+    />
+    {/* Closer, larger trees */}
+    <g fill={darkMode ? '#050a05' : '#1A3A20'} stroke={darkMode ? '#0a1a0a' : '#0A2A10'} strokeWidth="3">
+      <path d="M100 100 L118 50 L136 100 Z" />
+      <path d="M125 100 L140 60 L155 100 Z" />
+      <path d="M300 80 L320 30 L340 80 Z" />
+      <path d="M330 80 L345 45 L360 80 Z" />
+      <path d="M550 60 L570 15 L590 60 Z" />
+      <path d="M575 60 L590 25 L605 60 Z" />
+      <path d="M600 60 L612 30 L624 60 Z" />
+      <path d="M850 55 L870 10 L890 55 Z" />
+      <path d="M875 55 L890 20 L905 55 Z" />
+      <path d="M1100 50 L1120 5 L1140 50 Z" />
+      <path d="M1125 50 L1140 15 L1155 50 Z" />
+      <path d="M1150 50 L1162 22 L1174 50 Z" />
+      <path d="M1350 55 L1368 15 L1386 55 Z" />
+      <path d="M1372 55 L1385 25 L1398 55 Z" />
+    </g>
+    {/* Tree highlights */}
+    <g fill={darkMode ? '#0a1a0a' : '#2A4A30'}>
+      <path d="M108 90 L118 58 L128 90 Z" />
+      <path d="M310 70 L320 40 L330 70 Z" />
+      <path d="M560 50 L570 25 L580 50 Z" />
+      <path d="M860 45 L870 20 L880 45 Z" />
+      <path d="M1110 40 L1120 15 L1130 40 Z" />
+      <path d="M1358 45 L1368 22 L1378 45 Z" />
+    </g>
+  </svg>
+);
+
+// Combined Mountain Range with Parallax
+const MountainRange = ({ darkMode, scrollOffset = 0 }) => (
   <div className="absolute bottom-0 left-0 right-0 pointer-events-none" style={{ zIndex: 1 }}>
-    {/* Far mountains - gentle rolling hills */}
-    <svg className="absolute bottom-0 w-full" height="250" viewBox="0 0 1440 250" preserveAspectRatio="none">
-      <path 
-        d="M0 250 L0 160 Q60 145 120 155 Q180 165 240 140 Q320 105 400 130 Q480 155 560 115 Q640 75 720 100 Q800 125 880 95 Q960 65 1040 85 Q1120 105 1200 80 Q1280 55 1360 75 Q1400 90 1440 100 L1440 250 Z" 
-        fill={darkMode ? '#1a1a3e' : '#7BA3A3'}
-        stroke={darkMode ? '#2a2a5a' : '#5A8282'}
-        strokeWidth="3"
-      />
-    </svg>
-    
-    {/* Mid mountains with trees */}
-    <svg className="absolute bottom-0 w-full" height="200" viewBox="0 0 1440 200" preserveAspectRatio="none">
-      <path 
-        d="M0 200 L0 130 Q80 145 160 115 Q240 85 320 110 Q400 135 480 95 Q560 55 640 80 Q720 105 800 70 Q880 35 960 60 Q1040 85 1120 55 Q1200 25 1280 50 Q1360 75 1440 60 L1440 200 Z" 
-        fill={darkMode ? '#12122a' : '#5A8282'}
-        stroke={darkMode ? '#1a1a3e' : '#3D6363'}
-        strokeWidth="4"
-      />
-      {/* Abstract trees - triangular pines */}
-      <g fill={darkMode ? '#0a1a0a' : '#2A4A30'} stroke={darkMode ? '#1a2a1a' : '#1A3A20'} strokeWidth="2">
-        <path d="M200 130 L210 95 L220 130 Z" />
-        <path d="M215 130 L225 100 L235 130 Z" />
-        <path d="M400 110 L412 70 L424 110 Z" />
-        <path d="M418 110 L428 80 L438 110 Z" />
-        <path d="M700 85 L712 50 L724 85 Z" />
-        <path d="M715 85 L725 55 L735 85 Z" />
-        <path d="M730 85 L740 60 L750 85 Z" />
-        <path d="M1000 75 L1012 40 L1024 75 Z" />
-        <path d="M1015 75 L1025 45 L1035 75 Z" />
-        <path d="M1250 65 L1262 30 L1274 65 Z" />
-        <path d="M1268 65 L1278 38 L1288 65 Z" />
-      </g>
-      {/* Tree highlight strokes */}
-      <g fill={darkMode ? '#1a3a1a' : '#3D6040'}>
-        <path d="M205 120 L210 100 L215 120 Z" />
-        <path d="M405 100 L412 78 L419 100 Z" />
-        <path d="M705 75 L712 58 L719 75 Z" />
-        <path d="M1005 65 L1012 48 L1019 65 Z" />
-        <path d="M1255 55 L1262 38 L1269 55 Z" />
-      </g>
-    </svg>
-    
-    {/* Near mountains with more trees */}
-    <svg className="absolute bottom-0 w-full" height="150" viewBox="0 0 1440 150" preserveAspectRatio="none">
-      <path 
-        d="M0 150 L0 100 Q80 115 160 85 Q240 55 320 80 Q400 105 480 70 Q560 35 640 55 Q720 75 800 45 Q880 15 960 40 Q1040 65 1120 35 Q1200 5 1280 30 Q1360 55 1440 40 L1440 150 Z" 
-        fill={darkMode ? '#0a0a1a' : '#3D6363'}
-        stroke={darkMode ? '#12122a' : '#2A4A4A'}
-        strokeWidth="5"
-      />
-      {/* Closer, larger trees */}
-      <g fill={darkMode ? '#050a05' : '#1A3A20'} stroke={darkMode ? '#0a1a0a' : '#0A2A10'} strokeWidth="3">
-        <path d="M100 100 L118 50 L136 100 Z" />
-        <path d="M125 100 L140 60 L155 100 Z" />
-        <path d="M300 80 L320 30 L340 80 Z" />
-        <path d="M330 80 L345 45 L360 80 Z" />
-        <path d="M550 60 L570 15 L590 60 Z" />
-        <path d="M575 60 L590 25 L605 60 Z" />
-        <path d="M600 60 L612 30 L624 60 Z" />
-        <path d="M850 55 L870 10 L890 55 Z" />
-        <path d="M875 55 L890 20 L905 55 Z" />
-        <path d="M1100 50 L1120 5 L1140 50 Z" />
-        <path d="M1125 50 L1140 15 L1155 50 Z" />
-        <path d="M1150 50 L1162 22 L1174 50 Z" />
-        <path d="M1350 55 L1368 15 L1386 55 Z" />
-        <path d="M1372 55 L1385 25 L1398 55 Z" />
-      </g>
-      {/* Tree highlights */}
-      <g fill={darkMode ? '#0a1a0a' : '#2A4A30'}>
-        <path d="M108 90 L118 58 L128 90 Z" />
-        <path d="M310 70 L320 40 L330 70 Z" />
-        <path d="M560 50 L570 25 L580 50 Z" />
-        <path d="M860 45 L870 20 L880 45 Z" />
-        <path d="M1110 40 L1120 15 L1130 40 Z" />
-        <path d="M1358 45 L1368 22 L1378 45 Z" />
-      </g>
-    </svg>
+    {/* Far mountains - slowest parallax */}
+    <MountainLayerFar darkMode={darkMode} offsetY={scrollOffset * 0.15} />
+    {/* Mid mountains - medium parallax */}
+    <MountainLayerMid darkMode={darkMode} offsetY={scrollOffset * 0.3} />
+    {/* Near mountains - fastest parallax */}
+    <MountainLayerNear darkMode={darkMode} offsetY={scrollOffset * 0.5} />
   </div>
 );
 
@@ -514,7 +575,7 @@ const Cloud = ({ top, left, scale, duration, delay }) => (
   </div>
 );
 
-const DaytimeSkyBackground = ({ scrollProgress }) => (
+const DaytimeSkyBackground = ({ scrollProgress, scrollY }) => (
   <div className="fixed inset-0 overflow-hidden pointer-events-none" style={{ zIndex: 0 }}>
     {/* Sky gradient */}
     <div 
@@ -532,9 +593,9 @@ const DaytimeSkyBackground = ({ scrollProgress }) => (
       <BorderlandsCloud key={i} {...cloud} />
     ))}
     
-    {/* Mountains - fade out as you scroll */}
+    {/* Mountains - fade out as you scroll with parallax */}
     <div style={{ opacity: 1 - scrollProgress }}>
-      <MountainRange darkMode={false} />
+      <MountainRange darkMode={false} scrollOffset={scrollY} />
     </div>
     
     {/* Islands - fade in as you scroll */}
@@ -542,7 +603,7 @@ const DaytimeSkyBackground = ({ scrollProgress }) => (
   </div>
 );
 
-const StarryBackground = ({ scrollProgress }) => (
+const StarryBackground = ({ scrollProgress, scrollY }) => (
   <div className="fixed inset-0 overflow-hidden pointer-events-none" style={{ zIndex: 0 }}>
     {/* Night sky gradient */}
     <div 
@@ -565,9 +626,9 @@ const StarryBackground = ({ scrollProgress }) => (
     {/* Borderlands Moon */}
     <BorderlandsMoon />
     
-    {/* Mountains - fade out as you scroll */}
+    {/* Mountains - fade out as you scroll with parallax */}
     <div style={{ opacity: 1 - scrollProgress }}>
-      <MountainRange darkMode={true} />
+      <MountainRange darkMode={true} scrollOffset={scrollY} />
     </div>
     
     {/* Islands - fade in as you scroll */}
@@ -580,10 +641,11 @@ const JuanitoDev = () => {
   const [expandedCard, setExpandedCard] = useState(null);
   const [darkMode, setDarkMode] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [scrollY, setScrollY] = useState(0);
   const [expandedHobby, setExpandedHobby] = useState(null);
   const containerRef = useRef(null);
 
-  // Track scroll progress for scenery transition
+  // Track scroll progress for scenery transition and parallax
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
@@ -594,6 +656,7 @@ const JuanitoDev = () => {
       // Transition from mountains to islands over the first 1.5 screen heights
       const progress = Math.min(scrollTop / (windowHeight * 1.5), 1);
       setScrollProgress(progress);
+      setScrollY(scrollTop);
     };
     
     container.addEventListener('scroll', handleScroll);
@@ -695,10 +758,10 @@ const JuanitoDev = () => {
     }}>
       
       {/* Starry background for dark mode */}
-      {darkMode && <StarryBackground scrollProgress={scrollProgress} />}
+      {darkMode && <StarryBackground scrollProgress={scrollProgress} scrollY={scrollY} />}
       
       {/* Daytime sky for light mode */}
-      {!darkMode && <DaytimeSkyBackground scrollProgress={scrollProgress} />}
+      {!darkMode && <DaytimeSkyBackground scrollProgress={scrollProgress} scrollY={scrollY} />}
       
       {/* Nav */}
       <nav className="fixed top-0 left-0 right-0 z-50 px-4 md:px-8 py-4 md:py-5 flex justify-between items-center" style={{
