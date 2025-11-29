@@ -1208,7 +1208,7 @@ const JuanitoDev = () => {
                   Director of Foodservice Commercial Sales
                 </h3>
                 
-                <p className="text-sm mb-6 leading-relaxed" style={{ color: theme.textMuted }}>
+                <p className="text-base md:text-sm mb-6 leading-relaxed" style={{ color: theme.textMuted }}>
                   Almost 20 years in Foodservice with a focus in Specialty Coffee and Beverage Programs.
                   Building solutions that actually work for operators.
                 </p>
@@ -1250,12 +1250,12 @@ const JuanitoDev = () => {
                       )}
                     </div>
                     <div className="flex-1 pb-2">
-                      <p className="font-semibold text-sm" style={{ color: theme.text }}>{stop.company}</p>
-                      <p className="text-xs" style={{ color: theme.textMuted }}>{stop.role}</p>
+                      <p className="font-semibold text-base md:text-sm" style={{ color: theme.text }}>{stop.company}</p>
+                      <p className="text-sm md:text-xs" style={{ color: theme.textMuted }}>{stop.role}</p>
                       {stop.role2 && (
-                        <p className="text-xs" style={{ color: theme.textMuted }}>{stop.role2}</p>
+                        <p className="text-sm md:text-xs" style={{ color: theme.textMuted }}>{stop.role2}</p>
                       )}
-                      <p className="text-xs mt-1 italic" style={{ color: theme.textSubtle }}>{stop.detail}</p>
+                      <p className="text-sm md:text-xs mt-1 italic" style={{ color: theme.textSubtle }}>{stop.detail}</p>
                     </div>
                   </div>
                 ))}
@@ -1282,7 +1282,7 @@ const JuanitoDev = () => {
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-3 p-2 rounded-lg">
                   <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style={{ background: '#E07A5F' }} />
-                  <span className="text-sm" style={{ color: theme.textMuted }}>{item}</span>
+                  <span className="text-base md:text-sm" style={{ color: theme.textMuted }}>{item}</span>
                 </div>
               ))}
             </div>
@@ -1405,7 +1405,7 @@ const JuanitoDev = () => {
                 <h3 className="text-xl font-semibold mb-2" style={{ color: theme.text, fontFamily: "'Instrument Serif', Georgia, serif" }}>
                   juanito.dev
                 </h3>
-                <p className="text-sm mb-4" style={{ color: theme.textMuted }}>
+                <p className="text-base md:text-sm mb-4" style={{ color: theme.textMuted }}>
                   A personal portfolio showcasing who I am and the things I enjoy spending time on.
                 </p>
                 <div className="flex flex-wrap gap-2">
@@ -1466,7 +1466,7 @@ const JuanitoDev = () => {
                 <h3 className="text-xl font-semibold mb-2" style={{ color: theme.text, fontFamily: "'Instrument Serif', Georgia, serif" }}>
                   Beverage Program Calculator
                 </h3>
-                <p className="text-sm mb-4" style={{ color: theme.textMuted }}>
+                <p className="text-base md:text-sm mb-4" style={{ color: theme.textMuted }}>
                   Calculate drink costs, pricing, and profit margins. Supports cocktails, mocktails, coffee, refreshers, and dirty sodas.
                 </p>
                 <div className="flex flex-wrap gap-2">
@@ -1527,7 +1527,7 @@ const JuanitoDev = () => {
                 <h3 className="text-xl font-semibold mb-2" style={{ color: theme.text, fontFamily: "'Instrument Serif', Georgia, serif" }}>
                   Recipe Scaler
                 </h3>
-                <p className="text-sm mb-4" style={{ color: theme.textMuted }}>
+                <p className="text-base md:text-sm mb-4" style={{ color: theme.textMuted }}>
                   Scale drinks from single servings to batches. Convert between oz, ml, cups, and more. Copy-ready output.
                 </p>
                 <div className="flex flex-wrap gap-2">
@@ -1587,7 +1587,7 @@ const JuanitoDev = () => {
                   <MapPin className="w-5 h-5" style={{ color: '#E07A5F' }} />
                   Foodservice Market Map
                 </h3>
-                <p className="text-sm mb-4" style={{ color: theme.textMuted }}>
+                <p className="text-base md:text-sm mb-4" style={{ color: theme.textMuted }}>
                   Interactive map of QSR & coffee chain locations. Track opportunities, filter by account, and visualize your pipeline.
                 </p>
                 <div className="flex flex-wrap gap-2">
@@ -1644,7 +1644,7 @@ const JuanitoDev = () => {
                   <Sparkles className="w-5 h-5" style={{ color: '#9B59B6' }} />
                   SipSignal
                 </h3>
-                <p className="text-sm mb-4" style={{ color: theme.textMuted }}>
+                <p className="text-base md:text-sm mb-4" style={{ color: theme.textMuted }}>
                   Beverage trend intelligence. Track emerging drinks, flavor profiles, and market signals from across the foodservice industry.
                 </p>
                 <div className="flex flex-wrap gap-2">
@@ -1674,7 +1674,7 @@ const JuanitoDev = () => {
               <p className="text-base font-medium mb-1" style={{ color: theme.text }}>
                 More on the way
               </p>
-              <p className="text-sm" style={{ color: theme.textMuted }}>
+              <p className="text-base md:text-sm" style={{ color: theme.textMuted }}>
                 Always building something new.
               </p>
             </div>
@@ -1729,7 +1729,7 @@ const JuanitoDev = () => {
                       <item.Icon className="w-6 h-6" style={{ color: item.color }} />
                     </div>
                     <h3 className="font-semibold text-lg mb-1" style={{ color: theme.text }}>{item.label}</h3>
-                    <p className="text-sm" style={{ color: theme.textSubtle }}>{item.sub}</p>
+                    <p className="text-base md:text-sm" style={{ color: theme.textSubtle }}>{item.sub}</p>
                   </div>
                   <span 
                     className="w-8 h-8 rounded-full flex items-center justify-center text-lg font-light transition-all duration-300"
@@ -1761,16 +1761,16 @@ const JuanitoDev = () => {
                     <div className="flex gap-3 mb-5">
                       <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0" style={{ background: '#E07A5F' }} />
                       <div>
-                        <h4 className="font-medium text-sm" style={{ color: theme.text }}>{item.mentor.name}</h4>
-                        <p className="text-sm" style={{ color: theme.textMuted }}>{item.mentor.why}</p>
+                        <h4 className="font-medium text-base md:text-sm" style={{ color: theme.text }}>{item.mentor.name}</h4>
+                        <p className="text-base md:text-sm" style={{ color: theme.textMuted }}>{item.mentor.why}</p>
                       </div>
                     </div>
                     
                     <div className="p-4 rounded-xl mb-4" style={{ background: theme.inputBg, border: `1px dashed ${darkMode ? 'rgba(255,255,255,0.1)' : '#D4C4B0'}` }}>
-                      <p className="text-sm italic" style={{ color: theme.textMuted }}>{item.funFact}</p>
+                      <p className="text-base md:text-sm italic" style={{ color: theme.textMuted }}>{item.funFact}</p>
                     </div>
                     
-                    <p className="text-xs flex items-center gap-2" style={{ color: theme.textSubtle }}>
+                    <p className="text-sm md:text-xs flex items-center gap-2" style={{ color: theme.textSubtle }}>
                       <BookOpen className="w-4 h-4" />
                       {item.bookRec}
                     </p>
@@ -1815,10 +1815,10 @@ const JuanitoDev = () => {
                     <Palette className="w-6 h-6" style={{ color: '#D4A574' }} />
                   </div>
                   <h3 className="font-semibold text-lg mb-2" style={{ color: theme.text }}>Ceramics</h3>
-                  <p className="text-sm mb-4" style={{ color: theme.textMuted }}>
+                  <p className="text-base md:text-sm mb-4" style={{ color: theme.textMuted }}>
                     My way of slowing down. There's something grounding about working with clay — no screens, just your hands shaping something real.
                   </p>
-                  <span className="text-xs" style={{ color: theme.accent }}>Click to learn more →</span>
+                  <span className="text-sm md:text-xs" style={{ color: theme.accent }}>Click to learn more →</span>
                 </div>
                 <div className="w-full md:w-48 h-40 md:h-auto flex items-center justify-center" style={{ 
                   background: darkMode ? 'rgba(40, 40, 70, 0.8)' : 'repeating-linear-gradient(45deg, #F5EDE6, #F5EDE6 10px, #FAF6F1 10px, #FAF6F1 20px)',
@@ -1847,10 +1847,10 @@ const JuanitoDev = () => {
                     <Gamepad2 className="w-6 h-6" style={{ color: '#81B29A' }} />
                   </div>
                   <h3 className="font-semibold text-lg mb-2" style={{ color: theme.text }}>Game Dev</h3>
-                  <p className="text-sm mb-4" style={{ color: theme.textMuted }}>
+                  <p className="text-base md:text-sm mb-4" style={{ color: theme.textMuted }}>
                     Building worlds where systems thinking meets play. Currently crafting "Primordial Soup" — an evolution sim.
                   </p>
-                  <span className="text-xs" style={{ color: theme.accent }}>Click to learn more →</span>
+                  <span className="text-sm md:text-xs" style={{ color: theme.accent }}>Click to learn more →</span>
                 </div>
                 <div className="w-full md:w-48 h-40 md:h-auto flex items-center justify-center relative overflow-hidden" style={{ 
                   background: 'linear-gradient(180deg, #2D3A3A 0%, #1A2626 100%)',
@@ -1880,10 +1880,10 @@ const JuanitoDev = () => {
                     <Mountain className="w-6 h-6" style={{ color: '#E07A5F' }} />
                   </div>
                   <h3 className="font-semibold text-lg mb-2" style={{ color: theme.text }}>Bouldering</h3>
-                  <p className="text-sm mb-4" style={{ color: theme.textMuted }}>
+                  <p className="text-base md:text-sm mb-4" style={{ color: theme.textMuted }}>
                     Problem-solving with your body. Every route is a puzzle that demands both strength and strategy.
                   </p>
-                  <span className="text-xs" style={{ color: theme.accent }}>Click to learn more →</span>
+                  <span className="text-sm md:text-xs" style={{ color: theme.accent }}>Click to learn more →</span>
                 </div>
                 <div className="w-full md:w-48 h-40 md:h-auto flex items-center justify-center relative overflow-hidden" style={{ 
                   background: 'linear-gradient(180deg, #3D405B 0%, #2C3049 100%)',
@@ -1922,10 +1922,10 @@ const JuanitoDev = () => {
                     <Wine className="w-6 h-6" style={{ color: '#5BA3B5' }} />
                   </div>
                   <h3 className="font-semibold text-lg mb-2" style={{ color: theme.text }}>Drink Creations</h3>
-                  <p className="text-sm mb-4" style={{ color: theme.textMuted }}>
+                  <p className="text-base md:text-sm mb-4" style={{ color: theme.textMuted }}>
                     Part of my job, part of my passion. Developing signature beverages and pushing what coconut water can do.
                   </p>
-                  <span className="text-xs" style={{ color: theme.accent }}>Click to learn more →</span>
+                  <span className="text-sm md:text-xs" style={{ color: theme.accent }}>Click to learn more →</span>
                 </div>
                 <div className="w-full md:w-48 h-40 md:h-auto flex items-center justify-center relative overflow-hidden" style={{ 
                   background: 'linear-gradient(180deg, #5BA3B5 0%, #3D8A9C 100%)',
@@ -1960,10 +1960,10 @@ const JuanitoDev = () => {
                     <ChefHat className="w-6 h-6" style={{ color: '#D4A574' }} />
                   </div>
                   <h3 className="font-semibold text-lg mb-2" style={{ color: theme.text }}>Cooking</h3>
-                  <p className="text-sm mb-4" style={{ color: theme.textMuted }}>
+                  <p className="text-base md:text-sm mb-4" style={{ color: theme.textMuted }}>
                     Elaborate meals are my love language. Wagyu, Puerto Rican classics, and everything in between.
                   </p>
-                  <span className="text-xs" style={{ color: theme.accent }}>Click to learn more →</span>
+                  <span className="text-sm md:text-xs" style={{ color: theme.accent }}>Click to learn more →</span>
                 </div>
                 <div className="w-full md:w-48 h-40 md:h-auto flex items-center justify-center" style={{ 
                   background: darkMode ? 'rgba(40, 40, 70, 0.8)' : 'linear-gradient(180deg, #FAF6F1 0%, #F5EDE6 100%)',
@@ -1992,10 +1992,10 @@ const JuanitoDev = () => {
                     <Brain className="w-6 h-6" style={{ color: '#9B59B6' }} />
                   </div>
                   <h3 className="font-semibold text-lg mb-2" style={{ color: theme.text }}>Systems Thinking</h3>
-                  <p className="text-sm mb-4" style={{ color: theme.textMuted }}>
+                  <p className="text-base md:text-sm mb-4" style={{ color: theme.textMuted }}>
                     Obsessed with how things connect. Patterns are everywhere once you know how to look.
                   </p>
-                  <span className="text-xs" style={{ color: theme.accent }}>Click to learn more →</span>
+                  <span className="text-sm md:text-xs" style={{ color: theme.accent }}>Click to learn more →</span>
                 </div>
                 <div className="w-full md:w-48 h-40 md:h-auto flex items-center justify-center" style={{ 
                   background: darkMode ? 'rgba(40, 40, 70, 0.8)' : 'linear-gradient(180deg, #FAF6F1 0%, #F5EDE6 100%)',
@@ -2056,8 +2056,8 @@ const JuanitoDev = () => {
                   </p>
                 </div>
                 <div className="mt-6 p-4 rounded-2xl" style={{ background: darkMode ? 'rgba(129, 178, 154, 0.1)' : 'rgba(129, 178, 154, 0.15)' }}>
-                  <span className="text-sm font-medium" style={{ color: '#81B29A' }}>🎯 Current focus: </span>
-                  <span className="text-sm" style={{ color: theme.textMuted }}>Wheel throwing — getting consistent wall thickness</span>
+                  <span className="text-base md:text-sm font-medium" style={{ color: '#81B29A' }}>🎯 Current focus: </span>
+                  <span className="text-base md:text-sm" style={{ color: theme.textMuted }}>Wheel throwing — getting consistent wall thickness</span>
                 </div>
               </div>
             )}
@@ -2111,8 +2111,8 @@ const JuanitoDev = () => {
                   </p>
                 </div>
                 <div className="mt-6 p-4 rounded-2xl" style={{ background: darkMode ? 'rgba(224, 122, 95, 0.1)' : 'rgba(224, 122, 95, 0.15)' }}>
-                  <span className="text-sm font-medium" style={{ color: '#E07A5F' }}>🏋️ Current grade: </span>
-                  <span className="text-sm" style={{ color: theme.textMuted }}>Working on V4s</span>
+                  <span className="text-base md:text-sm font-medium" style={{ color: '#E07A5F' }}>🏋️ Current grade: </span>
+                  <span className="text-base md:text-sm" style={{ color: theme.textMuted }}>Working on V4s</span>
                 </div>
               </div>
             )}
@@ -2166,18 +2166,18 @@ const JuanitoDev = () => {
                   </p>
                 </div>
                 <div className="mt-6 p-4 rounded-2xl" style={{ background: darkMode ? 'rgba(129, 178, 154, 0.1)' : 'rgba(129, 178, 154, 0.15)' }}>
-                  <span className="text-sm font-medium flex items-center gap-2" style={{ color: '#81B29A' }}>
+                  <span className="text-base md:text-sm font-medium flex items-center gap-2" style={{ color: '#81B29A' }}>
                     <BookOpen className="w-4 h-4" />
                     Currently reading:
                   </span>
-                  <span className="text-sm block mt-1" style={{ color: theme.textMuted }}>The Selfish Gene by Richard Dawkins</span>
+                  <span className="text-base md:text-sm block mt-1" style={{ color: theme.textMuted }}>The Selfish Gene by Richard Dawkins</span>
                 </div>
                 <div className="mt-3 p-4 rounded-2xl" style={{ background: darkMode ? 'rgba(61, 64, 91, 0.2)' : 'rgba(61, 64, 91, 0.08)' }}>
-                  <span className="text-sm font-medium flex items-center gap-2" style={{ color: '#3D405B' }}>
+                  <span className="text-base md:text-sm font-medium flex items-center gap-2" style={{ color: '#3D405B' }}>
                     <BookOpen className="w-4 h-4" />
                     Next in line:
                   </span>
-                  <span className="text-sm block mt-1" style={{ color: theme.textMuted }}>Thinking in Systems by Donella Meadows</span>
+                  <span className="text-base md:text-sm block mt-1" style={{ color: theme.textMuted }}>Thinking in Systems by Donella Meadows</span>
                 </div>
               </div>
             )}
@@ -2200,11 +2200,11 @@ const JuanitoDev = () => {
                   </p>
                 </div>
                 <div className="mt-6 p-4 rounded-2xl" style={{ background: darkMode ? 'rgba(91, 163, 181, 0.15)' : 'rgba(91, 163, 181, 0.15)' }}>
-                  <span className="text-sm font-medium flex items-center gap-2" style={{ color: '#3D8A9C' }}>
+                  <span className="text-base md:text-sm font-medium flex items-center gap-2" style={{ color: '#3D8A9C' }}>
                     <Sparkles className="w-4 h-4" />
                     Current favorite:
                   </span>
-                  <span className="text-sm block mt-1" style={{ color: theme.textMuted }}>Coconut cold brew with a splash of vanilla</span>
+                  <span className="text-base md:text-sm block mt-1" style={{ color: theme.textMuted }}>Coconut cold brew with a splash of vanilla</span>
                 </div>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {['Coconut Water', 'Cold Brew', 'Smoothies', 'Specialty Lattes', 'Refreshers'].map(drink => (
@@ -2283,7 +2283,7 @@ const JuanitoDev = () => {
               <h3 className="text-xl font-medium mb-4" style={{ fontFamily: "'Instrument Serif', Georgia, serif", color: theme.text }}>
                 Services
               </h3>
-              <p className="text-sm mb-6" style={{ color: theme.textMuted }}>
+              <p className="text-base md:text-sm mb-6" style={{ color: theme.textMuted }}>
                 Limited availability for select projects.
               </p>
               <div className="space-y-3">
@@ -2305,8 +2305,8 @@ const JuanitoDev = () => {
                       <span className="text-xl">{service.icon}</span>
                     )}
                     <div>
-                      <p className="font-medium text-sm" style={{ color: theme.text }}>{service.title}</p>
-                      <p className="text-xs" style={{ color: theme.textMuted }}>{service.desc}</p>
+                      <p className="font-medium text-base md:text-sm" style={{ color: theme.text }}>{service.title}</p>
+                      <p className="text-sm md:text-xs" style={{ color: theme.textMuted }}>{service.desc}</p>
                     </div>
                   </div>
                 ))}
