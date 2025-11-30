@@ -2335,60 +2335,41 @@ const JuanitoDev = () => {
             ))}
           </div>
 
-          {/* Services Section */}
+          {/* Expertise Section */}
           <div className="grid md:grid-cols-2 gap-8 mt-16">
-            {/* Services Offered */}
+            {/* Expertise */}
             <div className="p-6 rounded-2xl" style={{
               background: theme.cardBg,
               border: `2px solid ${theme.cardBorder}`
             }}>
               <h3 className="text-xl font-medium mb-4" style={{ fontFamily: "'Instrument Serif', Georgia, serif", color: theme.text }}>
-                Services
+                Expertise
               </h3>
               <p className="text-base md:text-sm mb-6" style={{ color: theme.textMuted }}>
-                Limited availability for select projects.
+                Where my skills and experience intersect.
               </p>
               <div className="space-y-3">
                 {[
-                  { Icon: Briefcase, title: 'Consulting', desc: 'Beverage industry strategy & insights', color: '#E07A5F' },
-                  { Icon: Globe, title: 'Landing Pages', desc: 'Simple, beautiful web presence', color: '#5BA3B5' },
-                  { Icon: Gamepad2, title: 'Game Development', desc: 'Simple to complex video games', color: '#81B29A' },
-                  { Icon: Palette, title: 'Custom Ceramics', desc: 'Handcrafted functional pieces', color: '#D4A574' },
-                  { Icon: Wrench, title: 'Personal Projects', desc: 'Bringing your ideas to life', color: '#9B59B6' }
-                ].map((service, i) => (
+                  { Icon: Briefcase, title: 'Beverage Strategy', desc: 'Go-to-market, menu development, and brand positioning for F&B', color: '#E07A5F' },
+                  { Icon: Network, title: 'Sales Operations Systems', desc: 'Building tools and workflows that make teams more effective', color: '#5BA3B5' },
+                  { Icon: Wrench, title: 'Digital Product Prototyping', desc: 'Turning ideas into functional web apps and internal tools', color: '#81B29A' }
+                ].map((item, i) => (
                   <div key={i} className="flex items-start gap-3 p-3 rounded-xl" style={{
                     background: darkMode ? 'rgba(255,255,255,0.03)' : 'rgba(0,0,0,0.03)'
                   }}>
-                    {service.Icon ? (
-                      <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: `${service.color}20` }}>
-                        <service.Icon className="w-4 h-4" style={{ color: service.color }} />
+                    {item.Icon ? (
+                      <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: `${item.color}20` }}>
+                        <item.Icon className="w-4 h-4" style={{ color: item.color }} />
                       </div>
                     ) : (
-                      <span className="text-xl">{service.icon}</span>
+                      <span className="text-xl">{item.icon}</span>
                     )}
                     <div>
-                      <p className="font-medium text-base md:text-sm" style={{ color: theme.text }}>{service.title}</p>
-                      <p className="text-sm md:text-xs" style={{ color: theme.textMuted }}>{service.desc}</p>
+                      <p className="font-medium text-base md:text-sm" style={{ color: theme.text }}>{item.title}</p>
+                      <p className="text-sm md:text-xs" style={{ color: theme.textMuted }}>{item.desc}</p>
                     </div>
                   </div>
                 ))}
-              </div>
-              
-              {/* Availability Status - Coral Neon in dark mode only */}
-              <div className="mt-6 flex justify-center">
-                <div 
-                  className={`px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2 ${darkMode ? 'coral-neon-flicker' : ''}`}
-                  style={{
-                    background: 'transparent',
-                    border: '2px solid #E07A5F',
-                    color: '#E07A5F',
-                    fontFamily: "'Instrument Serif', Georgia, serif",
-                    letterSpacing: '0.05em'
-                  }}
-                >
-                  <Ban className="w-4 h-4" />
-                  Currently not taking work
-                </div>
               </div>
             </div>
 

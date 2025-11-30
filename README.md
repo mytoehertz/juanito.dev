@@ -1,16 +1,52 @@
-# React + Vite
+# juanito.dev
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal portfolio website for Juan Hernandez — Director of Foodservice Commercial Sales at Vita Coco.
 
-Currently, two official plugins are available:
+🌐 **Live:** [juanito.dev](https://juanito.dev)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## About
 
-## React Compiler
+A portfolio showcasing my journey from the mountains of Utuado, Puerto Rico to building beverage programs for national brands. Built to share who I am — sales leader by day, developer and game dev enthusiast by night.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+- **Framework:** React 18 + Vite
+- **Styling:** Tailwind CSS
+- **Animations:** Framer Motion
+- **Icons:** Lucide React
+- **Hosting:** Netlify
+- **Analytics:** Fathom
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Features
+
+- Responsive design with mobile-first typography
+- Dark/light mode with animated sun/moon toggle
+- Parallax mountain landscape
+- Interactive hobby cards with 3D popups
+- Live tools: Beverage Calculator, Recipe Scaler
+
+## Local Development
+```bash
+# Install dependencies
+npm install
+
+# Start dev server
+npm run dev
+
+# Build for production
+npm run build
+```
+
+## Projects Featured
+
+- **Foodservice Market Map** — Territory planning tool (in development)
+- **SipSignal** — Beverage trend intelligence
+- **AI Agents & Automation** — Sales workflow tools
+- **Beverage Program Calculator** — Drink cost analysis
+- **Recipe Scaler** — Batch conversion tool
+- **Primordial Soup** — Evolution simulation game
+- **Post Hanc** — Mobile game (passion project since 2020)
+
+## License
+
+© 2025 Juan Hernandez. All rights reserved.
