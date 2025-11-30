@@ -858,6 +858,7 @@ const JuanitoDev = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [scrollY, setScrollY] = useState(0);
   const [expandedHobby, setExpandedHobby] = useState(null);
+  const [showPostHanc, setShowPostHanc] = useState(false);
   const containerRef = useRef(null);
 
   // Track scroll progress for scenery transition and parallax
@@ -1735,13 +1736,17 @@ const JuanitoDev = () => {
             </div>
 
             {/* Post Hanc - Mobile Game */}
-            <div className="rounded-3xl overflow-hidden group transition-all duration-300 hover:translate-y-[-4px]" style={{
-              background: darkMode 
-                ? 'linear-gradient(135deg, #2a2a1a 0%, #1a1a0d 100%)'
-                : 'linear-gradient(135deg, #F8F0E0 0%, #F0E8D0 100%)',
-              border: `3px solid ${darkMode ? '#4a4a2a' : '#D0C0A0'}`,
-              boxShadow: `8px 8px 0px ${darkMode ? '#1a1a0a' : '#B0A080'}`
-            }}>
+            <div 
+              className="rounded-3xl overflow-hidden group transition-all duration-300 hover:translate-y-[-4px] cursor-pointer"
+              style={{
+                background: darkMode 
+                  ? 'linear-gradient(135deg, #2a2a1a 0%, #1a1a0d 100%)'
+                  : 'linear-gradient(135deg, #F8F0E0 0%, #F0E8D0 100%)',
+                border: `3px solid ${darkMode ? '#4a4a2a' : '#D0C0A0'}`,
+                boxShadow: `8px 8px 0px ${darkMode ? '#1a1a0a' : '#B0A080'}`
+              }}
+              onClick={() => setShowPostHanc(true)}
+            >
               <div className="h-48 relative overflow-hidden flex items-center justify-center">
                 {/* Ancient/mystical pattern */}
                 <div className="absolute inset-0 opacity-20" style={{
@@ -1774,7 +1779,7 @@ const JuanitoDev = () => {
                 <p className="text-base md:text-sm mb-4" style={{ color: theme.textMuted }}>
                   A mobile game in development since 2020. A passion project with a rich storyline that explores the echoes of choices across time.
                 </p>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 mb-3">
                   {['Unity', 'C#', 'Narrative'].map(tech => (
                     <span key={tech} className="px-2 py-1 rounded text-xs" style={{ 
                       background: darkMode ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)', 
@@ -1784,6 +1789,7 @@ const JuanitoDev = () => {
                     </span>
                   ))}
                 </div>
+                <span className="text-sm md:text-xs" style={{ color: theme.accent }}>Click to see more →</span>
               </div>
             </div>
 
@@ -2281,6 +2287,83 @@ const JuanitoDev = () => {
                 </div>
               </div>
             )}
+          </div>
+        </div>
+      )}
+
+      {/* Post Hanc Popup */}
+      {showPostHanc && (
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center p-4"
+          style={{ background: 'rgba(0,0,0,0.7)', backdropFilter: 'blur(8px)' }}
+          onClick={() => setShowPostHanc(false)}
+        >
+          <div 
+            className="relative max-w-lg w-full rounded-3xl overflow-hidden"
+            style={{
+              background: theme.cardBg,
+              border: `4px solid ${theme.cardBorder}`,
+              boxShadow: '0 25px 80px rgba(0,0,0,0.4)',
+              transform: 'perspective(1000px) rotateX(2deg)',
+              animation: 'popIn 0.3s ease-out'
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close button */}
+            <button 
+              className="absolute top-4 right-4 w-10 h-10 rounded-full flex items-center justify-center text-xl z-10 hover:scale-110 transition-transform"
+              style={{ background: '#D4A574', color: 'white' }}
+              onClick={() => setShowPostHanc(false)}
+            >
+              ×
+            </button>
+
+            <div className="p-8">
+              {/* Header */}
+              <div className="flex items-center gap-4 mb-6">
+                <span className="text-5xl">⚔️</span>
+                <div>
+                  <h3 className="text-2xl font-semibold" style={{ color: theme.text, fontFamily: "'Instrument Serif', Georgia, serif" }}>
+                    Post Hanc
+                  </h3>
+                  <p className="text-sm" style={{ color: theme.textMuted }}>Mobile Game · In Development Since 2020</p>
+                </div>
+              </div>
+
+              {/* Description */}
+              <p className="text-base mb-6" style={{ color: theme.textMuted }}>
+                <em>Post Hanc</em> — Latin for "after this" — is a narrative-driven mobile game that explores how our choices echo across time. A passion project built in Unity, weaving together storylines that intersect in unexpected ways.
+              </p>
+
+              {/* Tags */}
+              <div className="flex flex-wrap gap-2 mb-6">
+                {['Unity', 'C#', 'Narrative', 'Mobile', 'Indie'].map(tag => (
+                  <span key={tag} className="px-3 py-1 rounded-full text-sm" style={{ 
+                    background: darkMode ? 'rgba(212, 165, 116, 0.2)' : 'rgba(212, 165, 116, 0.15)',
+                    color: '#D4A574',
+                    border: '1px solid rgba(212, 165, 116, 0.3)'
+                  }}>
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              {/* Instagram Link */}
+              <a
+                href="https://www.instagram.com/post.hanc/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-3 w-full p-4 rounded-2xl transition-all duration-300 hover:scale-[1.02]"
+                style={{ 
+                  background: 'linear-gradient(135deg, #833AB4 0%, #E1306C 50%, #F77737 100%)',
+                  color: 'white',
+                  textDecoration: 'none'
+                }}
+              >
+                <Instagram className="w-5 h-5" />
+                <span className="font-medium">Follow @post.hanc</span>
+              </a>
+            </div>
           </div>
         </div>
       )}
