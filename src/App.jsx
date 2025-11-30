@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 import { 
-  MapPin, TrendingUp, Lock, Sparkles,
+  MapPin, TrendingUp, Lock, Sparkles, Bot,
   Sun, Moon, Linkedin, Instagram, Github,
   Wine, ChefHat, Brain, Mountain, BookOpen,
   Briefcase, Globe, Gamepad2, Wrench, Construction, Ban,
@@ -1029,8 +1029,27 @@ const JuanitoDev = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
+          {/* Name */}
+          <h1 className="text-4xl md:text-6xl font-light leading-tight mb-2" style={{
+            fontFamily: "'Instrument Serif', Georgia, serif",
+            letterSpacing: '-0.02em',
+            color: theme.text,
+            textShadow: darkMode ? 'none' : '0 2px 10px rgba(255,255,255,0.8)'
+          }}>
+            Juan Hernandez
+          </h1>
+          
+          {/* Subtext - From Utuado */}
+          <p className="text-base md:text-lg mb-4" style={{ 
+            color: theme.textSubtle,
+            textShadow: darkMode ? 'none' : '0 1px 8px rgba(255,255,255,0.9)'
+          }}>
+            From Utuado, Puerto Rico's mountains
+          </p>
+          
+          {/* Currently Reading - smaller pill */}
           <div 
-            className={`inline-block px-6 py-3 rounded-full mb-8 relative ${darkMode ? 'neon-flicker' : ''}`}
+            className={`inline-block px-4 py-2 rounded-full mb-8 relative ${darkMode ? 'neon-flicker' : ''}`}
             style={{
               background: darkMode 
                 ? 'rgba(20, 20, 50, 0.9)'
@@ -1043,7 +1062,7 @@ const JuanitoDev = () => {
                 ? '0 0 10px #81B29A, 0 0 20px rgba(129, 178, 154, 0.5), 0 0 40px rgba(129, 178, 154, 0.3)'
                 : '0 4px 12px rgba(0,0,0,0.08)',
               fontFamily: darkMode ? "'Instrument Serif', Georgia, serif" : 'inherit',
-              fontSize: '0.875rem',
+              fontSize: '0.75rem',
               letterSpacing: darkMode ? '0.05em' : 'normal'
             }}
           >
@@ -1054,29 +1073,23 @@ const JuanitoDev = () => {
               />
             )}
             <span className="relative z-10 flex items-center gap-2">
-              <BookOpen className="w-4 h-4" />
+              <BookOpen className="w-3 h-3" />
               Currently reading: <span style={{ fontStyle: 'italic' }}>The Selfish Gene</span>
             </span>
           </div>
-          <h1 className="text-4xl md:text-7xl font-light leading-tight mb-4" style={{
-            fontFamily: "'Instrument Serif', Georgia, serif",
-            letterSpacing: '-0.02em',
-            color: theme.text,
-            textShadow: darkMode ? 'none' : '0 2px 10px rgba(255,255,255,0.8)'
-          }}>
-            From Utuado, Puerto Rico's mountains
-          </h1>
+          
           <div className="flex justify-center mb-4">
-            <Squiggle color="#E07A5F" width={200} />
+            <Squiggle color="#E07A5F" width={150} />
           </div>
-          <h1 className="text-4xl md:text-7xl font-light leading-tight mb-8" style={{
+          
+          <h2 className="text-3xl md:text-5xl font-light leading-tight mb-8" style={{
             fontFamily: "'Instrument Serif', Georgia, serif",
             letterSpacing: '-0.02em',
             color: theme.text,
             textShadow: darkMode ? 'none' : '0 2px 10px rgba(255,255,255,0.8)'
           }}>
-            to building beverage programs
-          </h1>
+            Building beverage programs
+          </h2>
           <p className="text-lg leading-relaxed max-w-xl mx-auto px-4" style={{ 
             color: theme.textMuted,
             textShadow: darkMode ? 'none' : '0 1px 8px rgba(255,255,255,0.9)'
@@ -1192,35 +1205,56 @@ const JuanitoDev = () => {
                   boxShadow: '0 2px 8px rgba(224, 122, 95, 0.4)'
                 }}>
                   <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
-                  Current Adventure
+                  Current Role
                 </div>
                 
-                <h3 className="text-2xl font-medium mb-2" style={{ 
+                <h3 className="text-2xl md:text-3xl font-medium mb-2" style={{ 
                   fontFamily: "'Instrument Serif', Georgia, serif",
                   color: theme.text
                 }}>
                   Vita Coco 🥥
                 </h3>
-                <h3 className="text-xl font-medium mb-6" style={{ 
+                <h3 className="text-lg md:text-xl font-medium mb-2" style={{ 
                   fontFamily: "'Instrument Serif', Georgia, serif",
-                  color: theme.text
+                  color: theme.accent
                 }}>
                   Director of Foodservice Commercial Sales
                 </h3>
-                
-                <p className="text-base md:text-sm mb-6 leading-relaxed" style={{ color: theme.textMuted }}>
-                  Almost 20 years in Foodservice with a focus in Specialty Coffee and Beverage Programs.
-                  Building solutions that actually work for operators.
+                <p className="text-sm mb-5 flex items-center gap-2" style={{ color: theme.textSubtle }}>
+                  <MapPin className="w-3 h-3" />
+                  Union Square, New York
                 </p>
                 
+                <p className="text-base md:text-sm mb-4 leading-relaxed" style={{ color: theme.textMuted }}>
+                  Spearhead the commercial strategy and national expansion of Vita Coco's foodservice portfolio. 
+                  Driving revenue growth, velocity, and brand visibility across QSR, Fast Casual, Specialty Coffee, and Hospitality.
+                </p>
+                
+                <div className="space-y-3 mb-5">
+                  {[
+                    { title: 'Strategic Growth', desc: 'Develop and execute go-to-market strategies that increase distribution and market share.' },
+                    { title: 'National Partnerships', desc: 'Identify, negotiate, and secure partnerships with key national accounts and hospitality groups.' },
+                    { title: 'Menu Innovation', desc: 'Consult with partners on menu development, LTOs, and drink applications that drive velocity.' },
+                    { title: 'Cross-Functional Leadership', desc: 'Collaborate with marketing, supply chain, and finance on large-scale rollouts.' }
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-start gap-2">
+                      <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style={{ background: '#E07A5F' }} />
+                      <div>
+                        <span className="text-sm font-medium" style={{ color: theme.text }}>{item.title}: </span>
+                        <span className="text-sm" style={{ color: theme.textMuted }}>{item.desc}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                
                 <div className="flex flex-wrap gap-2">
-                  {['National Accounts', 'Foodservice'].map(tag => (
-                    <span key={tag} className="px-3 py-1 rounded-full text-xs" style={{
+                  {['Food Service', 'Commercial Strategy', 'Key Account Management', 'Go-to-Market', 'Beverage Industry'].map(skill => (
+                    <span key={skill} className="px-3 py-1 rounded-full text-xs" style={{
                       background: darkMode ? 'rgba(224, 122, 95, 0.2)' : 'rgba(224, 122, 95, 0.15)',
                       color: '#E07A5F',
                       border: '1px solid rgba(224, 122, 95, 0.3)'
                     }}>
-                      {tag}
+                      {skill}
                     </span>
                   ))}
                 </div>
@@ -1308,8 +1342,11 @@ const JuanitoDev = () => {
               fontFamily: "'Instrument Serif', Georgia, serif",
               color: theme.text
             }}>
-              Things I'm building
+              Tools I build, problems I solve
             </h2>
+            <p className="text-base mb-4" style={{ color: theme.textMuted }}>
+              I code to make my work easier — and sometimes just for fun.
+            </p>
             <Squiggle color="#E07A5F" width={100} />
           </motion.div>
           
@@ -1320,16 +1357,77 @@ const JuanitoDev = () => {
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.6, staggerChildren: 0.1 }}
           >
-            {/* Primordial Soup */}
+            {/* Foodservice Market Map - Featured Next Project */}
             <div className="rounded-3xl overflow-hidden group transition-all duration-300 hover:translate-y-[-4px]" style={{
-              background: 'linear-gradient(135deg, #1a2a2a 0%, #0d1a1a 100%)',
-              border: `3px solid #2a4a4a`,
-              boxShadow: `8px 8px 0px ${darkMode ? '#0a1a1a' : '#1a3a3a'}`
+              background: darkMode 
+                ? 'linear-gradient(135deg, #1a2a3a 0%, #0d1a2a 100%)'
+                : 'linear-gradient(135deg, #E8F4F8 0%, #D0E8F0 100%)',
+              border: `3px solid ${darkMode ? '#2a4a5a' : '#B0D0E0'}`,
+              boxShadow: `8px 8px 0px ${darkMode ? '#0a1a2a' : '#90B0C0'}`
             }}>
-              <div className="h-48 relative overflow-hidden">
-                <BubblingMolecules />
-                <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#0d1a1a] to-transparent" />
-                <div className="absolute bottom-4 left-4">
+              <div className="h-48 relative overflow-hidden flex items-center justify-center">
+                {/* Map grid pattern */}
+                <div className="absolute inset-0 opacity-20" style={{
+                  backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23${darkMode ? 'ffffff' : '3D8A9C'}' stroke-width='1'%3E%3Cpath d='M0 20h40M20 0v40'/%3E%3C/g%3E%3C/svg%3E")`,
+                }} />
+                {/* Animated pins */}
+                <div className="relative w-full h-full">
+                  <MapPin className="absolute text-red-500 w-6 h-6 animate-bounce" style={{ top: '20%', left: '25%', animationDelay: '0s' }} />
+                  <MapPin className="absolute text-blue-500 w-5 h-5 animate-bounce" style={{ top: '40%', left: '60%', animationDelay: '0.2s' }} />
+                  <MapPin className="absolute text-green-500 w-6 h-6 animate-bounce" style={{ top: '60%', left: '35%', animationDelay: '0.4s' }} />
+                  <MapPin className="absolute text-yellow-500 w-5 h-5 animate-bounce" style={{ top: '30%', left: '75%', animationDelay: '0.6s' }} />
+                  <MapPin className="absolute text-purple-500 w-6 h-6 animate-bounce" style={{ top: '70%', left: '70%', animationDelay: '0.8s' }} />
+                </div>
+                <div className="absolute bottom-4 left-4 flex gap-2">
+                  <span className="px-2 py-1 rounded-full text-xs font-medium" style={{ 
+                    background: 'rgba(224, 122, 95, 0.3)', 
+                    color: '#E07A5F',
+                    border: '1px solid rgba(224, 122, 95, 0.4)'
+                  }}>
+                    Building Now
+                  </span>
+                </div>
+              </div>
+              <div className="p-6" style={{ background: theme.cardBg }}>
+                <h3 className="text-xl font-semibold mb-2 flex items-center gap-2" style={{ color: theme.text, fontFamily: "'Instrument Serif', Georgia, serif" }}>
+                  <MapPin className="w-5 h-5" style={{ color: '#E07A5F' }} />
+                  Foodservice Market Map
+                </h3>
+                <p className="text-base md:text-sm mb-4" style={{ color: theme.textMuted }}>
+                  Territory planning tool I'm building for my team. Visualize accounts, track voids, and find whitespace opportunities by region.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {['React', 'Mapbox', 'Supabase'].map(tech => (
+                    <span key={tech} className="px-2 py-1 rounded text-xs" style={{ 
+                      background: darkMode ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)', 
+                      color: theme.textSubtle 
+                    }}>
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* SipSignal - Beverage Trend Intelligence */}
+            <div className="rounded-3xl overflow-hidden group transition-all duration-300 hover:translate-y-[-4px] relative" style={{
+              background: darkMode 
+                ? 'linear-gradient(135deg, #2a1a3a 0%, #1a0d2a 100%)'
+                : 'linear-gradient(135deg, #F8E8F8 0%, #F0D8F0 100%)',
+              border: `3px solid ${darkMode ? '#4a2a5a' : '#D0A0D0'}`,
+              boxShadow: `8px 8px 0px ${darkMode ? '#1a0a2a' : '#B080B0'}`
+            }}>
+              <div className="h-48 relative overflow-hidden flex items-center justify-center">
+                {/* Trend lines animation */}
+                <svg className="absolute inset-0 w-full h-full opacity-30" viewBox="0 0 200 100" preserveAspectRatio="none">
+                  <path d="M0 80 Q50 60 100 50 T200 30" stroke={darkMode ? '#81B29A' : '#5B8C5A'} strokeWidth="2" fill="none" />
+                  <path d="M0 70 Q50 50 100 60 T200 40" stroke={darkMode ? '#E07A5F' : '#c96a52'} strokeWidth="2" fill="none" />
+                  <path d="M0 90 Q50 70 100 40 T200 20" stroke={darkMode ? '#9B59B6' : '#8E44AD'} strokeWidth="2" fill="none" />
+                </svg>
+                <div className="relative z-10 text-center">
+                  <TrendingUp className="w-16 h-16 mx-auto mb-2" style={{ color: darkMode ? '#9B59B6' : '#8E44AD' }} />
+                </div>
+                <div className="absolute bottom-4 left-4 flex gap-2">
                   <span className="px-2 py-1 rounded-full text-xs font-medium" style={{ 
                     background: 'rgba(129, 178, 154, 0.2)', 
                     color: '#81B29A',
@@ -1339,18 +1437,19 @@ const JuanitoDev = () => {
                   </span>
                 </div>
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2 text-white" style={{ fontFamily: "'Instrument Serif', Georgia, serif" }}>
-                  Primordial Soup 🧬
+              <div className="p-6" style={{ background: theme.cardBg }}>
+                <h3 className="text-xl font-semibold mb-2 flex items-center gap-2" style={{ color: theme.text, fontFamily: "'Instrument Serif', Georgia, serif" }}>
+                  <Sparkles className="w-5 h-5" style={{ color: '#9B59B6' }} />
+                  SipSignal
                 </h3>
-                <p className="text-sm mb-4" style={{ color: '#a0b0b0' }}>
-                  An evolution simulation where chemistry meets life. Watch elements combine, molecules form, and creatures emerge.
+                <p className="text-base md:text-sm mb-4" style={{ color: theme.textMuted }}>
+                  Beverage trend intelligence. Track emerging drinks, flavor profiles, and market signals from across the foodservice industry.
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  {['Phaser', 'React', 'WebGL'].map(tech => (
+                  {['AI/ML', 'Web Scraping', 'Analytics'].map(tech => (
                     <span key={tech} className="px-2 py-1 rounded text-xs" style={{ 
-                      background: 'rgba(255,255,255,0.1)', 
-                      color: '#8090a0' 
+                      background: darkMode ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)', 
+                      color: theme.textSubtle 
                     }}>
                       {tech}
                     </span>
@@ -1359,57 +1458,42 @@ const JuanitoDev = () => {
               </div>
             </div>
 
-            {/* This Portfolio */}
+            {/* AI Agents & Automation */}
             <div className="rounded-3xl overflow-hidden group transition-all duration-300 hover:translate-y-[-4px]" style={{
-              background: theme.cardBg,
-              border: `3px solid ${theme.cardBorder}`,
-              boxShadow: `8px 8px 0px ${theme.cardShadow}`
+              background: darkMode 
+                ? 'linear-gradient(135deg, #1a2a3a 0%, #0d1a2a 100%)'
+                : 'linear-gradient(135deg, #E8F0F8 0%, #D8E8F0 100%)',
+              border: `3px solid ${darkMode ? '#2a4a6a' : '#A0C0D0'}`,
+              boxShadow: `8px 8px 0px ${darkMode ? '#0a1a2a' : '#80A0B0'}`
             }}>
-              <div className="h-48 relative overflow-hidden" style={{
-                background: darkMode 
-                  ? 'linear-gradient(180deg, #0a0a20 0%, #1a1a3e 100%)'
-                  : 'linear-gradient(180deg, #5B9BD5 0%, #87CEEB 100%)'
-              }}>
-                {/* Sun/Moon */}
-                <div className="absolute top-4 right-4 w-8 h-8 rounded-full" style={{
-                  background: darkMode ? '#FFFACD' : '#FFD700',
-                  boxShadow: '0 0 15px rgba(255, 215, 0, 0.5)'
+              <div className="h-48 relative overflow-hidden flex items-center justify-center">
+                {/* Neural network pattern */}
+                <div className="absolute inset-0 opacity-20" style={{
+                  backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23${darkMode ? '81B29A' : '3D8A9C'}' stroke-width='1'%3E%3Ccircle cx='10' cy='10' r='3'/%3E%3Ccircle cx='30' cy='30' r='3'/%3E%3Ccircle cx='50' cy='10' r='3'/%3E%3Ccircle cx='50' cy='50' r='3'/%3E%3Ccircle cx='10' cy='50' r='3'/%3E%3Cpath d='M10 10L30 30M50 10L30 30M50 50L30 30M10 50L30 30'/%3E%3C/g%3E%3C/svg%3E")`,
                 }} />
-                {/* Clouds */}
-                <svg className="absolute" style={{ top: '25%', left: '10%' }} width="60" height="30" viewBox="0 0 60 30">
-                  <ellipse cx="20" cy="20" rx="18" ry="10" fill={darkMode ? 'rgba(255,255,255,0.1)' : 'rgba(255,255,255,0.9)'} />
-                  <ellipse cx="35" cy="18" rx="14" ry="8" fill={darkMode ? 'rgba(255,255,255,0.1)' : 'rgba(255,255,255,0.9)'} />
-                  <ellipse cx="48" cy="20" rx="12" ry="8" fill={darkMode ? 'rgba(255,255,255,0.1)' : 'rgba(255,255,255,0.9)'} />
-                </svg>
-                <svg className="absolute" style={{ top: '40%', right: '15%' }} width="50" height="25" viewBox="0 0 50 25">
-                  <ellipse cx="15" cy="16" rx="14" ry="8" fill={darkMode ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0.85)'} />
-                  <ellipse cx="30" cy="14" rx="12" ry="7" fill={darkMode ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0.85)'} />
-                  <ellipse cx="40" cy="16" rx="10" ry="6" fill={darkMode ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0.85)'} />
-                </svg>
-                <svg className="absolute" style={{ bottom: '20%', left: '30%' }} width="45" height="22" viewBox="0 0 45 22">
-                  <ellipse cx="12" cy="14" rx="11" ry="6" fill={darkMode ? 'rgba(255,255,255,0.06)' : 'rgba(255,255,255,0.8)'} />
-                  <ellipse cx="25" cy="12" rx="10" ry="6" fill={darkMode ? 'rgba(255,255,255,0.06)' : 'rgba(255,255,255,0.8)'} />
-                  <ellipse cx="35" cy="14" rx="9" ry="5" fill={darkMode ? 'rgba(255,255,255,0.06)' : 'rgba(255,255,255,0.8)'} />
-                </svg>
+                <div className="relative z-10 text-center">
+                  <Bot className="w-16 h-16 mx-auto" style={{ color: darkMode ? '#81B29A' : '#3D8A9C' }} />
+                </div>
                 <div className="absolute bottom-4 left-4">
                   <span className="px-2 py-1 rounded-full text-xs font-medium" style={{ 
-                    background: 'rgba(224, 122, 95, 0.2)', 
-                    color: '#E07A5F',
-                    border: '1px solid rgba(224, 122, 95, 0.3)'
+                    background: 'rgba(129, 178, 154, 0.2)', 
+                    color: '#81B29A',
+                    border: '1px solid rgba(129, 178, 154, 0.3)'
                   }}>
-                    Live
+                    Experimenting
                   </span>
                 </div>
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2" style={{ color: theme.text, fontFamily: "'Instrument Serif', Georgia, serif" }}>
-                  juanito.dev
+              <div className="p-6" style={{ background: theme.cardBg }}>
+                <h3 className="text-xl font-semibold mb-2 flex items-center gap-2" style={{ color: theme.text, fontFamily: "'Instrument Serif', Georgia, serif" }}>
+                  <Bot className="w-5 h-5" style={{ color: '#3D8A9C' }} />
+                  AI Agents & Automation
                 </h3>
                 <p className="text-base md:text-sm mb-4" style={{ color: theme.textMuted }}>
-                  A personal portfolio showcasing who I am and the things I enjoy spending time on.
+                  Building AI-powered tools for sales management, data gathering, and workflow automation. Exploring how emerging tech can give commercial teams an edge.
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  {['React', 'Tailwind', 'Vite'].map(tech => (
+                  {['LLMs', 'Automation', 'Data Pipelines'].map(tech => (
                     <span key={tech} className="px-2 py-1 rounded text-xs" style={{ 
                       background: darkMode ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)', 
                       color: theme.textSubtle 
@@ -1467,7 +1551,7 @@ const JuanitoDev = () => {
                   Beverage Program Calculator
                 </h3>
                 <p className="text-base md:text-sm mb-4" style={{ color: theme.textMuted }}>
-                  Calculate drink costs, pricing, and profit margins. Supports cocktails, mocktails, coffee, refreshers, and dirty sodas.
+                  Calculate drink costs, pricing, and profit margins. Built for operators who need quick answers.
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {['React', 'Cost Analysis', 'Free'].map(tech => (
@@ -1528,7 +1612,7 @@ const JuanitoDev = () => {
                   Recipe Scaler
                 </h3>
                 <p className="text-base md:text-sm mb-4" style={{ color: theme.textMuted }}>
-                  Scale drinks from single servings to batches. Convert between oz, ml, cups, and more. Copy-ready output.
+                  Scale drinks from single servings to batches. Convert between oz, ml, cups, and more.
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {['React', 'Unit Conversion', 'Free'].map(tech => (
@@ -1543,28 +1627,84 @@ const JuanitoDev = () => {
               </div>
             </a>
 
-            {/* Foodservice Market Map */}
+            {/* This Portfolio */}
+            <div className="rounded-3xl overflow-hidden group transition-all duration-300 hover:translate-y-[-4px]" style={{
+              background: theme.cardBg,
+              border: `3px solid ${theme.cardBorder}`,
+              boxShadow: `8px 8px 0px ${theme.cardShadow}`
+            }}>
+              <div className="h-48 relative overflow-hidden" style={{
+                background: darkMode 
+                  ? 'linear-gradient(180deg, #0a0a20 0%, #1a1a3e 100%)'
+                  : 'linear-gradient(180deg, #5B9BD5 0%, #87CEEB 100%)'
+              }}>
+                {/* Sun/Moon */}
+                <div className="absolute top-4 right-4 w-8 h-8 rounded-full" style={{
+                  background: darkMode ? '#FFFACD' : '#FFD700',
+                  boxShadow: '0 0 15px rgba(255, 215, 0, 0.5)'
+                }} />
+                {/* Clouds */}
+                <svg className="absolute" style={{ top: '25%', left: '10%' }} width="60" height="30" viewBox="0 0 60 30">
+                  <ellipse cx="20" cy="20" rx="18" ry="10" fill={darkMode ? 'rgba(255,255,255,0.1)' : 'rgba(255,255,255,0.9)'} />
+                  <ellipse cx="35" cy="18" rx="14" ry="8" fill={darkMode ? 'rgba(255,255,255,0.1)' : 'rgba(255,255,255,0.9)'} />
+                  <ellipse cx="48" cy="20" rx="12" ry="8" fill={darkMode ? 'rgba(255,255,255,0.1)' : 'rgba(255,255,255,0.9)'} />
+                </svg>
+                <svg className="absolute" style={{ top: '40%', right: '15%' }} width="50" height="25" viewBox="0 0 50 25">
+                  <ellipse cx="15" cy="16" rx="14" ry="8" fill={darkMode ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0.85)'} />
+                  <ellipse cx="30" cy="14" rx="12" ry="7" fill={darkMode ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0.85)'} />
+                  <ellipse cx="40" cy="16" rx="10" ry="6" fill={darkMode ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0.85)'} />
+                </svg>
+                <svg className="absolute" style={{ bottom: '20%', left: '30%' }} width="45" height="22" viewBox="0 0 45 22">
+                  <ellipse cx="12" cy="14" rx="11" ry="6" fill={darkMode ? 'rgba(255,255,255,0.06)' : 'rgba(255,255,255,0.8)'} />
+                  <ellipse cx="25" cy="12" rx="10" ry="6" fill={darkMode ? 'rgba(255,255,255,0.06)' : 'rgba(255,255,255,0.8)'} />
+                  <ellipse cx="35" cy="14" rx="9" ry="5" fill={darkMode ? 'rgba(255,255,255,0.06)' : 'rgba(255,255,255,0.8)'} />
+                </svg>
+                <div className="absolute bottom-4 left-4">
+                  <span className="px-2 py-1 rounded-full text-xs font-medium" style={{ 
+                    background: 'rgba(224, 122, 95, 0.2)', 
+                    color: '#E07A5F',
+                    border: '1px solid rgba(224, 122, 95, 0.3)'
+                  }}>
+                    Live
+                  </span>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-2" style={{ color: theme.text, fontFamily: "'Instrument Serif', Georgia, serif" }}>
+                  juanito.dev
+                </h3>
+                <p className="text-base md:text-sm mb-4" style={{ color: theme.textMuted }}>
+                  This site. A personal portfolio built to share who I am.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {['React', 'Tailwind', 'Vite'].map(tech => (
+                    <span key={tech} className="px-2 py-1 rounded text-xs" style={{ 
+                      background: darkMode ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)', 
+                      color: theme.textSubtle 
+                    }}>
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Primordial Soup */}
             <div className="rounded-3xl overflow-hidden group transition-all duration-300 hover:translate-y-[-4px]" style={{
               background: darkMode 
-                ? 'linear-gradient(135deg, #1a2a3a 0%, #0d1a2a 100%)'
-                : 'linear-gradient(135deg, #E8F4F8 0%, #D0E8F0 100%)',
-              border: `3px solid ${darkMode ? '#2a4a5a' : '#B0D0E0'}`,
-              boxShadow: `8px 8px 0px ${darkMode ? '#0a1a2a' : '#90B0C0'}`
+                ? 'linear-gradient(135deg, #1a2a2a 0%, #0d1a1a 100%)'
+                : 'linear-gradient(135deg, #E8F8F0 0%, #D0F0E0 100%)',
+              border: `3px solid ${darkMode ? '#2a4a4a' : '#A0D0B0'}`,
+              boxShadow: `8px 8px 0px ${darkMode ? '#0a1a1a' : '#80B090'}`
             }}>
-              <div className="h-48 relative overflow-hidden flex items-center justify-center">
-                {/* Map grid pattern */}
-                <div className="absolute inset-0 opacity-20" style={{
-                  backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23${darkMode ? 'ffffff' : '3D8A9C'}' stroke-width='1'%3E%3Cpath d='M0 20h40M20 0v40'/%3E%3C/g%3E%3C/svg%3E")`,
+              <div className="h-48 relative overflow-hidden">
+                <BubblingMolecules />
+                <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#0d1a1a] to-transparent" style={{
+                  background: darkMode 
+                    ? 'linear-gradient(to top, #0d1a1a, transparent)'
+                    : 'linear-gradient(to top, #D0F0E0, transparent)'
                 }} />
-                {/* Animated pins */}
-                <div className="relative w-full h-full">
-                  <MapPin className="absolute text-red-500 w-6 h-6 animate-bounce" style={{ top: '20%', left: '25%', animationDelay: '0s' }} />
-                  <MapPin className="absolute text-blue-500 w-5 h-5 animate-bounce" style={{ top: '40%', left: '60%', animationDelay: '0.2s' }} />
-                  <MapPin className="absolute text-green-500 w-6 h-6 animate-bounce" style={{ top: '60%', left: '35%', animationDelay: '0.4s' }} />
-                  <MapPin className="absolute text-yellow-500 w-5 h-5 animate-bounce" style={{ top: '30%', left: '75%', animationDelay: '0.6s' }} />
-                  <MapPin className="absolute text-purple-500 w-6 h-6 animate-bounce" style={{ top: '70%', left: '70%', animationDelay: '0.8s' }} />
-                </div>
-                <div className="absolute bottom-4 left-4 flex gap-2">
+                <div className="absolute bottom-4 left-4">
                   <span className="px-2 py-1 rounded-full text-xs font-medium" style={{ 
                     background: 'rgba(129, 178, 154, 0.2)', 
                     color: '#81B29A',
@@ -1572,26 +1712,17 @@ const JuanitoDev = () => {
                   }}>
                     In Development
                   </span>
-                  <span className="px-2 py-1 rounded-full text-xs font-medium flex items-center gap-1" style={{ 
-                    background: 'rgba(61, 138, 156, 0.2)', 
-                    color: '#3D8A9C',
-                    border: '1px solid rgba(61, 138, 156, 0.3)'
-                  }}>
-                    <Lock className="w-3 h-3" />
-                    Premium
-                  </span>
                 </div>
               </div>
               <div className="p-6" style={{ background: theme.cardBg }}>
-                <h3 className="text-xl font-semibold mb-2 flex items-center gap-2" style={{ color: theme.text, fontFamily: "'Instrument Serif', Georgia, serif" }}>
-                  <MapPin className="w-5 h-5" style={{ color: '#E07A5F' }} />
-                  Foodservice Market Map
+                <h3 className="text-xl font-semibold mb-2" style={{ color: theme.text, fontFamily: "'Instrument Serif', Georgia, serif" }}>
+                  Primordial Soup 🧬
                 </h3>
                 <p className="text-base md:text-sm mb-4" style={{ color: theme.textMuted }}>
-                  Interactive map of QSR & coffee chain locations. Track opportunities, filter by account, and visualize your pipeline.
+                  An evolution simulation where chemistry meets life. Watch elements combine, molecules form, and creatures emerge.
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  {['React', 'Mapbox', 'Pipeline'].map(tech => (
+                  {['Phaser', 'React', 'WebGL'].map(tech => (
                     <span key={tech} className="px-2 py-1 rounded text-xs" style={{ 
                       background: darkMode ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)', 
                       color: theme.textSubtle 
@@ -1603,52 +1734,48 @@ const JuanitoDev = () => {
               </div>
             </div>
 
-            {/* SipSignal - Beverage Trend Intelligence */}
-            <div className="rounded-3xl overflow-hidden group transition-all duration-300 hover:translate-y-[-4px] relative" style={{
+            {/* Post Hanc - Mobile Game */}
+            <div className="rounded-3xl overflow-hidden group transition-all duration-300 hover:translate-y-[-4px]" style={{
               background: darkMode 
-                ? 'linear-gradient(135deg, #2a1a3a 0%, #1a0d2a 100%)'
-                : 'linear-gradient(135deg, #F8E8F8 0%, #F0D8F0 100%)',
-              border: `3px solid ${darkMode ? '#4a2a5a' : '#D0A0D0'}`,
-              boxShadow: `8px 8px 0px ${darkMode ? '#1a0a2a' : '#B080B0'}`
+                ? 'linear-gradient(135deg, #2a2a1a 0%, #1a1a0d 100%)'
+                : 'linear-gradient(135deg, #F8F0E0 0%, #F0E8D0 100%)',
+              border: `3px solid ${darkMode ? '#4a4a2a' : '#D0C0A0'}`,
+              boxShadow: `8px 8px 0px ${darkMode ? '#1a1a0a' : '#B0A080'}`
             }}>
               <div className="h-48 relative overflow-hidden flex items-center justify-center">
-                {/* Trend lines animation */}
-                <svg className="absolute inset-0 w-full h-full opacity-30" viewBox="0 0 200 100" preserveAspectRatio="none">
-                  <path d="M0 80 Q50 60 100 50 T200 30" stroke={darkMode ? '#81B29A' : '#5B8C5A'} strokeWidth="2" fill="none" />
-                  <path d="M0 70 Q50 50 100 60 T200 40" stroke={darkMode ? '#E07A5F' : '#c96a52'} strokeWidth="2" fill="none" />
-                  <path d="M0 90 Q50 70 100 40 T200 20" stroke={darkMode ? '#9B59B6' : '#8E44AD'} strokeWidth="2" fill="none" />
-                </svg>
+                {/* Ancient/mystical pattern */}
+                <div className="absolute inset-0 opacity-20" style={{
+                  backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23${darkMode ? 'D4A574' : '8B7355'}' stroke-width='1'%3E%3Cpath d='M20 0v40M0 20h40M10 10l20 20M30 10L10 30'/%3E%3C/g%3E%3C/svg%3E")`,
+                }} />
                 <div className="relative z-10 text-center">
-                  <TrendingUp className="w-16 h-16 mx-auto mb-2" style={{ color: darkMode ? '#9B59B6' : '#8E44AD' }} />
+                  <span className="text-5xl">⚔️</span>
                 </div>
                 <div className="absolute bottom-4 left-4 flex gap-2">
                   <span className="px-2 py-1 rounded-full text-xs font-medium" style={{ 
-                    background: 'rgba(129, 178, 154, 0.2)', 
-                    color: '#81B29A',
-                    border: '1px solid rgba(129, 178, 154, 0.3)'
+                    background: 'rgba(212, 165, 116, 0.2)', 
+                    color: '#D4A574',
+                    border: '1px solid rgba(212, 165, 116, 0.3)'
                   }}>
-                    In Development
+                    Since 2020
                   </span>
-                  <span className="px-2 py-1 rounded-full text-xs font-medium flex items-center gap-1" style={{ 
-                    background: 'rgba(155, 89, 182, 0.2)', 
-                    color: '#9B59B6',
-                    border: '1px solid rgba(155, 89, 182, 0.3)'
+                  <span className="px-2 py-1 rounded-full text-xs font-medium" style={{ 
+                    background: 'rgba(224, 122, 95, 0.2)', 
+                    color: '#E07A5F',
+                    border: '1px solid rgba(224, 122, 95, 0.3)'
                   }}>
-                    <Lock className="w-3 h-3" />
-                    Premium
+                    Passion Project
                   </span>
                 </div>
               </div>
               <div className="p-6" style={{ background: theme.cardBg }}>
-                <h3 className="text-xl font-semibold mb-2 flex items-center gap-2" style={{ color: theme.text, fontFamily: "'Instrument Serif', Georgia, serif" }}>
-                  <Sparkles className="w-5 h-5" style={{ color: '#9B59B6' }} />
-                  SipSignal
+                <h3 className="text-xl font-semibold mb-2" style={{ color: theme.text, fontFamily: "'Instrument Serif', Georgia, serif" }}>
+                  Post Hanc
                 </h3>
                 <p className="text-base md:text-sm mb-4" style={{ color: theme.textMuted }}>
-                  Beverage trend intelligence. Track emerging drinks, flavor profiles, and market signals from across the foodservice industry.
+                  A mobile game in development since 2020. A passion project with a rich storyline that explores the echoes of choices across time.
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  {['AI/ML', 'Web Scraping', 'Analytics'].map(tech => (
+                  {['Unity', 'C#', 'Narrative'].map(tech => (
                     <span key={tech} className="px-2 py-1 rounded text-xs" style={{ 
                       background: darkMode ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)', 
                       color: theme.textSubtle 
@@ -1660,6 +1787,7 @@ const JuanitoDev = () => {
               </div>
             </div>
 
+            
             {/* More coming - spans all 3 columns */}
             <div className="md:col-span-3 p-8 rounded-2xl text-center" style={{ 
               background: darkMode ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.06)',
@@ -1975,38 +2103,6 @@ const JuanitoDev = () => {
                 </div>
               </div>
             </div>
-
-            {/* Systems Thinking */}
-            <div 
-              className="rounded-3xl overflow-hidden cursor-pointer transition-all duration-300 hover:translate-x-1"
-              style={{
-                background: theme.cardBg,
-                border: `3px solid ${theme.cardBorder}`,
-                boxShadow: `6px 6px 0px ${theme.cardShadow}`
-              }}
-              onClick={() => setExpandedHobby(expandedHobby === 'reading' ? null : 'reading')}
-            >
-              <div className="flex flex-col md:flex-row">
-                <div className="flex-1 p-6">
-                  <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-4" style={{ background: darkMode ? 'rgba(155, 89, 182, 0.2)' : 'rgba(155, 89, 182, 0.15)' }}>
-                    <Brain className="w-6 h-6" style={{ color: '#9B59B6' }} />
-                  </div>
-                  <h3 className="font-semibold text-lg mb-2" style={{ color: theme.text }}>Systems Thinking</h3>
-                  <p className="text-base md:text-sm mb-4" style={{ color: theme.textMuted }}>
-                    Obsessed with how things connect. Patterns are everywhere once you know how to look.
-                  </p>
-                  <span className="text-sm md:text-xs" style={{ color: theme.accent }}>Click to learn more →</span>
-                </div>
-                <div className="w-full md:w-48 h-40 md:h-auto flex items-center justify-center" style={{ 
-                  background: darkMode ? 'rgba(40, 40, 70, 0.8)' : 'linear-gradient(180deg, #FAF6F1 0%, #F5EDE6 100%)',
-                  borderLeft: `2px dashed ${darkMode ? 'rgba(255,255,255,0.1)' : '#D4C4B0'}`
-                }}>
-                  <div className="w-16 h-16 rounded-full flex items-center justify-center" style={{ background: darkMode ? 'rgba(155, 89, 182, 0.3)' : 'rgba(155, 89, 182, 0.25)' }}>
-                    <Network className="w-8 h-8" style={{ color: '#9B59B6' }} />
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -2144,40 +2240,6 @@ const JuanitoDev = () => {
                       {cuisine}
                     </span>
                   ))}
-                </div>
-              </div>
-            )}
-
-            {expandedHobby === 'reading' && (
-              <div className="p-8">
-                <div className="w-20 h-20 rounded-2xl flex items-center justify-center mb-6" style={{ background: darkMode ? 'rgba(155, 89, 182, 0.2)' : 'rgba(155, 89, 182, 0.15)' }}>
-                  <Brain className="w-10 h-10" style={{ color: '#9B59B6' }} />
-                </div>
-                <h3 className="text-2xl font-semibold mb-4" style={{ color: theme.text, fontFamily: "'Instrument Serif', Georgia, serif" }}>Systems Thinking</h3>
-                <div className="space-y-4 text-base" style={{ color: theme.textMuted }}>
-                  <p>
-                    I'm fascinated by how things connect. Systems thinking isn't just a framework — it's a lens that reveals patterns everywhere, from ecosystems to organizations to code.
-                  </p>
-                  <p>
-                    <strong style={{ color: theme.text }}>Buckminster Fuller</strong> has been a huge influence. His concept of "synergetics" — how systems behave in ways their individual parts can't — changed how I approach problem-solving.
-                  </p>
-                  <p>
-                    Currently exploring: emergence theory, complexity science, and how these ideas apply to game design and simulation. Every game world is a system waiting to surprise you.
-                  </p>
-                </div>
-                <div className="mt-6 p-4 rounded-2xl" style={{ background: darkMode ? 'rgba(129, 178, 154, 0.1)' : 'rgba(129, 178, 154, 0.15)' }}>
-                  <span className="text-base md:text-sm font-medium flex items-center gap-2" style={{ color: '#81B29A' }}>
-                    <BookOpen className="w-4 h-4" />
-                    Currently reading:
-                  </span>
-                  <span className="text-base md:text-sm block mt-1" style={{ color: theme.textMuted }}>The Selfish Gene by Richard Dawkins</span>
-                </div>
-                <div className="mt-3 p-4 rounded-2xl" style={{ background: darkMode ? 'rgba(61, 64, 91, 0.2)' : 'rgba(61, 64, 91, 0.08)' }}>
-                  <span className="text-base md:text-sm font-medium flex items-center gap-2" style={{ color: '#3D405B' }}>
-                    <BookOpen className="w-4 h-4" />
-                    Next in line:
-                  </span>
-                  <span className="text-base md:text-sm block mt-1" style={{ color: theme.textMuted }}>Thinking in Systems by Donella Meadows</span>
                 </div>
               </div>
             )}
