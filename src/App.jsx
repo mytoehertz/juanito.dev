@@ -853,7 +853,6 @@ const StarryBackground = ({ scrollProgress, scrollY }) => (
 
 // Main Component
 const JuanitoDev = () => {
-  const [expandedCard, setExpandedCard] = useState(null);
   const [darkMode, setDarkMode] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [scrollY, setScrollY] = useState(0);
@@ -893,40 +892,28 @@ const JuanitoDev = () => {
       Icon: Atom,
       color: '#5BA3B5',
       label: 'Physics',
-      sub: 'Quantum consciousness',
-      mentor: { name: 'Roger Penrose', why: 'Orch-OR theory — consciousness arising from quantum processes in microtubules' },
-      funFact: 'Currently obsessed with: the measurement problem and why observation seems to collapse possibilities into reality',
-      bookRec: 'Next: "The Emperor\'s New Mind"'
+      sub: 'Quantum mechanics & consciousness'
     },
     {
       id: 'psychology',
       Icon: Brain,
       color: '#E07A5F',
       label: 'Psychology',
-      sub: 'Evolution & decisions',
-      mentor: { name: 'Richard Dawkins', why: 'The Selfish Gene changed how I see every human behavior' },
-      funFact: 'Hot take: most of what we think is "choice" is just evolutionary programming running in the background',
-      bookRec: 'Reading: "The Selfish Gene"'
+      sub: 'Evolutionary psychology & behavior'
     },
     {
       id: 'philosophy',
       Icon: Compass,
       color: '#9B59B6',
       label: 'Philosophy',
-      sub: 'What is real?',
-      mentor: { name: 'Immanuel Kant', why: 'We can never know things as they truly are — only as they appear through our senses' },
-      funFact: 'The question that keeps me up: if our senses evolved for survival, not truth, what are we actually missing?',
-      bookRec: 'Exploring: Epistemology & Metaphysics'
+      sub: 'Epistemology & metaphysics'
     },
     {
       id: 'systems',
       Icon: RefreshCw,
       color: '#81B29A',
       label: 'Systems',
-      sub: 'Emergence & design',
-      mentor: { name: 'Donella Meadows', why: 'Thinking in Systems — the most practical framework for understanding anything complex' },
-      funFact: 'I see feedback loops everywhere now. Supply chains, coffee shops, relationships — it\'s all systems.',
-      bookRec: 'Next: "Thinking in Systems"'
+      sub: 'Complexity & emergence'
     }
   ];
 
@@ -936,10 +923,6 @@ const JuanitoDev = () => {
     { company: 'Califia Farms', role: 'Field Marketing Manager East', role2: 'Territory Dev Manager', detail: 'Northeast expansion' },
     { company: 'Numilk', role: 'Head of Sales', detail: 'National rollout' },
   ];
-
-  const toggleCard = (id) => {
-    setExpandedCard(expandedCard === id ? null : id);
-  };
 
   // Theme colors
   const theme = darkMode ? {
@@ -1831,85 +1814,24 @@ const JuanitoDev = () => {
             I'm drawn to where fields intersect.
           </h2>
           <Squiggle color="#E07A5F" width={120} />
-          <p className="text-base mb-12 mt-6" style={{ color: theme.textSubtle }}>
-            Click a card to explore what I'm thinking about.
-          </p>
           
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12">
             {interests.map((item, i) => (
               <div 
                 key={item.id}
-                className="rounded-3xl transition-all duration-500 cursor-pointer overflow-hidden"
+                className="rounded-2xl p-5 transition-all duration-300 hover:translate-y-[-2px]"
                 style={{ 
                   background: theme.cardBg,
-                  boxShadow: expandedCard === item.id 
-                    ? `8px 8px 0px ${darkMode ? '#4a4a8a' : '#C4A77D'}` 
-                    : `4px 4px 0px ${theme.cardShadow}`,
-                  border: expandedCard === item.id 
-                    ? `3px solid ${darkMode ? '#5a5a9a' : '#C4A77D'}` 
-                    : `3px solid ${theme.cardBorder}`,
-                  transform: expandedCard === item.id ? 'translate(-2px, -2px)' : 'none'
+                  boxShadow: `4px 4px 0px ${theme.cardShadow}`,
+                  border: `2px solid ${theme.cardBorder}`,
+                  animation: `float 4s ease-in-out ${i * 0.5}s infinite`
                 }}
-                onClick={() => toggleCard(item.id)}
               >
-                <div 
-                  className="p-6 flex items-start justify-between"
-                  style={{
-                    animation: expandedCard === item.id ? 'none' : `float 4s ease-in-out ${i * 0.5}s infinite`
-                  }}
-                >
-                  <div>
-                    <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-3" style={{ background: `${item.color}20` }}>
-                      <item.Icon className="w-6 h-6" style={{ color: item.color }} />
-                    </div>
-                    <h3 className="font-semibold text-lg mb-1" style={{ color: theme.text }}>{item.label}</h3>
-                    <p className="text-base md:text-sm" style={{ color: theme.textSubtle }}>{item.sub}</p>
-                  </div>
-                  <span 
-                    className="w-8 h-8 rounded-full flex items-center justify-center text-lg font-light transition-all duration-300"
-                    style={{ 
-                      background: expandedCard === item.id ? '#E07A5F' : (darkMode ? 'rgba(255,255,255,0.1)' : '#F5EDE6'),
-                      color: expandedCard === item.id ? 'white' : theme.textSubtle,
-                      transform: expandedCard === item.id ? 'rotate(45deg)' : 'rotate(0deg)'
-                    }}
-                  >
-                    +
-                  </span>
+                <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-3" style={{ background: `${item.color}20` }}>
+                  <item.Icon className="w-5 h-5" style={{ color: item.color }} />
                 </div>
-                
-                <div 
-                  className="overflow-hidden transition-all duration-500"
-                  style={{
-                    maxHeight: expandedCard === item.id ? '400px' : '0px',
-                    opacity: expandedCard === item.id ? 1 : 0
-                  }}
-                >
-                  <div className="px-6 pb-6">
-                    <div className="mb-4">
-                      <Squiggle color="#81B29A" width={60} />
-                    </div>
-                    
-                    <span className="text-xs tracking-widest uppercase block mb-3" style={{ color: theme.textSubtle }}>
-                      Key Influence
-                    </span>
-                    <div className="flex gap-3 mb-5">
-                      <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0" style={{ background: '#E07A5F' }} />
-                      <div>
-                        <h4 className="font-medium text-base md:text-sm" style={{ color: theme.text }}>{item.mentor.name}</h4>
-                        <p className="text-base md:text-sm" style={{ color: theme.textMuted }}>{item.mentor.why}</p>
-                      </div>
-                    </div>
-                    
-                    <div className="p-4 rounded-xl mb-4" style={{ background: theme.inputBg, border: `1px dashed ${darkMode ? 'rgba(255,255,255,0.1)' : '#D4C4B0'}` }}>
-                      <p className="text-base md:text-sm italic" style={{ color: theme.textMuted }}>{item.funFact}</p>
-                    </div>
-                    
-                    <p className="text-sm md:text-xs flex items-center gap-2" style={{ color: theme.textSubtle }}>
-                      <BookOpen className="w-4 h-4" />
-                      {item.bookRec}
-                    </p>
-                  </div>
-                </div>
+                <h3 className="font-semibold text-base mb-1" style={{ color: theme.text }}>{item.label}</h3>
+                <p className="text-sm" style={{ color: theme.textSubtle }}>{item.sub}</p>
               </div>
             ))}
           </div>
@@ -2299,7 +2221,7 @@ const JuanitoDev = () => {
           onClick={() => setShowPostHanc(false)}
         >
           <div 
-            className="relative max-w-lg w-full rounded-3xl overflow-hidden"
+            className="relative max-w-3xl w-full rounded-3xl overflow-hidden max-h-[90vh] overflow-y-auto"
             style={{
               background: theme.cardBg,
               border: `4px solid ${theme.cardBorder}`,
@@ -2331,13 +2253,40 @@ const JuanitoDev = () => {
               </div>
 
               {/* Description */}
-              <p className="text-base mb-6" style={{ color: theme.textMuted }}>
-                <em>Post Hanc</em> — Latin for "after this" — is a narrative-driven mobile game that explores how our choices echo across time. A passion project built in Unity, weaving together storylines that intersect in unexpected ways.
-              </p>
+              <div className="space-y-4 text-base mb-8" style={{ color: theme.textMuted }}>
+                <p>
+                  <em>Post Hanc</em> — Latin for "after this" — is a narrative-driven mobile game that's been my passion project for over four years. It explores how our choices echo across time, weaving together multiple storylines that intersect in unexpected ways.
+                </p>
+                <p>
+                  Built in Unity with C#, it combines my love of systems thinking with rich storytelling. Every playthrough reveals new connections, new consequences, new meanings.
+                </p>
+              </div>
+
+              {/* Image Gallery */}
+              <div className="mb-6">
+                <p className="text-sm font-medium mb-3" style={{ color: theme.text }}>Development Screenshots</p>
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                  {[1, 2, 3, 4, 5, 6].map((i) => (
+                    <div 
+                      key={i}
+                      className="aspect-square rounded-xl flex items-center justify-center"
+                      style={{ 
+                        background: darkMode ? 'rgba(212, 165, 116, 0.1)' : 'rgba(212, 165, 116, 0.15)',
+                        border: `2px dashed ${darkMode ? 'rgba(212, 165, 116, 0.3)' : 'rgba(212, 165, 116, 0.4)'}`
+                      }}
+                    >
+                      <span className="text-3xl opacity-50">⚔️</span>
+                    </div>
+                  ))}
+                </div>
+                <p className="text-xs mt-2 text-center" style={{ color: theme.textSubtle }}>
+                  Screenshots coming soon — follow on Instagram for updates
+                </p>
+              </div>
 
               {/* Tags */}
               <div className="flex flex-wrap gap-2 mb-6">
-                {['Unity', 'C#', 'Narrative', 'Mobile', 'Indie'].map(tag => (
+                {['Unity', 'C#', 'Narrative Design', 'Mobile', 'Indie Game', 'Story-Driven'].map(tag => (
                   <span key={tag} className="px-3 py-1 rounded-full text-sm" style={{ 
                     background: darkMode ? 'rgba(212, 165, 116, 0.2)' : 'rgba(212, 165, 116, 0.15)',
                     color: '#D4A574',
@@ -2361,7 +2310,7 @@ const JuanitoDev = () => {
                 }}
               >
                 <Instagram className="w-5 h-5" />
-                <span className="font-medium">Follow @post.hanc</span>
+                <span className="font-medium">Follow @post.hanc on Instagram</span>
               </a>
             </div>
           </div>
